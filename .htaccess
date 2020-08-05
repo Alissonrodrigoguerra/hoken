@@ -1,0 +1,9 @@
+# BEGIN LARAVEL
+RewriteEngine On
+RewriteBase /hoken/
+
+RewriteCond %{THE_REQUEST} /projeto/public/([^\s?]*) [NC]
+RewriteRule ^ %1 [L,NE,R=302]
+
+RewriteRule ^((?!public/).*)$ projeto/public/$1 [L,NC]
+# END LARAVEL
