@@ -21,9 +21,9 @@
                 <div class="footer_content">
                     <ul class="list-default">
                         @isset($Post)
-                        @foreach ($Post as $post)
+                        @foreach ($Post as $post_item)
 
-                        <li><a href="{{ route('post.show', $post->id)}}"><p>{{$post->post_title}} </p><p>{{$post->post_data}}</p></a></li>
+                        <li><a href="#"><p>{{$post_item->post_title}} </p><p>{{$post_item->post_data}}</p></a></li>
                         <hr class="hr_footer"> 
                             
                         @endforeach

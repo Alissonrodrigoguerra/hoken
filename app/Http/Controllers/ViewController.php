@@ -14,9 +14,11 @@ class ViewController extends Controller {
     public function index()
     {
         //
+        $PostDestaque = \App\Post::find('1');
+        $Post = \App\Post::get();
         $Banner = \App\Banner::get();
 
-        return view('view', compact('Banner'));
+        return view('view/view', compact('Banner', 'PostDestaque',  'Post'));
 
     }
 
@@ -25,64 +27,5 @@ class ViewController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\view  $view
-     * @return \Illuminate\Http\Response
-     */
-    public function show(view $view)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\view  $view
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(view $view)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\view  $view
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, view $view)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\view  $view
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(view $view)
-    {
-        //
-    }
+    
 }

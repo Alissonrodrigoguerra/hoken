@@ -29,6 +29,13 @@ Route::resource('painel/categoria', 'PainelCategoriaController', ['except' => ['
 Route::resource('painel/banner', 'PainelBannerController')->middleware('painel');
 Route::resource('view', 'ViewController', ['only' => ['index',]])->middleware('painel');
 Route::resource('painel/usuario', 'PainelUsuarioController')->middleware('painel') ;
+Route::resource('blog', 'ViewBlogController', ['only' => ['index',]]);
+Route::resource('produto', 'ViewProdutoController', ['only' => ['index',]]);
+Route::resource('empresa', 'ViewEmpresaController', ['only' => ['index',]]);
+Route::resource('suporte', 'ViewSuporteController', ['only' => ['index',]]);
+Route::resource('manual', 'ViewManualController', ['only' => ['index',]]);
+Route::resource('politicadequalidade', 'ViewPolicyController', ['only' => ['index',]]);
+Route::resource('pesquisa', 'ViewPesquisaController', ['only' => ['index',]]);
 
 // cls
 

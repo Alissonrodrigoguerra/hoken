@@ -189,3 +189,42 @@ border: 1px dotted #909090;
     min-width:1080px; min-height:410px; width:100%; max-height:auto;
  
   }
+  /* Home */
+
+  #ribbon-blue-top{
+    background:url('../imagens/Background.svg');
+    background-size: cover;
+    height: 200px;
+    margin-bottom:-60px;
+    background-repeat: no-repeat;
+
+  }
+
+  #section-ribbon-blue{
+
+    background-color: #4FBBFF;
+    height: auto;
+    background-repeat: no-repeat;
+    padding-bottom: 60px ;
+    
+  }
+
+  #section-ribbon-blue > .container{
+
+    background:url('../imagens/Background-Withe.svg');
+    background-repeat: no-repeat;
+
+   
+  }
+
+ 
+ .carrossel-item{
+
+  margin: 15px;
+  padding: 10px;
+    
+  }
+
+  .blue_dark{
+    background: #0F293A;
+  }
