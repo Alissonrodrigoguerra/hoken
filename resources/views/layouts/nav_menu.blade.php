@@ -18,8 +18,8 @@
             <div class="col-md-2" ><img src="{{ asset(config('adminlte.logo_view'))}}" alt="Hoken" width="150px" class=" m-2" ></div>
             <div class="col-md-6" >
                 <ul class=" nav m-2">
-                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="">Home</a></li>
-                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="">Hoken</a></li>
+                <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("view.index")}}">Home</a></li>
+                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("empresa.index")}}">Hoken</a></li>
                     <li class="nav-item btn-White" ><a id="btn-megameu" class="nav-link btn btn-link " href="">Produtos <i class="fas fa-caret-down"></i></a></li>
                     <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="">Artigos</a></li>
 
@@ -84,24 +84,24 @@
 </div>
 <div class="row bg_Navyblue megamenu_moblie">
     <div class="col-12"><h2 class="text-center white">Produtos</h2></div>
-    <div class="col-3 text-center bg_Blue_2"> <a class="btn btn-white btn-link mt-4" href="http://"> <img src="{{ asset('imagens/icon_2.svg')}}" class="img-fluid" alt="Água Gelada e Quente" style=" height: 50px;"></a></div>
-    <div class="col-3 text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="http://"> <img src="{{ asset('imagens/icon_3.svg')}}" class="img-fluid" alt="Água Gelada e Natural" style=" height: 50px;"></a></div>
-    <div class="col-3 text-center bg_Blue_2"> <a class="btn btn-white btn-link mt-4" href="http://"> <img src="{{ asset('imagens/icon_4.svg')}}" class="img-fluid" alt="Água Natural" style=" height: 50px;"></a></div>
-    <div class="col-3 text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="http://"> <img src="{{ asset('imagens/icon_1.svg')}}" class="img-fluid" alt="Outros" style=" height: 50px;"></a></div>
+    <div class="col-3 text-center bg_Blue_2"> <a class="btn btn-white btn-link mt-4" href="{{ route("view.index")}}"> <img src="{{ asset('imagens/icon_2.svg')}}" class="img-fluid" alt="Água Gelada e Quente" style=" height: 50px;"></a></div>
+    <div class="col-3 text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="{{ route("view.index")}}"> <img src="{{ asset('imagens/icon_3.svg')}}" class="img-fluid" alt="Água Gelada e Natural" style=" height: 50px;"></a></div>
+    <div class="col-3 text-center bg_Blue_2"> <a class="btn btn-white btn-link mt-4" href="{{ route("view.index")}}"> <img src="{{ asset('imagens/icon_4.svg')}}" class="img-fluid" alt="Água Natural" style=" height: 50px;"></a></div>
+    <div class="col-3 text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="{{ route("view.index")}}"> <img src="{{ asset('imagens/icon_1.svg')}}" class="img-fluid" alt="Outros" style=" height: 50px;"></a></div>
 </div>
 <div id="menu-list-moblie" class="row moblile-Menu">
     <ul class="nav flex-column col-12">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Home</a>
+          <a class="nav-link active" href="{{ route("view.index")}}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Hoken</a>
+          <a class="nav-link" href="{{ route("empresa.index")}}">Hoken</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Artigos</a>
+          <a class="nav-link" href="{{ route("blog.index")}}">Artigos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Politica de Qualidade</a>
+            <a class="nav-link" href="{{ route("politicadequalidade.index")}}">Politica de Qualidade</a>
         </li>
         <li class="nav-item ">
             <form class="">

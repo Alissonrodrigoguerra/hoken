@@ -21,9 +21,7 @@
                             <ul class="carousel-indicators">
                            
                            @foreach ($Banner as $banner)
-
                               <li data-target="#demo" data-slide-to="0" class="active"></li>
-                         
                             @endforeach
                             </ul>
                             <div class="carousel-inner">
@@ -56,26 +54,23 @@
                             </div>
 
                             <div class="col-6 col-lg-3 col-xl-3 text-center">
-                              <span style="font-size:60px;"><i class="fas fa-glass-whiskey"></i></span>
-                              {{-- <img src="" alt=""> --}}
+                              <span style="font-size:60px;"><img class="img-fluid" src="{{asset('imagens/icon-home-1.svg')}}" alt="Hoken"></span>
                                 <h2>Bom para você</h2>
                                 <p>Dupla filtragem, carbomax purificada sem incrustações, rica em minerais saudáveis</p>
                             </div>
                             <div class="col-6 col-lg-3 col-xl-3">
-                              <span style="font-size:60px;"><i class="far fa-clock"></i></span>
-                              {{-- <img src="" alt=""> --}}                                
+                              <span style="font-size:60px;"><img class="img-fluid" src="{{asset('imagens/icon-home-2.svg')}}" alt="Hoken"></span>
                               <h2>Economize tempo</h2>
                               <p>Instalação rápida, instantânea e ilimitada e serviço abrangente e simples </p>
                             </div>
                             <div class="col-6 col-lg-3 col-xl-3">
-                              <span style="font-size:60px;"><i class="fas fa-tint"></i></span>
-                              {{-- <img src="" alt=""> --}}   
+                              <span style="font-size:60px;"><img class="img-fluid" src="{{asset('imagens/icon-home-3.svg')}}" alt="Hoken"></span>
                                 <h2>Ótimo sabor</h2>
                                 <p>Puro refrigerado ou bem quente, sempre com excelente sabor nítido e limpo</p>
                             </div>
                             <div class="col-6 col-lg-3 col-xl-3">
-                              <span style="font-size:60px;"><i class="fas fa-globe-americas"></i></span>
-                              {{-- <img src="" alt=""> --}}   
+                              <span style="font-size:60px;"><img class="img-fluid" src="{{asset('imagens/icon-home-4.svg')}}" alt="Hoken"></span>
+                              {{-- icon-home-1.svg --}}   
                                 <h2>Bom para o planeta </h2>
                                 <p>Não há necessidade de garrafas plásticas, com baixo consumo de energia e repleto de recursos inteligentes. </p>
                             </div>
@@ -161,7 +156,7 @@
                         </div>
                         </div>
                         
-                          <section class="blue_dark">
+                          <section id="posts" class="blue_dark">
                             <div class="container p-5">
                               <div class="row">
                                 <div class="col-12 text-center">
@@ -173,24 +168,46 @@
                                     <div class="col-12">
                                       <figure class="figure">
                                       <img src=" {{asset('storage/'. str_after($PostDestaque->post_imagem, 'public/'))}}" class="figure-img img-fluid rounded" alt="{{ $PostDestaque->post_title}}">
-                                        <figcaption class="figure-caption text-xs-right">{{ $PostDestaque->post_title}}</figcaption>
-                                        <a name="" id="" class="btn btn-outline-light  " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                                        <figcaption class="figure-caption text-xs-right float_caption">
+                                          <h1>{{ $PostDestaque->post_title}}</h1>
+                                          <a name="" id="" class="btn btn-outline-light btn-sm " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                                        </figcaption>
 
                                       </figure>
                                     </div>
 
                                     @isset($Post)
+                                     <div class="row">
                                       @foreach ($Post as $post_itens)
-                                      <div class="col-lg-4 col-sm-12">
+                                      <div class=" box col-lg-4 col-sm-12">
                                         <figure class="figure">
                                           <img src="{{asset('storage/'. str_after($post_itens->post_imagem, 'public/'))}}" class="figure-img img-fluid rounded" alt="{{ $post_itens->post_title}}">
-                                          <figcaption class="figure-caption text-xs-right">{{ $post_itens->post_title}}
-                                          <p>{{  substr($post_itens->post_content  ,0, 300) }}</p>
-                                          <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                                          <figcaption class="figure-caption text-xs-right"><h1>{{ $post_itens->post_title}}</h1>
+                                          <p>{{ substr($post_itens->post_content  ,0, 300) }}</p>
+                                          <a name="" id="" class="btn btn-outline-light btn-lg " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                                        </figcaption>
+                                        </figure>
+                                      </div>
+                                      <div class=" box col-lg-4 col-sm-12">
+                                        <figure class="figure">
+                                          <img src="{{asset('storage/'. str_after($post_itens->post_imagem, 'public/'))}}" class="figure-img img-fluid rounded" alt="{{ $post_itens->post_title}}">
+                                          <figcaption class="figure-caption text-xs-right"><h1>{{ $post_itens->post_title}}</h1>
+                                          <p>{{ substr($post_itens->post_content  ,0, 300) }}</p>
+                                          <a name="" id="" class="btn btn-outline-light btn-lg " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                                        </figcaption>
+                                        </figure>
+                                      </div>
+                                      <div class=" box col-lg-4 col-sm-12">
+                                        <figure class="figure">
+                                          <img src="{{asset('storage/'. str_after($post_itens->post_imagem, 'public/'))}}" class="figure-img img-fluid rounded" alt="{{ $post_itens->post_title}}">
+                                          <figcaption class="figure-caption text-xs-right"><h1>{{ $post_itens->post_title}}</h1>
+                                          <p>{{ substr($post_itens->post_content  ,0, 300) }}</p>
+                                          <a name="" id="" class="btn btn-outline-light btn-lg " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
                                         </figcaption>
                                         </figure>
                                       </div>
                                       @endforeach
+                                     </div>
                                         
                                     @endisset
                                   @endisset
@@ -198,6 +215,46 @@
                               </div>
                             </div>
                           </section>
+
+                          <section id="franquia">
+                            <div class="container-fluid">
+                              <div class="row">
+                                <div class="col-xl-8 col-lg-8 col-12">
+                                  <img class="img-cover" src="{{asset('imagens/franchsing.jpg')}}" alt="hoken franchising" style="margin-left:-60px; ">
+                                  </div>
+                                  <div class="col-xl-4 col-lg-4 col-12 p-5">
+                                  <h1><b>Hoken Store</b></h1>
+                                  <p>A Hoken Store é um modelo inovador de unidade de negócios 
+                                    que a Hoken desenvolveu com o foco no varejo e vendas diretas 
+                                    personalizadas. Aplicamos nessas unidades de negócios a nossa 
+                                    missão de "levar a saúde e prosperidade a todas as pessoas e 
+                                    nações" e principalmente concretizamos. A Store comercializa 
+                                    com excluisividade os nossos produtos e representa a marca em 
+                                    determinada cidade e ou região, posicionando-se como Especialista
+                                    em purificaores de Água
+                                  </p>
+
+                                  <a name="" id="" class="btn btn-outline-success btn-lg btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Saiba Mais</a>
+
+                                  </div>
+                              </div>
+                            </div>
+                          </section>
+                          <section id="call-to-action-franquia">
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-xl-9 col-lg-9 col-12 p-2" >
+                                  <h1><b>Seja um Franqueado Hoken</b></h1>
+                                  <p>Uma franquia rentável, segura e com rápido retorno sobre o investimento.</p>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-12 p-4 text-center" >
+                                  <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+
+
                           
                           
                           
