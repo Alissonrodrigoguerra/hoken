@@ -4,7 +4,6 @@
 
 @section('css')  
 <link rel="stylesheet" href="css/custom.css">
-
 @stop()
 
 
@@ -155,7 +154,6 @@
                           </div>
                         </div>
                         </div>
-                        
                           <section id="posts" class="blue_dark">
                             <div class="container p-5">
                               <div class="row">
@@ -165,43 +163,25 @@
                                   <br>
                                   @isset($PostDestaque)
 
-                                    <div class="col-12">
-                                      <figure class="figure">
-                                      <img src=" {{asset('storage/'. str_after($PostDestaque->post_imagem, 'public/'))}}" class="figure-img img-fluid rounded" alt="{{ $PostDestaque->post_title}}">
+                                    @foreach ($PostDestaque as $PostDestaque)
+                                    <div id="destaque" class="col-12">
+                                      <img src=" {{asset('storage/'. str_after($PostDestaque->post_imagem, 'public/'))}}" class="destaque-cover" alt="{{ $PostDestaque->post_title}}">
                                         <figcaption class="figure-caption text-xs-right float_caption">
                                           <h1>{{ $PostDestaque->post_title}}</h1>
                                           <a name="" id="" class="btn btn-outline-light btn-sm " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
                                         </figcaption>
+                                      </div>
 
-                                      </figure>
-                                    </div>
+                                    @endforeach
+                                    @endisset
 
                                     @isset($Post)
                                      <div class="row">
                                       @foreach ($Post as $post_itens)
                                       <div class=" box col-lg-4 col-sm-12">
                                         <figure class="figure">
-                                          <img src="{{asset('storage/'. str_after($post_itens->post_imagem, 'public/'))}}" class="figure-img img-fluid rounded" alt="{{ $post_itens->post_title}}">
+                                          <img src="{{asset('storage/'. str_after($post_itens->post_imagem, 'public/'))}}" class="figure-img img-fluid " alt="{{ $post_itens->post_title}}">
                                           <figcaption class="figure-caption text-xs-right"><h1>{{ $post_itens->post_title}}</h1>
-                                          <p>{{ substr($post_itens->post_content  ,0, 300) }}</p>
-                                          <a name="" id="" class="btn btn-outline-light btn-lg " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-                                        </figcaption>
-                                        </figure>
-                                      </div>
-                                      <div class=" box col-lg-4 col-sm-12">
-                                        <figure class="figure">
-                                          <img src="{{asset('storage/'. str_after($post_itens->post_imagem, 'public/'))}}" class="figure-img img-fluid rounded" alt="{{ $post_itens->post_title}}">
-                                          <figcaption class="figure-caption text-xs-right"><h1>{{ $post_itens->post_title}}</h1>
-                                          <p>{{ substr($post_itens->post_content  ,0, 300) }}</p>
-                                          <a name="" id="" class="btn btn-outline-light btn-lg " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-                                        </figcaption>
-                                        </figure>
-                                      </div>
-                                      <div class=" box col-lg-4 col-sm-12">
-                                        <figure class="figure">
-                                          <img src="{{asset('storage/'. str_after($post_itens->post_imagem, 'public/'))}}" class="figure-img img-fluid rounded" alt="{{ $post_itens->post_title}}">
-                                          <figcaption class="figure-caption text-xs-right"><h1>{{ $post_itens->post_title}}</h1>
-                                          <p>{{ substr($post_itens->post_content  ,0, 300) }}</p>
                                           <a name="" id="" class="btn btn-outline-light btn-lg " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
                                         </figcaption>
                                         </figure>
@@ -209,7 +189,6 @@
                                       @endforeach
                                      </div>
                                         
-                                    @endisset
                                   @endisset
                                 </div>
                               </div>
@@ -254,11 +233,6 @@
                             </div>
                           </section>
 
-
-                          
-                          
-                          
-                          
                           
 
                         
@@ -273,6 +247,7 @@
 @section('js')
 
 <script>
+
 
     $('#btn-megameu').mouseover(function() { 
 

@@ -768,7 +768,7 @@ return [
 
         ],
         'slick' => [
-            'active' => true,
+            'active' => false,
             'files' => [
          
                 [

@@ -67,6 +67,11 @@ class PainelBlogController extends Controller
         $Blog->post_content = $request->input('post_content'); 
         $Blog->post_data = $request->input('post_data'); 
         $Blog->categoria_id = $request->input('categoria_id'); 
+        if($request->input('destaque') == 1){
+            $Blog->destaque = $request->input('destaque'); 
+        }else{
+            $Blog->destaque = null; 
+        }
         $Blog->post_tag = $request->input('post_tag'); 
           // Upload Imagem
           if(!empty($request->hasfile('post_imagem'))){
@@ -142,6 +147,11 @@ class PainelBlogController extends Controller
         $Blog->post_data =  $request->input('post_data');
         $Blog->categoria_id = $request->input('categoria_id'); 
         $Blog->post_tag = $request->input('post_tag'); 
+        if($request->input('destaque') == 1){
+            $Blog->destaque = $request->input('destaque'); 
+        }else{
+            $Blog->destaque = null; 
+        }
         $Blog->status_log = $request->input('status_log'); 
         // Upload Imagem
         if($request->file('post_imagem') !== null){

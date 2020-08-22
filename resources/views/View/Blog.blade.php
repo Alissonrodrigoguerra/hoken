@@ -3,7 +3,7 @@
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
 
 @section('css')  
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="../css/custom.css">
 
 @stop()
 
@@ -12,98 +12,31 @@
 
 @include('layouts.nav_menu')
 
-
-{{-- {{dd($Banner)}} --}}
-
-
-                        @isset($Banner)
-                        <div id="demo" class="carousel slide" data-ride="carousel">
-                            <ul class="carousel-indicators">
-                           
-                           @foreach ($Banner as $banner)
-
-                              <li data-target="#demo" data-slide-to="0" class="active"></li>
-                         
-                            @endforeach
-                            </ul>
-                            <div class="carousel-inner">
-                              @foreach ($Banner as $banner)
-                              <div class="carousel-item active">
-                                <img class="slider_responive" src=" {{asset('storage/'. str_after($banner->Banner_imagem, 'public/'))}}" alt="{{$banner->Banner_title}}" >
-                                <div class="carousel-caption" style="top:30%;">
-                                  <h1>{{$banner->Banner_title}}</h1>
-                                  <h3>{{$banner->Banner_subtitle}}</h3>
-                                  <a href="{{$banner->Banner_link}}" class="btn btn-success btn-large">Saiba Mais</a>
-                                </div>   
-                              </div>
-                              @endforeach
-                            </div>
-                            <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                              <span class="carousel-control-prev-icon"></span>
-                            </a>
-                            <a class="carousel-control-next" href="#demo" data-slide="next">
-                              <span class="carousel-control-next-icon"></span>
-                            </a>
-                          </div>
-                        @endisset
-
-
-                        <div class="container">
-                          <div class="row m-5 text-center">
-                            <div class="col-12 p-5">
-                              <h1>Conheça a Água Pura <span><b>Hoken</b></span></h1>
-                              <p>A mais pura água distribuída fervendo ou resfriada em uma máquina inteligente.Sem incrustações, sem produtos químicos, sem bactérias, apenas degustando água de forma consistente sempre que você quiser em sua casa ou local de trabalho.</p>
-                            </div>
-
-                            <div class="col-6 col-lg-3 col-xl-3 text-center">
-                              <span style="font-size:60px;"><i class="fas fa-glass-whiskey"></i></span>
-                              {{-- <img src="" alt=""> --}}
-                                <h2>Bom para você</h2>
-                                <p>Dupla filtragem, carbomax purificada sem incrustações, rica em minerais saudáveis</p>
-                            </div>
-                            <div class="col-6 col-lg-3 col-xl-3">
-                              <span style="font-size:60px;"><i class="far fa-clock"></i></span>
-                              {{-- <img src="" alt=""> --}}                                
-                              <h2>Economize tempo</h2>
-                              <p>Instalação rápida, instantânea e ilimitada e serviço abrangente e simples </p>
-                            </div>
-                            <div class="col-6 col-lg-3 col-xl-3">
-                              <span style="font-size:60px;"><i class="fas fa-tint"></i></span>
-                              {{-- <img src="" alt=""> --}}   
-                                <h2>Ótimo sabor</h2>
-                                <p>Puro refrigerado ou bem quente, sempre com excelente sabor nítido e limpo</p>
-                            </div>
-                            <div class="col-6 col-lg-3 col-xl-3">
-                              <span style="font-size:60px;"><i class="fas fa-globe-americas"></i></span>
-                              {{-- <img src="" alt=""> --}}   
-                                <h2>Bom para o planeta </h2>
-                                <p>Não há necessidade de garrafas plásticas, com baixo consumo de energia e repleto de recursos inteligentes. </p>
-                            </div>
-
-                          </div>
-                        </div>
-                        <div class="container">
-                          <div class="row m-5 text-center">
-                             <div class="col-12">
-                             <div class="autoplay">
-                              <div><h3>1</h3></div>
-                              <div><h3>2</h3></div>
-                              <div><h3>3</h3></div>
-                              <div><h3>4</h3></div>
-                              <div><h3>5</h3></div>
-                              <div><h3>6</h3></div>
-                            </div>
-                          </div>
-                          </div>
-                        </div>
-                      
-
-                       
-                          
-                          
-                          
-                          
-                          
+<div class="container pt-5 pb-5">
+  <div class="row">
+    <div id="sidebar_left" class="col-xl-3 col-lg-3 col-12">
+     <ul>
+       <h1  class="title">Categorias</h1>
+       <hr>
+       @isset($Categoria)
+        @foreach ($Categoria as $categoria)
+        <li>
+          <a href="{{route('post.index', $categoria->id ) }}">{{$categoria->categoria_title }}</a>
+          <hr>
+        </li>
+        @endforeach
+       @endisset  
+     </ul>
+    </div>
+    <div class="col-xl-9 col-lg-9 col-12">
+      <div class="row">
+       @isset($Post_id)
+       {{--  continue aqui --}}
+       @endisset  
+      </div>
+    </div>
+  </div>
+</div>
 
                         
 @include('layouts.footer')
@@ -208,12 +141,6 @@
    });
 
 
-$('.autoplay').slick({
-  slidesToShow: 3,
-  slidesToScroll: 1,
-  autoplay: true,
-  autoplaySpeed: 2000,
-});
 	
   
   

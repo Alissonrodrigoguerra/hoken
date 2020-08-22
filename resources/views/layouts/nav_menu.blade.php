@@ -21,7 +21,7 @@
                 <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("view.index")}}">Home</a></li>
                     <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("empresa.index")}}">Hoken</a></li>
                     <li class="nav-item btn-White" ><a id="btn-megameu" class="nav-link btn btn-link " href="">Produtos <i class="fas fa-caret-down"></i></a></li>
-                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="">Artigos</a></li>
+                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("post.index")}}">Artigos</a></li>
 
                 </ul>
             </div>
@@ -98,7 +98,7 @@
           <a class="nav-link" href="{{ route("empresa.index")}}">Hoken</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route("blog.index")}}">Artigos</a>
+          <a class="nav-link" href="{{ route("post.index")}}">Artigos</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route("politicadequalidade.index")}}">Politica de Qualidade</a>

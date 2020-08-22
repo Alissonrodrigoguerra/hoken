@@ -1,10 +1,7 @@
 @extends('adminlte::page')
-
-@section('summernote')
-@endsection
-
 @section('daterangepicker')
 @endsection
+
 
 @section('content')
 <div class="container-fluid">

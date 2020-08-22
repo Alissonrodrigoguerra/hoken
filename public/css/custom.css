@@ -248,6 +248,7 @@ border: 1px dotted #909090;
 }
 
 #posts .box{
+  border: 10px solid #0F293A;
   padding: 0px 0px;
   background:  #206F96 ;
   color: #fff;
@@ -270,15 +271,23 @@ border: 1px dotted #909090;
   border: 2px #00A99D solid;
   color: #00A99D;
 }
+#destaque{
+
+ padding: 10px;
+
+}
+.destaque-cover{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ }
 
 .float_caption{
-  background: black;
-  background-blend-mode: soft-light;
-  background-color: #0000005c;
-  height: 120px;
-  margin-top: -128px;
-  position: relative;
-  padding: 10px 0px;
+  
+  background-color: #0000009a;
+  height: auto;
+    position: relative;
+  padding: 10px;
 }
 
 .float_caption h1{
@@ -320,5 +329,103 @@ border: 1px dotted #909090;
   height: 100%;
   object-position: -30px;
   object-fit: cover;
+
+}
+
+/* Empresa */
+
+#box-emprensa{
+   
+  margin-left: -120px;
+  border: 2px #fff dashed;
+  position: relative;
+  top: 35px;
+
+}
+
+.box_background{
+  margin: 10px;
+  background:#fff;
+
+}
+
+/* Blog */
+
+#sidebar_left ul{
+
+  background:#00a99d;
+  border-radius: 10px ;
+  padding: 10px;
+
+}
+
+#sidebar_left ul li {
+  list-style: none;
+
+}
+
+#sidebar_left ul li{
+  text-align: center;
+  border-radius: 10px;
+  background:#197e77;
+  padding-top: 10px;
+
+}
+
+#sidebar_left ul li:hover{
+  text-align: center;
+  border-radius: 10px;
+  background:#0c4945;
+  padding-top: 10px;
+
+}
+
+#sidebar_left ul a {
+  color: #fff ;
+}
+
+
+
+
+
+
+.title{
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px ;
+  background:#0c4945;
+  color: #fff ;
+  margin: -2px;
+}
+
+
+.box{
+  border-radius: 20px;
+  border: 10px solid #fff;
+  padding: 0px 0px;
+  background:  #0f2c3a ;
+  color: #fff;
+}
+
+.box:hover{
+  background:  #1c516b ;
+}
+
+@media only screen and (max-width: 990px) {
+  
+#box-emprensa{
+   
+  /* background: #fff; */
+  margin-left: 0px;
+  
+
+}
+
+.box_background{
+  margin: 0px;
+  background:#fff;
+
+}
+
 
 }

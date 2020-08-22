@@ -42,8 +42,9 @@
                                       <h6 > Status: <div class="form-group">
                                         <select class="form-control" name="status_log">
                                           @isset($Blog->id)
-                                            @if ($Blog->post_status == 1)
-                                             <option value="1">Público</option>
+                                            @if ($Blog->status_log == 1)
+                                             
+                                            <option value="1">Público</option>
 
                                             @else
                                              
@@ -53,6 +54,23 @@
                                           @endisset
                                           <option value="1">Público</option>
                                           <option value="0">Rascunho</option>
+                                        </select>
+                                      </div></h6>
+
+                                      <h6 > Destaque: <div class="form-group">
+                                        <select class="form-control" name="destaque">
+                                          @isset($Blog->id)
+                                            @if ($Blog->destaque == 1)
+                                             <option value="1">Sim</option>
+
+                                            @else
+                                             
+                                             <option value="Null">Não</option>
+
+                                            @endif
+                                          @endisset
+                                          <option value="1">Sim</option>
+                                          <option value="Null">Não</option>
                                         </select>
                                       </div></h6>
                                       <h6 > Data da publicação: <b>@isset($Blog->id){{ $Blog->post_data}}@endisset</b></h6>
