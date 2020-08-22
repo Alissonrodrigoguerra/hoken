@@ -3,7 +3,7 @@
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
 
 @section('css')  
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="{{ url('css/custom.css')}}">
 
 @stop()
 
@@ -17,12 +17,13 @@
     <div id="sidebar_left" class="col-xl-3 col-lg-3 col-12">
      <ul>
        <h1  class="title">Categorias</h1>
-       <hr>
+      <li></li>
+      <li><a href="{{route('post.index')}}">Todos os Artigos</a></li>
+
        @isset($Categoria)
         @foreach ($Categoria as $categoria)
         <li>
-          <a href="{{route('post.index', $categoria->id ) }}">{{$categoria->categoria_title }}</a>
-          <hr>
+          <a href="{{route('post.categoria', $categoria->id ) }}">{{$categoria->categoria_title }}</a>
         </li>
         @endforeach
        @endisset  
@@ -30,19 +31,25 @@
     </div>
     <div class="col-xl-9 col-lg-9 col-12">
       <div class="row">
-        @isset($Post)
-        @foreach ($Post as $post)
+        @isset($Post_List)
+        @foreach ($Post_List as $post)
         <div class="box col-xl-4 col-lg-4 col-12 text-center">
           <figure class="figure">
             <img class="img-fluid" src="{{asset('storage/'. str_after($post->post_imagem, 'public/'))}}" alt="{{$post->post_title }} - Hoken">
             <figcaption class="figure-caption text-xs-right">
               <h1 style="color: #fff; font-size:20px; padding: 10px 0px;">{{$post->post_title }}</h1>
+              
               <a class="btn btn-lg btn-sm btn-outline-light" href="{{route('post.show', $post->id ) }}"><i class="far fa-hand-point-right"></i>Ver detalhes</a>
             </figcaption>
           </figure>
         </div>
         @endforeach
-       @endisset  
+      @endisset
+      @if (empty($Post_List[0]))
+        <div class="btn btn-outline-secondary  disabled " role="alert">
+          <strong> Ops, Nenhum artigo cadastrado até o momento, tente novamente mais tarde!</strong>
+        </div>
+      @endif
       </div>
     </div>
   </div>

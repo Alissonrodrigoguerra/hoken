@@ -3,8 +3,7 @@
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
 
 @section('css')  
-<link rel="stylesheet" href="../css/custom.css">
-
+<link rel="stylesheet" href="{{ url('css/custom.css')}}">
 @stop()
 
 
@@ -17,12 +16,13 @@
     <div id="sidebar_left" class="col-xl-3 col-lg-3 col-12">
      <ul>
        <h1  class="title">Categorias</h1>
-       <hr>
+       <li></li>
+       <li><a href="{{route('post.index')}}">Todos os Artigos</a></li>
+
        @isset($Categoria)
         @foreach ($Categoria as $categoria)
         <li>
-          <a href="{{route('post.index', $categoria->id ) }}">{{$categoria->categoria_title }}</a>
-          <hr>
+          <a href="{{route('post.categoria', $categoria->id ) }}">{{$categoria->categoria_title }}</a>
         </li>
         @endforeach
        @endisset  
@@ -30,9 +30,22 @@
     </div>
     <div class="col-xl-9 col-lg-9 col-12">
       <div class="row">
-       @isset($Post_id)
-       {{--  continue aqui --}}
-       @endisset  
+        <div class="col-12">
+        
+            <img class="img-cover rounded" src="{{asset('storage/'. str_after($Post_id->post_imagem, 'public/'))}}" alt="{{$Post_id->post_title }} - Hoken">
+          
+        </div>
+        <div class="col-12">
+        @php
+        $ymd = DateTime::createFromFormat('Y-m-d', $Post_id->post_data)->format('d-m-yy');
+        @endphp
+        <p>Postado em {!! $ymd !!}<p>
+        <h1 class="pt-5">{{ $Post_id->post_title }}</h1>
+        </div>
+      
+        <div class="col-12">
+        {!! $Post_id->post_content !!}
+       </div>
       </div>
     </div>
   </div>

@@ -19,19 +19,20 @@
             <div class="col-lg-4  p-4">
                 <h2 class="footer_title pt-4 pl-3 text-center">ARTIGOS RECENTES</h2>
                 <div class="footer_content">
-                    <ul class="list-default">
+                    <ul class="list-default" style="list-style: none;">
                         @isset($Post)
                         @foreach ($Post as $post_item)
-
-                        <li><a href="#"><p>{{$post_item->post_title}} </p><p>{{$post_item->post_data}}</p></a></li>
+                        <li><a href="{{route('post.show', $post_item->id ) }}"><p>{{$post_item->post_title}} <br>
+                        @php
+                         $ymd = DateTime::createFromFormat('Y-m-d', $post_item->post_data)->format('d-m-yy');
+                        @endphp
+                        Postado em {!! $ymd !!}
+                        </p></a></li>
                         <hr class="hr_footer"> 
                             
                         @endforeach
                     @endisset
-                    <li> <p>Curso de Desenvolvimento Pessoal acontece em junho </p> <p>27/julho</p></li>
-                    <hr class="hr_footer">
-                    <li> <p>Curso de Desenvolvimento Pessoal acontece em junho </p> <p>27/julho</p></li>
-                    <hr class="hr_footer">     
+                        
                 </ul>
                 </div>
             </div>

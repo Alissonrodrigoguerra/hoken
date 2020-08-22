@@ -168,7 +168,7 @@
                                       <img src=" {{asset('storage/'. str_after($PostDestaque->post_imagem, 'public/'))}}" class="destaque-cover" alt="{{ $PostDestaque->post_title}}">
                                         <figcaption class="figure-caption text-xs-right float_caption">
                                           <h1>{{ $PostDestaque->post_title}}</h1>
-                                          <a name="" id="" class="btn btn-outline-light btn-sm " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                                          <a class="btn btn-outline-light btn-sm " href="{{route('post.show', $PostDestaque->id ) }}" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
                                         </figcaption>
                                       </div>
 
@@ -182,7 +182,7 @@
                                         <figure class="figure">
                                           <img src="{{asset('storage/'. str_after($post_itens->post_imagem, 'public/'))}}" class="figure-img img-fluid " alt="{{ $post_itens->post_title}}">
                                           <figcaption class="figure-caption text-xs-right"><h1>{{ $post_itens->post_title}}</h1>
-                                          <a name="" id="" class="btn btn-outline-light btn-lg " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                                          <a name="" id="" class="btn btn-outline-light btn-lg " href="{{route('post.show', $post_itens->id ) }}" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
                                         </figcaption>
                                         </figure>
                                       </div>

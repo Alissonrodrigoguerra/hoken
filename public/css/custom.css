@@ -353,9 +353,10 @@ border: 1px dotted #909090;
 
 #sidebar_left ul{
 
-  background:#00a99d;
+  border: 2px  dashed #ccc;
   border-radius: 10px ;
   padding: 10px;
+  box-shadow: 5px 5px 5px 5px #eee; 
 
 }
 
@@ -366,26 +367,28 @@ border: 1px dotted #909090;
 
 #sidebar_left ul li{
   text-align: center;
-  border-radius: 10px;
-  background:#197e77;
+  border-radius: 10px 2px dashed #aaa;
+  
   padding-top: 10px;
 
 }
+#sidebar_left ul li {
+  border-bottom: 1px dashed #aaa;
+  padding: 10px 0px;
 
+}
 #sidebar_left ul li:hover{
   text-align: center;
-  border-radius: 10px;
-  background:#0c4945;
-  padding-top: 10px;
+  border-radius: 0px ;
+  background:#fff;
+  padding: 10px 0px;
+  box-shadow: 5px 5px 5px 5px #eee; 
 
 }
 
 #sidebar_left ul a {
-  color: #fff ;
+  color: #0c4945 ;
 }
-
-
-
 
 
 
@@ -393,7 +396,7 @@ border: 1px dotted #909090;
   text-align: center;
   border-radius: 10px;
   padding: 5px ;
-  background:#0c4945;
+  background:#00a99d;
   color: #fff ;
   margin: -2px;
 }
