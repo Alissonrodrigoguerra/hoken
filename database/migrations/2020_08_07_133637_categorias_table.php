@@ -19,12 +19,16 @@ class CategoriasTable extends Migration
         $table->id();
         $table->string('categoria_autor');
         $table->datetime('categoria_data')->nullable();	
-        $table->longText('categoria_content')->nullable()->default('text');
+        $table->longText('categoria_description')->nullable()->default('text');
+        $table->string('name', 255)->nullable()->default('text');
+        $table->string('type')->nullable()->default('text');
+        $table->string('imagem_backgound', 255)->nullable()->default('text');
+        $table->string('imagem_destaque', 255)->nullable()->default('text');
+        $table->string('imagem_icon', 255)->nullable()->default('text');
         $table->text('categoria_title')->nullable()->default('text');
         $table->integer('status_log')->unsigned()->nullable();
-        $table->timestamp('updated_at')->nullable();	
-        $table->timestamp('created_at')->nullable();
-
+        $table->timestamps();	
+      
         });
         
     }
@@ -37,5 +41,7 @@ class CategoriasTable extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('categorias');
+
     }
 }

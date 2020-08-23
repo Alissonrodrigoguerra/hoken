@@ -40,7 +40,7 @@ Route::resource('view', 'ViewController', ['only' => ['index',]])->middleware('p
 Route::get('post/', 'ViewPostController@index')->name('post.index');
 Route::get('post/show/{post}', 'ViewPostController@show')->name('post.show');
 Route::get('post/categoria/{post}', 'ViewPostController@categoria')->name('post.categoria');
-Route::post('post/comentario/{post}', 'ViewPostController@comentario')->name('post.comentario');
+Route::post('post/comentario', 'ViewPostController@comentario')->name('post.comentario');
 Route::resource('produto', 'ViewProdutoController', ['only' => ['index',]]);
 Route::resource('empresa', 'ViewEmpresaController', ['only' => ['index',]]);
 Route::resource('suporte', 'ViewSuporteController', ['only' => ['index',]]);

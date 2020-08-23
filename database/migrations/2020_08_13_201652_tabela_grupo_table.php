@@ -19,8 +19,7 @@ class TabelaGrupoTable extends Migration
             $table->integer('position')->nullable();
             $table->integer('status_log');
             $table->integer('update_user');
-            $table->timestamp('criated_at')->nullable();
-            $table->timestamp('update_at')->nullable();
+            $table->timestamps();
         });
     }
 

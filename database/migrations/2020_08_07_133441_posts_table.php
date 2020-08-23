@@ -18,17 +18,15 @@ class PostsTable extends Migration
 
         $table->id();
         $table->integer('post_autor');
-        $table->date('post_data')->nullable();	
+        $table->integer('destaque')->nullable();
+        $table->date('post_data');	
         $table->longText('post_content')->nullable()->default('text');
-        $table->text('post_title')->nullable()->default('text');
-        $table->text('post_status')->nullable()->default('text');
-        $table->text('comment_status')->nullable()->default('text');
-        $table->text('categoria_id')->nullable()->default('text');
+        $table->text('post_title');
+        $table->text('categoria_id')->nullable();
         $table->text('post_tag')->nullable()->default('text');
-        $table->string('post_imagem', 100)->nullable()->default('text');
+        $table->string('post_imagem', 255)->nullable()->default('text');
         $table->integer('status_log')->unsigned()->nullable();
-        $table->timestamp('updated_at')->nullable();	
-        $table->timestamp('created_at')->nullable();
+        $table->timestamps();	
 
         });
 
@@ -42,5 +40,7 @@ class PostsTable extends Migration
     public function down() 
     {
         //
+        Schema::dropIfExists('posts');
+
     }
 }

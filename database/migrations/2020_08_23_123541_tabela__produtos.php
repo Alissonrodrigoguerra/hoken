@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComentariosTable extends Migration
+class TabelaProdutos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,23 @@ class CreateComentariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('comentarios', function (Blueprint $table) {
-            
+        //
+        Schema::create('Produtos', function (Blueprint $table) {
+
             $table->id();
-            $table->timestamps();
-            $table->date('data')->nullable();	
-            $table->longText('comment')->nullable()->default('text');
             $table->string('name', 255);
-            $table->string('email', 255);
-            $table->integer('post_id');
+            $table->integer('categoria_id');
+            $table->string('imagem_destaque', 255);
+            $table->string('imagem_backgound', 255);
+            $table->string('link', 255);
+            $table->string('Video_link', 255);
             $table->integer('status_log')->unsigned()->nullable();
-            $table->integer('update_user');
+            $table->timestamps();
+
+    
 
         });
+
     }
 
     /**
@@ -35,6 +39,8 @@ class CreateComentariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comentarios');
+        //
+        Schema::dropIfExists('Produtos');
+
     }
 }

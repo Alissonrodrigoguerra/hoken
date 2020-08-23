@@ -29,7 +29,7 @@ class PainelProdutoController extends Controller
 
         $produtos = \App\Produto::get();
         return view('painel/produto.show', compact('produtos'));
-
+        
 
     }
 

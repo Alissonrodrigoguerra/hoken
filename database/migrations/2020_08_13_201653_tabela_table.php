@@ -22,8 +22,7 @@ class TabelaTable extends Migration
             $table->integer('grupo_tabelas_id')->unsigned();
             $table->integer('status_log');
             $table->integer('update_user');
-            $table->timestamp('updated_at')->nullable();	
-            $table->timestamp('criated_at')->nullable();
+            $table->timestamps();	
 
         });
 

@@ -27,8 +27,7 @@ class CriarBannerTable extends Migration
         $table->string('Banner_imagem', 100)->nullable()->default('text');
         $table->integer('status_log')->unsigned()->nullable();
         $table->integer('update_user');
-        $table->timestamp('data_atualizacao')->nullable();;	
-        $table->timestamp('data_criacao')->nullable();
+        $table->timestamps();	
 
         });
 
@@ -42,6 +41,8 @@ class CriarBannerTable extends Migration
     public function down() 
     {
         //
+        Schema::dropIfExists('Banners');
+
     }
 }
 
