@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class PainelProdutoController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
-     * @return void
+     * @return voidproduto.show
      */
     public function __construct()
     {
@@ -22,12 +23,13 @@ class PainelProdutoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
 
-        return view('painel/Produtoslist');
-      
+        $produtos = \App\Produto::get();
+        return view('painel/produto.show', compact('produtos'));
+
 
     }
 
@@ -39,7 +41,12 @@ class PainelProdutoController extends Controller
     public function create()
     {
         //
-        return view('painel/Produtosform');
+
+        $Categorias = \App\Categoria::get();
+
+        
+        return view('./painel/Blog.create', compact('Categorias'));
+
 
     }
 
@@ -51,7 +58,42 @@ class PainelProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 
+        
+        
+        $Blog = new \App\Post;
+        $Blog->post_autor = '1'; 
+        $Blog->post_title = $request->input('post_titulo'); 
+        $Blog->post_content = $request->input('post_content'); 
+        $Blog->post_data = $request->input('post_data'); 
+        $Blog->categoria_id = $request->input('categoria_id'); 
+        if($request->input('destaque') == 1){
+            $Blog->destaque = $request->input('destaque'); 
+        }else{
+            $Blog->destaque = null; 
+        }
+        $Blog->post_tag = $request->input('post_tag'); 
+          // Upload Imagem
+          if(!empty($request->hasfile('post_imagem'))){
+            $imagem =  $request->post_imagem->store('public/blog/');
+            $Blog->post_imagem = $imagem;
+ 
+         }
+
+
+        if($Blog->save()){
+
+            $request->session()->flash('status', 'Postagem '. $Blog->post_title .' criada com sucesso!');
+            
+
+        }else{
+
+            $request->session()->flash('status', 'Ops Erro!, tente novamente em breve');
+
+        };
+
+        return redirect()->route('blog.index');
+        
     }
 
     /**
@@ -63,6 +105,12 @@ class PainelProdutoController extends Controller
     public function show($id)
     {
         //
+
+        $Blog = \App\Post::get();
+        $Categorias = \App\Categoria::get();
+
+        return view('./painel/Blog.create', compact('Categorias'));
+
     }
 
     /**
@@ -74,6 +122,10 @@ class PainelProdutoController extends Controller
     public function edit($id)
     {
         //
+        $Blog = \App\Post::find($id);
+        $Categorias = \App\Categoria::get();
+
+        return view('./painel/Blog.edit', compact('Blog', 'Categorias'));
     }
 
     /**
@@ -86,6 +138,39 @@ class PainelProdutoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
+
+        $Blog = \App\Post::find($id);
+        $Blog->post_autor = '1'; 
+        $Blog->post_title = $request->input('post_titulo'); 
+        $Blog->post_content = $request->input('post_content');
+        $Blog->post_data =  $request->input('post_data');
+        $Blog->categoria_id = $request->input('categoria_id'); 
+        $Blog->post_tag = $request->input('post_tag'); 
+        if($request->input('destaque') == 1){
+            $Blog->destaque = $request->input('destaque'); 
+        }else{
+            $Blog->destaque = null; 
+        }
+        $Blog->status_log = $request->input('status_log'); 
+        // Upload Imagem
+        if($request->file('post_imagem') !== null){
+            $imagem =  $request->post_imagem->store('public/blog/');
+            $Blog->post_imagem = $imagem;
+ 
+         }
+        if($Blog->save()){
+
+            $request->session()->flash('status', 'Postagem '. $Blog->post_title .' atualizada com sucesso!');
+
+
+        }else{
+
+            $request->session()->flash('status', 'Ops Erro!, tente novamente em breve');
+
+        };
+
+        return redirect()->route('blog.index');
     }
 
     /**
@@ -94,8 +179,23 @@ class PainelProdutoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         //
+        $Blog = \App\Post::findOrfail($id);
+        
+        if($Blog->delete()){
+
+            $request->session()->flash('status', 'Postagem deletada com sucesso!');
+
+
+        }else{
+
+            $request->session()->flash('status', 'Ops Erro!, tente novamente em breve');
+
+        };
+
+        return redirect()->route('blog.index');
+
     }
 }

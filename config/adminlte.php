@@ -279,6 +279,25 @@ return [
         ],
 
         [
+            'text'    => 'Comentários',
+            'icon'    => 'fas fa-box-open',
+            'icon_color' => 'cyan',
+
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'painel/comentarios',
+                ],
+                [
+                    'text'    => 'Novo Comentário',
+                    'url'     => 'painel/comentarios/create',
+                   
+                ],
+               
+            ],
+        ],
+
+        [
             'text'    => 'Protudos',
             'icon'    => 'fas fa-box-open',
             'icon_color' => 'cyan',

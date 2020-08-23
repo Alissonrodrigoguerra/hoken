@@ -23,7 +23,7 @@ class ViewPostController extends Controller
         $Post_List = \App\Post::where(['status_log' => 1] )->get();
         $Post = \App\Post::where(['status_log' => 1] )->get();
         $Categoria = \App\Categoria::get();
-
+        
         return view('view.Bloglist', compact('Post','Post_List', 'Categoria'));
 
     }
@@ -39,6 +39,44 @@ class ViewPostController extends Controller
 
     }
 
+
+    public function comentario(Request $request)
+    {
+        $id = $request->input('id');
+        $Post_id = \App\Post::find($id);
+        $Post_List = \App\Post::where('categoria_id', $id)->get();
+        $Comentarios = \App\Comentario::where(['status_log' => 1, 'post_id' => $id] )->get();
+        $Post = \App\Post::where(['status_log' => 1] )->get();
+        $Categoria = \App\Categoria::get();
+
+
+
+        $Comentario = new \App\Comentario;
+        $Comentario->post_id = $request->input('id');
+        $Comentario->comment = $request->input('comment'); 
+        $Comentario->email = $request->input('email'); 
+        $Comentario->name = $request->input('name'); 
+        $Comentario->status_log = '0'; 
+
+
+            if($Comentario->save()){
+                
+                $request->session()->flash('status', 'Comentário registrado com sucesso!');
+                
+    
+            }else{
+    
+                $request->session()->flash('status', 'Ops Erro!, tente novamente em breve');
+    
+            };
+
+     
+            return redirect()->route('post.show', $Comentario->post_id);
+
+        return view('view.Blog', compact('Post', 'Post_id','Categoria', 'Comentarios'));
+
+    }
+
     public function show($id)
     {
         
@@ -46,8 +84,9 @@ class ViewPostController extends Controller
         $Post_List = \App\Post::where(['status_log' => 1] )->get();
         $Post = \App\Post::where(['status_log' => 1] )->get();
         $Categoria = \App\Categoria::get();
+        $Comentarios = \App\Comentario::where(['status_log' => 1, 'post_id' => $id] )->get();
 
-        return view('view.Blog', compact('Post','Post_id', 'Categoria'));
+        return view('view.Blog', compact('Post','Post_id', 'Categoria', 'Comentarios'));
 
     }
 

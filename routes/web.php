@@ -24,16 +24,23 @@ Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware(['auth','painel']);
 
-Route::resource('painel/blog', 'PainelBlogController')->middleware('painel');
-Route::resource('painel/categoria', 'PainelCategoriaController', ['except' => ['edit', 'create', 'show','update',]])->middleware('painel');
-Route::resource('painel/banner', 'PainelBannerController')->middleware('painel');
+Route::group(['prefix' => 'painel'], function () {
+
+    Route::resource('blog', 'PainelBlogController')->middleware('painel');
+    Route::resource('categoria', 'PainelCategoriaController', ['except' => ['edit', 'create', 'show','update',]])->middleware('painel');
+    Route::resource('banner', 'PainelBannerController')->middleware('painel');
+    Route::resource('usuario', 'PainelUsuarioController')->middleware('painel') ;
+    Route::resource('comentarios', 'PainelComentarioController', ['except' => ['create','store']])->middleware('painel') ;
+    Route::resource('produto', 'PainelProdutoController')->middleware('painel') ;
+
+});
+
+
 Route::resource('view', 'ViewController', ['only' => ['index',]])->middleware('painel');
-Route::resource('painel/usuario', 'PainelUsuarioController')->middleware('painel') ;
 Route::get('post/', 'ViewPostController@index')->name('post.index');
 Route::get('post/show/{post}', 'ViewPostController@show')->name('post.show');
 Route::get('post/categoria/{post}', 'ViewPostController@categoria')->name('post.categoria');
-
-
+Route::post('post/comentario/{post}', 'ViewPostController@comentario')->name('post.comentario');
 Route::resource('produto', 'ViewProdutoController', ['only' => ['index',]]);
 Route::resource('empresa', 'ViewEmpresaController', ['only' => ['index',]]);
 Route::resource('suporte', 'ViewSuporteController', ['only' => ['index',]]);

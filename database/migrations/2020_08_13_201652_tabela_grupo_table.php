@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAcoesTable extends Migration
+class TabelaGrupoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateAcoesTable extends Migration
      */
     public function up()
     {
-        Schema::create('acoes', function (Blueprint $table) {
-
+        Schema::create('grupo_tabelas', function (Blueprint $table) {
             $table->id();
-            $table->string('acoes_nome');
+            $table->string('name');
+            $table->integer('position')->nullable();
             $table->integer('status_log');
             $table->integer('update_user');
-            $table->timestamp('data_atualizacao')->nullable();
-            $table->timestamp('data_criacao')->nullable();
-            
+            $table->timestamp('criated_at')->nullable();
+            $table->timestamp('update_at')->nullable();
         });
     }
 
@@ -32,6 +31,6 @@ class CreateAcoesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acoes');
+        Schema::dropIfExists('grupo_tabelas');
     }
 }

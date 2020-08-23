@@ -47,6 +47,49 @@
         {!! $Post_id->post_content !!}
        </div>
       </div>
+      <hr>
+      @isset($Comentarios)
+
+      <p><b>Deixe um comentário:</b></p>
+      
+      <ul style="list-style:none; padding-left: 0px;">
+         @foreach ($Comentarios as $item)
+         <li style="border: 1px #ccc solid;  margin-top:5px; ">
+          <p style="padding:10px;">{{$item->comment}}</p>
+
+          @php
+            $ymd = DateTime::createFromFormat('Y-m-d', $item->data)->format('d-m-yy');
+          @endphp
+         
+          </p>
+            <p style="background:#eee; margin:0px ;padding:10px;">{{$item->name}} - {!! $ymd !!}</p>
+          </li>
+         @endforeach
+       
+
+         
+        @endisset 
+        
+
+       
+      </ul>
+      <hr>
+
+      
+      {!! Form::open()->route('post.comentario')->method('post')->errorBag("registerErrorBag") !!}
+      <div class="row justify-content-center">
+      <p>Deixe o seu Comentário</p>
+      {{ session('status') }}
+      {!! Form::hidden('id', $Post_id->id ) !!}
+      {!!Form::textarea(config('form.comentario.name'),'', config('form.comentario.placeholder'))->wrapperAttrs(['class' => 'col-12'])!!}
+      {!!Form::text(config('form.email.name'), '', config('form.email.label'))->type('email')->wrapperAttrs(['class' => 'col-xl-6 col-lg-6 col-12'])!!}
+      {!!Form::text(config('form.name.name'), '', config('form.name.label'))->wrapperAttrs(['class' => 'col-xl-6 col-lg-6 col-12'])!!}
+      <div class="col-4 ">
+        {!! Form::submit('Enviar')->info()->outline()->block()!!}
+      </div>
+      </div>
+
+      {!! Form::close() !!}
     </div>
   </div>
 </div>
