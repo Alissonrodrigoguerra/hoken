@@ -315,6 +315,8 @@ return [
                
             ],
         ],
+
+       
         [
             'text'    => 'Manuais',
             'icon'    => 'fas fa-book-open',
