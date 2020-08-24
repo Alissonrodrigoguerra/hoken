@@ -1,4 +1,4 @@
-<button class="btn pulse-button "><i class="fas fa-headphones" width="50px"></i></button>
+<a href="https://api.whatsapp.com/send?phone=5517991080582&text=Ol%C3%A1%20Gostaria%20de%20solicitar%20atendimento." class="btn pulse-button "><i class="fab fa-whatsapp" width="50px"></i></a>
 
 <div class="row footer_read">
     <div class="container">
@@ -69,28 +69,18 @@
     </div>
 </div>
 
-    <div id="hadset_menu" class=" text-right d-none">
+    {{-- <div id="hadset_menu" class=" text-right d-none">
         <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Central do Cliente</a>
+              <a class="nav-link desable" href="#">2ª Via de Boleto</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Elemento Filtrante</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Dúvidas</a>
-            </li>
+         
             <li class="nav-item">
                 <a class="nav-link" href="#">SAC</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Mirai</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">CAF</a>
-              </li>
+            
           </ul>
           <div class="traigulo"></div>
 
-    </div>
+    </div> --}}
 {{-- rhumanos@labtajara.com.br --}}

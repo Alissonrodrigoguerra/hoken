@@ -8,16 +8,7 @@
                           <!-- /.card-header -->
                           <!-- form start -->
                             <div class="card-body">
-                              <div class="form-group">
-                                <label for="exampleInputFile"></label>
-                                <input name="post_titulo"  value="@isset($Blog->id){{ $Blog->post_title }}@endisset" type="text" class="form-control" id="exampleInputEmail1" placeholder="Insíra um título">
-                              </div>
-                              <div class="form-group">
-                              <div class="mb-3">
-                                  <label for="exampleInputFile"></label>
-                                  <textarea name="post_content"  class="textarea"  style="width: 100%; height: 500px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">@isset($Blog->id){{ $Blog->post_content }}@endisset</textarea>
-                                </div>
-                              </div>
+                              
                             </div>
                             <!-- /.card-body -->
             

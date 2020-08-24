@@ -26,7 +26,7 @@
                           <th>Título</th>
                           <th>Data Postagem</th>
                           <th>Status</th>
-                          <th ><a href="{{ route('blog.create')}}" class="btn btn-lg btn-outline-primary "> <i class="fas fa-plus"></i> Adicionar</a>
+                          <th ><a href="{{ route('produto.create')}}" class="btn btn-lg btn-outline-primary "> <i class="fas fa-plus"></i> Adicionar</a>
                           </th>
                         </tr>
                         </thead>
@@ -43,12 +43,12 @@
                                  {{'Rascunho'}}    
                                 @endif</td>
                                 <td width="150px">
-                                <form action="{{ route('blog.destroy', $blog->id )}}" method="Post">  {{ csrf_field() }} {{ method_field('DELETE')}}
+                                <form action="{{ route('produto.destroy', $blog->id )}}" method="Post">  {{ csrf_field() }} {{ method_field('DELETE')}}
                                     <button class="btn btn-outline-primary float-left" type="submit" onclick="return confirm('Tem certeza que deseja deletar?')">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
-                                <a href="{{ route('blog.edit', $blog->id)}}" class="btn btn-outline-primary"> <i class="fas fa-pen-alt"></i></a>
+                                <a href="{{ route('produto.edit', $blog->id)}}" class="btn btn-outline-primary"> <i class="fas fa-pen-alt"></i></a>
                                 </td>
                               </tr>
                              @empty
