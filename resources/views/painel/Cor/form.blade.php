@@ -8,20 +8,17 @@
                           <!-- /.card-header -->
                           <!-- form start -->
                             <div class="card-body"> 
-                              
-                            {!! Form::text(config('form.name_produto.name'), config('form.name_produto.label'), config('form.name_produto.placeholder')) !!}
-                            {!! Form::text(config('form.link.name'), config('form.link.label'), config('form.link.placeholder')) !!}
-                            {!! Form::text(config('form.Video_link.name'), config('form.Video_link.label'), config('form.Video_link.placeholder') ) !!}
+                            {!! Form::text(config('form.name_cores.name'), config('form.name_cores.label'), config('form.name_produto.placeholder'))->value( $cor->nome ?? "") !!}
+                            {!! Form::text(config('form.hexa.name'), config('form.hexa.label'), config('form.hexa.placeholder'))->value( $cor->hexa ?? "") !!}
+                            @isset($cor->imagem_destaque)
+                            <img src="{{asset('storage/'. str_after($cor->imagem_destaque, 'public/'))}}" width="200px" alt="{{ $cor->imagem_destaque }}">
+                            @endisset
                             {!! Form::file(config('form.imagem_destaque.name'), config('form.imagem_destaque.label')); !!}
-                            {!! Form::file(config('form.imagem_backgound.name'), config('form.imagem_backgound.label')) !!}
-
-
-
+                            {!! Form::hidden('Produto_id')->value($product->id) !!}
                             </div>
                             <!-- /.card-body -->
             
                              <div class="card-footer">
-                                  <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Cor </a> 
                                   <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Característica </a>
                                   <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Processo </a>
                                   <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> selo </a>
@@ -60,22 +57,7 @@
                                         </select>
                                       </div></h6>
 
-                                      <h6 > Destaque: <div class="form-group">
-                                        <select class="form-control" name="destaque">
-                                          @isset($Blog->id)
-                                            @if ($Blog->destaque == 1)
-                                             <option value="1">Sim</option>
-
-                                            @else
-                                             
-                                             <option value="Null">Não</option>
-
-                                            @endif
-                                          @endisset
-                                          <option value="1">Sim</option>
-                                          <option value="Null">Não</option>
-                                        </select>
-                                      </div></h6>
+                                     
                                       <h6 > Data da publicação: <b>@isset($Blog->id){{ $Blog->post_data}}@endisset</b></h6>
 
 
@@ -101,35 +83,7 @@
                               </div>
                           </div>
                   </div>
-                  <div class="col-lg-12">
-                      <div class="card card-primary">
-                          <div class="card-header">
-                              <h3 class="card-title">{{ __('Categorias') }}</h3>
-                          </div>
-                          <!-- /.card-header -->
-                          <!-- form start -->
-
-                              <div class="card-body">
-                                  <div class="form-group">
-                                      <label>Categorias</label>
-                                      <a  onclick="location.reload();" id="categoria_refresh" class="float-right">&nbsp;	<i class="fas fa-sync"></i></a>
-                                      <select class="form-control"  id="categoria_id" name="categoria_id" >
-                                        @foreach ($Categorias as $categoria)
-                                         <option value="{{$categoria->id}}">{{$categoria->categoria_title}} </option>
-                                        @endforeach
-                                      </select>
-                                    </div>
-                                    <div class="mensagem_return"></div>
-
-                              </div>
-                              <!-- /.card-body -->
-                              <div class="card-footer">
-                                  <a href="#" data-toggle="modal" data-target="#modal-xl-adicionar"><i class="fas fa-plus-circle"></i> Adicionar nova categoria</a>
-                                  <a href="#" id="remover_categoria" class="float-right" ><i class="fas fa-trash-alt"></i> Remover categoria</a>
-                              </div>
-                        
-                          </div>
-                  </div>
+             
               </div>
               </div>
 

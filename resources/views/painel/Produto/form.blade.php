@@ -35,10 +35,12 @@
                             <!-- /.card-body -->
             
                              <div class="card-footer">
-                                  <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Cor </a> 
-                                  <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Característica </a>
-                                  <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Processo </a>
-                                  <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> selo </a>
+                              @isset($produto->id)
+                                  <a href="{{ route('cor.index', $produto->id )}}" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Cor </a> 
+                                  <a href="{{ route('cor.index', $produto->id )}}" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Característica </a>
+                                  <a href="{{ route('cor.index', $produto->id )}}" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Processo </a>
+                                  <a href="{{ route('cor.index', $produto->id )}}" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> selo </a>
+                              @endisset
                               </div>
                         </div>
                   

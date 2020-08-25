@@ -32,8 +32,9 @@ Route::group(['prefix' => 'painel'], function () {
     Route::resource('usuario', 'PainelUsuarioController')->middleware('painel') ;
     Route::resource('comentarios', 'PainelComentarioController', ['except' => ['create','store']])->middleware('painel') ;
     Route::resource('produto', 'PainelProdutoController')->middleware('painel') ;
-    Route::resource('cor', 'PainelCorController')->middleware('painel') ;
-
+    Route::resource('cor', 'PainelCorController', ['except' => ['index', 'create']])->middleware('painel') ;
+    Route::get('cor/index/{cor}', 'PainelCorController@index')->name('cor.index');
+    Route::get('cor/create/{cor}', 'PainelCorController@create')->name('cor.create');
 });
 
 

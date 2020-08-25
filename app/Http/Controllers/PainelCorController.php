@@ -23,12 +23,15 @@ class PainelCorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $id)
     {
         //
-
-        $cor = \App\Cores::get();
-        return view('painel/Cor.show', compact('cor'));
+        $product = \App\Produto::find($id);
+        $cor = \App\Cores::where(['Produto_id' => $product->id])->get();
+        
+      
+        return view('painel/Cor.show', compact('cor','product'));
+  
         
 
     }
@@ -38,14 +41,12 @@ class PainelCorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
+        $product= \App\Produto::find($id);
 
-        $Categorias = \App\Categoria::where(['status_log' => 1, 'status_log' => 1] )->get();
-
-
-        return view('./painel/Cor.create', compact('Categorias'));
+        return view('./painel/Cor.create', compact('product'));
 
 
     }
@@ -60,32 +61,18 @@ class PainelCorController extends Controller
     {
         // 
         
-        
-        $Blog = new \App\Cor;
-        $Blog->post_autor = Auth::user()->id; 
-        $Blog->name = $request->input('name'); 
-        $Blog->link = $request->input('link'); 
-        $Blog->Video_link = $request->input('Video_link'); 
-        $Blog->categoria_id = $request->input('categoria_id');  
-
-        if($request->input('destaque') == 1){
-            $Blog->destaque = $request->input('destaque'); 
-        }else{
-            $Blog->destaque = null; 
+    
+        $Blog = new \App\Cores;
+        $Blog->nome = $request->input('name'); 
+        $Blog->hexa = $request->input('hexa'); 
+        $Blog->Produto_id = $request->input('Produto_id'); 
+        $voltar = $Blog->Produto_id;
+        // Upload Imagem
+        if(!empty($request->hasfile('imagem_destaque'))){
+        $imagem =  $request->imagem_destaque->store('public/produto/');
+        $Blog->imagem = $imagem;
         }
-
-
-        if(!empty($request->hasfile('imagem_backgound'))){
-            $imagem =  $request->imagem_backgound->store('public/produto/');
-            $Blog->imagem_backgound = $imagem;
- 
-         }
-          // Upload Imagem
-          if(!empty($request->hasfile('imagem_destaque'))){
-            $imagem =  $request->imagem_destaque->store('public/produto/');
-            $Blog->imagem_destaque = $imagem;
-         }
-         
+        
          
         if($Blog->save()){
 
@@ -98,7 +85,7 @@ class PainelCorController extends Controller
 
         };
 
-        return redirect()->route('produto.index');
+        return redirect()->route('cor.index',  $voltar);
         
     }
 
@@ -128,10 +115,9 @@ class PainelCorController extends Controller
     public function edit($id)
     {
         //
-        $produto = \App\Cor::find($id);
-        $Categorias = \App\Categoria::where(['status_log' => 1, 'status_log' => 1] )->get();
-
-        return view('./painel/Cor.edit', compact('produto', 'Categorias'));
+        $cor = \App\Cores::find($id);
+        $product = \App\Produto::find($cor->Produto_id);
+        return view('./painel/Cor.edit', compact('cor', 'product'));
     }
 
     /**
@@ -146,34 +132,21 @@ class PainelCorController extends Controller
         //
         
 
-        $Blog = \App\Cor::find($id);
-        $Blog->post_autor = Auth::user()->id; 
-        $Blog->name = $request->input('name'); 
-        $Blog->link = $request->input('link'); 
-        $Blog->Video_link = $request->input('Video_link'); 
-        $Blog->categoria_id = $request->input('categoria_id');  
-
-        if($request->input('destaque') == 1){
-            $Blog->destaque = $request->input('destaque'); 
-        }else{
-            $Blog->destaque = null; 
+        $Blog = \App\Cores::find($id);
+        $Blog->nome = $request->input('name'); 
+        $Blog->hexa = $request->input('hexa'); 
+        $Blog->Produto_id = $request->input('Produto_id'); 
+        $voltar = $Blog->Produto_id;
+        // Upload Imagem
+        if(!empty($request->hasfile('imagem_destaque'))){
+        $imagem =  $request->imagem_destaque->store('public/produto/');
+        $Blog->imagem = $imagem;
         }
-
-
-        if(!empty($request->hasfile('imagem_backgound'))){
-            $imagem =  $request->imagem_backgound->store('public/produto/');
-            $Blog->imagem_backgound = $imagem;
- 
-         }
-          // Upload Imagem
-          if(!empty($request->hasfile('imagem_destaque'))){
-            $imagem =  $request->imagem_destaque->store('public/produto/');
-            $Blog->imagem_destaque = $imagem;
-         }
+        
          
         if($Blog->save()){
 
-            $request->session()->flash('status', 'Postagem '. $Blog->post_title .' atualizada com sucesso!');
+            $request->session()->flash('status', 'Cor '. $Blog->nome .' atualizada com sucesso!');
 
 
         }else{
@@ -182,7 +155,7 @@ class PainelCorController extends Controller
 
         };
 
-        return redirect()->route('produto.index');
+        return redirect()->route('cor.index', $Blog->Produto_id);
     }
 
     /**
@@ -194,11 +167,16 @@ class PainelCorController extends Controller
     public function destroy(Request $request, $id)
     {
         //
-        $Cor = \App\Cor::findOrfail($id);
+        $recuperado = \App\Cores::find($id);
+        $name = $recuperado->nome;
+        $Cor = \App\Cores::findOrfail($id);
+     
+
+
         
         if($Cor->delete()){
 
-            $request->session()->flash('status', 'Postagem deletada com sucesso!');
+            $request->session()->flash('status', 'Cor '.$name.' deste produto deletada com sucesso!');
 
 
         }else{
@@ -207,7 +185,7 @@ class PainelCorController extends Controller
 
         };
 
-        return redirect()->route('produto.index');
+        return redirect()->route('produto.index'    );
 
     }
 }
