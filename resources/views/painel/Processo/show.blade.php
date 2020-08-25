@@ -34,8 +34,8 @@
                             @forelse($produtos as $blog)
                             <tr role="row" class="odd">
                                 <td class="sorting_1" tabindex="0">{{ $blog->id}}</td>
-                                <td>{{ $blog->name}}</td>
-                                <td>{{ $blog->created_at}}</td>
+                                <td>{{ $blog->post_title}}</td>
+                                <td>{{ $blog->post_data}}</td>
                                 <td>
                                 @if ($blog->status_log == 1)
                                  {{'Publicado'}}    

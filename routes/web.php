@@ -32,6 +32,7 @@ Route::group(['prefix' => 'painel'], function () {
     Route::resource('usuario', 'PainelUsuarioController')->middleware('painel') ;
     Route::resource('comentarios', 'PainelComentarioController', ['except' => ['create','store']])->middleware('painel') ;
     Route::resource('produto', 'PainelProdutoController')->middleware('painel') ;
+    Route::resource('cor', 'PainelCorController')->middleware('painel') ;
 
 });
 
@@ -41,7 +42,6 @@ Route::get('post/', 'ViewPostController@index')->name('post.index');
 Route::get('post/show/{post}', 'ViewPostController@show')->name('post.show');
 Route::get('post/categoria/{post}', 'ViewPostController@categoria')->name('post.categoria');
 Route::post('post/comentario', 'ViewPostController@comentario')->name('post.comentario');
-Route::resource('produto', 'ViewProdutoController', ['only' => ['index',]]);
 Route::resource('empresa', 'ViewEmpresaController', ['only' => ['index',]]);
 Route::resource('suporte', 'ViewSuporteController', ['only' => ['index',]]);
 Route::resource('manual', 'ViewManualController', ['only' => ['index',]]);

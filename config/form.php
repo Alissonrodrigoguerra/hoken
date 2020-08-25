@@ -9,8 +9,8 @@ return[
     'name' => ['name' => 'name', 'label' => 'Nome Completo', 'placeholder' => 'Nome Sobrenome'],
     
     'name_produto' => ['name' => 'name', 'label' => 'Produto', 'placeholder' => 'Nome do Produto'],
-    'imagem_destaque' => ['name' => 'imagem_destaque', 'label' => 'Imagem Destaque', 'placeholder' => 'Imagem em Destaque'],
-    'imagem_backgound' => ['name' => 'imagem_backgound', 'label' => 'Imagem Background', 'placeholder' => 'Imagem para pano de fundo'],
+    'imagem_destaque' => ['name' => 'imagem_destaque', 'label' => 'Imagem Destaque 1080x1080', 'placeholder' => 'Imagem em Destaque'],
+    'imagem_backgound' => ['name' => 'imagem_backgound', 'label' => 'Imagem 1920x1080', 'placeholder' => 'Imagem para pano de fundo'],
     'link' => ['name' => 'link', 'label' => 'Url para o botão', 'placeholder' => 'Insira uma url váldia'],
     'Video_link' => ['name' => 'Video_link', 'label' => 'Código do vídeo no youtube', 'placeholder' => 'Insira código do vídeo no youtube'],
 

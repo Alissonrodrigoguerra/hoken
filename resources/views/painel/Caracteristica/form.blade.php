@@ -8,25 +8,11 @@
                           <!-- /.card-header -->
                           <!-- form start -->
                             <div class="card-body"> 
-                           
-                            @php $name = "" @endphp
-                            @isset($produto->id)  @php $name = $produto->name @endphp @endisset
-                            {!! Form::text(config('form.name_produto.name'), config('form.name_produto.label'), config('form.name_produto.placeholder'))->value($name) !!}
-       
-                            @php $link = "" @endphp
-                            @isset($produto->id) @php $link = $produto->link @endphp @endisset
-                            {!! Form::text(config('form.link.name'), config('form.link.label'), config('form.link.placeholder'))->value($link) !!}
-                            
-                            @php $Video_link = "" @endphp
-                            @isset($produto->id) @php $Video_link = $produto->Video_link  @endphp @endisset
-                            {!! Form::text(config('form.Video_link.name'), config('form.Video_link.label'), config('form.Video_link.placeholder') )->value($Video_link) !!}
-                            @isset($produto->imagem_destaque)
-                            <img src="{{asset('storage/'. str_after($produto->imagem_destaque, 'public/'))}}" width="200px" alt="{{ $produto->imagem_destaque }}">
-                            @endisset
+                              
+                            {!! Form::text(config('form.name_produto.name'), config('form.name_produto.label'), config('form.name_produto.placeholder')) !!}
+                            {!! Form::text(config('form.link.name'), config('form.link.label'), config('form.link.placeholder')) !!}
+                            {!! Form::text(config('form.Video_link.name'), config('form.Video_link.label'), config('form.Video_link.placeholder') ) !!}
                             {!! Form::file(config('form.imagem_destaque.name'), config('form.imagem_destaque.label')); !!}
-                            @isset($produto->imagem_backgound)
-                            <img src="{{asset('storage/'. str_after($produto->imagem_backgound, 'public/'))}}" width="200px" alt="{{ $produto->post_title }}">
-                            @endisset
                             {!! Form::file(config('form.imagem_backgound.name'), config('form.imagem_backgound.label')) !!}
 
 
@@ -58,8 +44,8 @@
 
                                       <h6 > Status: <div class="form-group">
                                         <select class="form-control" name="status_log">
-                                          @isset($produto->id)
-                                            @if ($produto->status_log == 1)
+                                          @isset($Blog->id)
+                                            @if ($Blog->status_log == 1)
                                              
                                             <option value="1">Público</option>
 
@@ -76,8 +62,8 @@
 
                                       <h6 > Destaque: <div class="form-group">
                                         <select class="form-control" name="destaque">
-                                          @isset($produto->id)
-                                            @if ($produto->destaque == 1)
+                                          @isset($Blog->id)
+                                            @if ($Blog->destaque == 1)
                                              <option value="1">Sim</option>
 
                                             @else
@@ -90,7 +76,7 @@
                                           <option value="Null">Não</option>
                                         </select>
                                       </div></h6>
-                                      <h6 > Data da publicação: <b>@isset($produto->id){{ $produto->updated_at}}@endisset</b></h6>
+                                      <h6 > Data da publicação: <b>@isset($Blog->id){{ $Blog->post_data}}@endisset</b></h6>
 
 
                     

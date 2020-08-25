@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class PainelProdutoController extends Controller
+class PainelCorController extends Controller
 {
 
     /**
@@ -27,8 +27,8 @@ class PainelProdutoController extends Controller
     {
         //
 
-        $produtos = \App\Produto::get();
-        return view('painel/Produto.show', compact('produtos'));
+        $cor = \App\Cores::get();
+        return view('painel/Cor.show', compact('cor'));
         
 
     }
@@ -45,7 +45,7 @@ class PainelProdutoController extends Controller
         $Categorias = \App\Categoria::where(['status_log' => 1, 'status_log' => 1] )->get();
 
 
-        return view('./painel/Produto.create', compact('Categorias'));
+        return view('./painel/Cor.create', compact('Categorias'));
 
 
     }
@@ -61,7 +61,7 @@ class PainelProdutoController extends Controller
         // 
         
         
-        $Blog = new \App\Produto;
+        $Blog = new \App\Cor;
         $Blog->post_autor = Auth::user()->id; 
         $Blog->name = $request->input('name'); 
         $Blog->link = $request->input('link'); 
@@ -115,7 +115,7 @@ class PainelProdutoController extends Controller
         $Blog = \App\Post::get();
         $Categorias = \App\Categoria::get();
 
-        return view('./painel/Produto.create', compact('Categorias'));
+        return view('./painel/Cor.create', compact('Categorias'));
 
     }
 
@@ -128,10 +128,10 @@ class PainelProdutoController extends Controller
     public function edit($id)
     {
         //
-        $produto = \App\Produto::find($id);
+        $produto = \App\Cor::find($id);
         $Categorias = \App\Categoria::where(['status_log' => 1, 'status_log' => 1] )->get();
 
-        return view('./painel/Produto.edit', compact('produto', 'Categorias'));
+        return view('./painel/Cor.edit', compact('produto', 'Categorias'));
     }
 
     /**
@@ -146,7 +146,7 @@ class PainelProdutoController extends Controller
         //
         
 
-        $Blog = \App\Produto::find($id);
+        $Blog = \App\Cor::find($id);
         $Blog->post_autor = Auth::user()->id; 
         $Blog->name = $request->input('name'); 
         $Blog->link = $request->input('link'); 
@@ -194,9 +194,9 @@ class PainelProdutoController extends Controller
     public function destroy(Request $request, $id)
     {
         //
-        $Produto = \App\Produto::findOrfail($id);
+        $Cor = \App\Cor::findOrfail($id);
         
-        if($Produto->delete()){
+        if($Cor->delete()){
 
             $request->session()->flash('status', 'Postagem deletada com sucesso!');
 
