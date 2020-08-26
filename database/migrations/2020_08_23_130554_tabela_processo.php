@@ -13,7 +13,7 @@ class TabelaProcesso extends Migration
      */
     public function up()
     {
-        Schema::create('Processo', function (Blueprint $table) {
+        Schema::create('Processos', function (Blueprint $table) {
             
             $table->id();
             $table->timestamps();

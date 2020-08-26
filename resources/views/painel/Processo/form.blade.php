@@ -8,21 +8,24 @@
                           <!-- /.card-header -->
                           <!-- form start -->
                             <div class="card-body"> 
-                            {!! Form::text(config('form.name_processo.name'), config('form.name_caracteristica.label'), config('form.name_caracteristica.placeholder'))->value( $caracteristica->name ?? "") !!}
-                            {!! Form::text(config('form.valor.name'), config('form.valor.label'), config('form.valor.placeholder'))->value( $caracteristica->valor ?? "") !!}
-                            {!! Form::select(config('form.destaque.name'),config('form.destaque.label') , ['1' => 'Sim', '0'=>'Não'])->value( $caracteristica->destaque ?? "") !!}
+                            {!! Form::text(config('form.name_processo.name'), config('form.name_processo.label'), config('form.name_processo.placeholder'))->value( $processo->name ?? "") !!}
+                            {!! Form::text(config('form.titulo.name'), config('form.titulo.label'), config('form.titulo.placeholder'))->value( $processo->titulo ?? "") !!}
 
-                            @isset($caracteristica->imagem_destaque)
-                            <img src="{{asset('storage/'. str_after($caracteristica->imagem_destaque, 'public/'))}}" width="200px" alt="{{ $caracteristica->imagem_destaque }}">
+                            @isset($processo->imagem)
+                            <img src="{{asset('storage/'. str_after($processo->imagem, 'public/'))}}" width="200px" alt="{{ $processo->name }}">
                             @endisset
-                            {!! Form::file(config('form.imagem_destaque.name'), 'Imagem Destaque 250x250 Jpg, Png ou SVG'); !!}
+                            {!! Form::file(config('form.imagem.name'), config('form.imagem.label')) !!}
+                            @isset($processo->imagem_destaque)
+                            <img src="{{asset('storage/'. str_after($processo->imagem_destaque, 'public/'))}}" width="200px" alt="{{ $processo->name }}">
+                            @endisset
+                            {!! Form::file(config('form.imagem_destaque.name'), config('form.imagem_destaque.label')) !!}
                             {!! Form::hidden('Produto_id')->value($product->id) !!}
                             </div>
                             <!-- /.card-body -->
             
                              <div class="card-footer">
                                   <a href="{{ route('cor.index', $product->id )}}" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Cor </a>
-                                  <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Processo </a>
+                                  <a href="{{ route('caracteristica.index', $product->id )}}" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Caracteristica </a>
                                   <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> selo </a>
                               </div>
                               

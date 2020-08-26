@@ -18,7 +18,7 @@
                     @endif
 
                 {{-- Formulário --}}
-                <form role="form" action="{{ route('caracteristica.store') }}" method="POST" enctype="multipart/form-data"> 
+                <form role="form" action="{{ route('processo.store') }}" method="POST" enctype="multipart/form-data"> 
                   {{ csrf_field() }}
                   @include('painel/Processo/form')  
                 </form>        

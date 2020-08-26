@@ -22,7 +22,7 @@ return[
 
 
     'name_processo' => ['name' => 'name', 'label' => 'Processo', 'placeholder' => 'Nome do Processo'],
-    'titulo' => ['name' => 'titulo', 'label' => 'título', 'placeholder' => 'Digite seu titulo'],
+    'titulo' => ['name' => 'titulo', 'label' => 'Título', 'placeholder' => 'Digite seu titulo'],
     'imagem' => ['name' => 'imagem', 'label' => 'Imagem', 'placeholder' => 'Insira uma imagem'],
 
     'name_cores' => ['name' => 'name', 'label' => 'Cor', 'placeholder' => 'Nome da Cor'],

@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card">
                      
-                 <div class="card-header">{{ __('Processo - ').$product->name }}  <a class="float-right"  href="{{ route('produto.index', $product->id) }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
+                 <div class="card-header">{{ __('Processo - ').$product->name }}  <a class="float-right"  href="{{ route('produto.index') }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -37,7 +37,8 @@
                             <tr role="row" class="odd">
                                 <td class="sorting_1" tabindex="0">{{ $item->id}}</td>
                                 <td>{{ $item->name}}</td>
-                                <td>{{ $item->valor}}</td>    
+                                <td><img src="{{asset('storage/'. str_after($item->imagem, 'public/'))}}" width="200px" alt="{{ $item->name }}">
+                                </td>    
                                 <td>
                                 @if ($item->status_log == 1)
                                  {{'Publicado'}}    
@@ -45,12 +46,12 @@
                                  {{'Rascunho'}}    
                                 @endif</td>
                                 <td width="150px">
-                                <form action="{{ route('caracteristica.destroy', $item->id )}}" method="Post">  {{ csrf_field() }} {{ method_field('DELETE')}}
+                                <form action="{{ route('processo.destroy', $item->id )}}" method="Post">  {{ csrf_field() }} {{ method_field('DELETE')}}
                                     <button class="btn btn-outline-primary float-left" type="submit" onclick="return confirm('Tem certeza que deseja deletar?')">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
-                                <a href="{{ route('caracteristica.edit', $item->id)}}" class="btn btn-outline-primary"> <i class="fas fa-pen-alt"></i></a>
+                                <a href="{{ route('processo.edit', $item->id)}}" class="btn btn-outline-primary"> <i class="fas fa-pen-alt"></i></a>
                                 </td>
                               </tr>
                              @empty

@@ -27,7 +27,7 @@ class PainelProcessoController extends Controller
     {
         //
         $product = \App\Produto::find($id);
-        $processo = \App\Cores::where(['Produto_id' => $product->id])->get();
+        $processo = \App\Processo::where(['Produto_id' => $product->id])->get();
         
       
         return view('painel/Processo.show', compact('processo','product'));
@@ -61,15 +61,23 @@ class PainelProcessoController extends Controller
     {
         // 
         
-    
-        $Blog = new \App\Cores;
-        $Blog->nome = $request->input('name'); 
-        $Blog->hexa = $request->input('hexa'); 
-        $Blog->Produto_id = $request->input('Produto_id'); 
+        $Blog = new \App\Processo;
+        $Blog->name = $request->input('name'); 
+        $Blog->titulo = $request->input('titulo'); 
+        $Blog->Produto_id = $request->input('Produto_id');
+        $Blog->status_log = $request->input('status_log');
+        $Blog->updated_at = $request->input('post_data');
         $voltar = $Blog->Produto_id;
-        // Upload Imagem
+        //imagem_destaque
         if(!empty($request->hasfile('imagem_destaque'))){
-        $imagem =  $request->imagem_destaque->store('public/produto/');
+            $imagem =  $request->imagem_destaque->store('public/processo/');
+            $Blog->imagem_destaque = $imagem;
+            }
+            
+
+        // Upload Imagem
+        if(!empty($request->hasfile('imagem'))){
+        $imagem =  $request->imagem->store('public/processo/');
         $Blog->imagem = $imagem;
         }
         
@@ -85,7 +93,7 @@ class PainelProcessoController extends Controller
 
         };
 
-        return redirect()->route('cor.index',  $voltar);
+        return redirect()->route('processo.index',  $voltar);
         
     }
 
@@ -102,7 +110,7 @@ class PainelProcessoController extends Controller
         $Blog = \App\Post::get();
         $Categorias = \App\Categoria::get();
 
-        return view('./painel/Cor.create', compact('Categorias'));
+        return view('./painel/Processo.create', compact('Categorias'));
 
     }
 
@@ -115,9 +123,9 @@ class PainelProcessoController extends Controller
     public function edit($id)
     {
         //
-        $cor = \App\Cores::find($id);
-        $product = \App\Produto::find($cor->Produto_id);
-        return view('./painel/Cor.edit', compact('cor', 'product'));
+        $processo = \App\Processo::find($id);
+        $product = \App\Produto::find($processo->Produto_id);
+        return view('./painel/Processo.edit', compact('processo', 'product'));
     }
 
     /**
@@ -139,7 +147,7 @@ class PainelProcessoController extends Controller
         $voltar = $Blog->Produto_id;
         // Upload Imagem
         if(!empty($request->hasfile('imagem_destaque'))){
-        $imagem =  $request->imagem_destaque->store('public/produto/');
+        $imagem =  $request->imagem_destaque->store('public/processo/');
         $Blog->imagem = $imagem;
         }
         
@@ -174,7 +182,7 @@ class PainelProcessoController extends Controller
         
 
         
-        if($Cor->delete()){
+        if($processo->delete()){
 
             $request->session()->flash('status', 'Processo '.$name.' deste produto deletada com sucesso!');
 

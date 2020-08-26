@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card">
                      
-                 <div class="card-header">{{ __('Caracteristicases - ').$product->name }}  <a class="float-right"  href="{{ route('produto.index', $product->id) }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
+                 <div class="card-header">{{ __('Cor - ').$product->name }}  <a class="float-right"  href="{{ route('produto.index', $product->id) }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
 
                 <div class="card-body">
                     @if (session('status'))
