@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class PainelProcessoController extends Controller
+class PainelSeloController extends Controller
 {
 
     /**
@@ -27,10 +27,10 @@ class PainelProcessoController extends Controller
     {
         //
         $product = \App\Produto::find($id);
-        $processo = \App\Processo::where(['Produto_id' => $product->id])->get();
+        $selos = \App\Selos::where(['Produto_id' => $product->id])->get();
         
       
-        return view('painel/Processo.show', compact('processo','product'));
+        return view('painel/Selo.show', compact('selos','product'));
   
         
 
@@ -46,7 +46,7 @@ class PainelProcessoController extends Controller
         //
         $product= \App\Produto::find($id);
 
-        return view('./painel/Processo.create', compact('product'));
+        return view('./painel/Selo.create', compact('product'));
 
 
     }
@@ -61,30 +61,24 @@ class PainelProcessoController extends Controller
     {
         // 
         
-        $Blog = new \App\Processo;
-        $Blog->name = $request->input('name'); 
-        $Blog->titulo = $request->input('titulo'); 
+        $Blog = new \App\Selos;
+        $Blog->nome = $request->input('name'); 
+        $Blog->tipo = $request->input('tipo'); 
         $Blog->Produto_id = $request->input('Produto_id');
         $Blog->status_log = $request->input('status_log');
-        $Blog->updated_at = $request->input('post_data');
+        $Blog->updated_at = $request->input('data');  
         $voltar = $Blog->Produto_id;
-        //imagem_destaque
-        if(!empty($request->hasfile('imagem_destaque'))){
-            $imagem =  $request->imagem_destaque->store('public/processo/');
-            $Blog->imagem_destaque = $imagem;
-            }
-            
 
         // Upload Imagem
         if(!empty($request->hasfile('imagem'))){
-        $imagem =  $request->imagem->store('public/processo/');
+        $imagem =  $request->imagem->store('public/selo/');
         $Blog->imagem = $imagem;
         }
         
          
         if($Blog->save()){
 
-            $request->session()->flash('status', 'Postagem '. $Blog->post_title .' criada com sucesso!');
+            $request->session()->flash('status', 'Seleo '. $Blog->nome .' criado com sucesso!');
             
 
         }else{
@@ -93,7 +87,7 @@ class PainelProcessoController extends Controller
 
         };
 
-        return redirect()->route('processo.index',  $voltar);
+        return redirect()->route('selo.index',  $voltar);
         
     }
 
@@ -110,7 +104,7 @@ class PainelProcessoController extends Controller
         $Blog = \App\Post::get();
         $Categorias = \App\Categoria::get();
 
-        return view('./painel/Processo.create', compact('Categorias'));
+        return view('./painel/Cor.create', compact('Categorias'));
 
     }
 
@@ -123,9 +117,9 @@ class PainelProcessoController extends Controller
     public function edit($id)
     {
         //
-        $processo = \App\Processo::find($id);
-        $product = \App\Produto::find($processo->Produto_id);
-        return view('./painel/Processo.edit', compact('processo', 'product'));
+        $selo = \App\Selos::find($id);
+        $product = \App\Produto::find($selo->Produto_id);
+        return view('./painel/Selo.edit', compact('selo', 'product'));
     }
 
     /**
@@ -140,30 +134,24 @@ class PainelProcessoController extends Controller
         //
         
 
-        $Blog = \App\Processo::find($id);
-        $Blog->name = $request->input('name'); 
-        $Blog->titulo = $request->input('titulo'); 
+        $Blog = \App\Selos::find($id);
+        $Blog->nome = $request->input('name'); 
+        $Blog->tipo = $request->input('tipo'); 
         $Blog->Produto_id = $request->input('Produto_id');
         $Blog->status_log = $request->input('status_log');
-        $Blog->updated_at = $request->input('post_data');
+        $Blog->updated_at = $request->input('data');  
         $voltar = $Blog->Produto_id;
-        //imagem_destaque
-        if(!empty($request->hasfile('imagem_destaque'))){
-            $imagem =  $request->imagem_destaque->store('public/processo/');
-            $Blog->imagem_destaque = $imagem;
-            }
-            
 
         // Upload Imagem
         if(!empty($request->hasfile('imagem'))){
-        $imagem =  $request->imagem->store('public/processo/');
+        $imagem =  $request->imagem->store('public/selo/');
         $Blog->imagem = $imagem;
         }
         
          
         if($Blog->save()){
 
-            $request->session()->flash('status', 'Processo '. $Blog->nome .' atualizada com sucesso!');
+            $request->session()->flash('status', 'Selo '. $Blog->nome .' atualizada com sucesso!');
 
 
         }else{
@@ -172,7 +160,7 @@ class PainelProcessoController extends Controller
 
         };
 
-        return redirect()->route('processo.index', $Blog->Produto_id);
+        return redirect()->route('selo.index', $Blog->Produto_id);
     }
 
     /**
@@ -184,16 +172,14 @@ class PainelProcessoController extends Controller
     public function destroy(Request $request, $id)
     {
         //
-        $recuperado = \App\Processo::find($id);
-        $name = $recuperado->name;
-        $Produto_id = $recuperado->Produto_id;
-        $processo = \App\Processo::findOrfail($id);
-        
+        $recuperado = \App\Selos::find($id);
+        $name = $recuperado->nome;
+        $Cor = \App\Selos::findOrfail($id);
+     
 
-        
-        if($processo->delete()){
+        if($Cor->delete()){
 
-            $request->session()->flash('status', 'Processo '.$name.' deste produto deletada com sucesso!');
+            $request->session()->flash('status', 'Selo '.$name.' deste produto deletada com sucesso!');
 
 
         }else{
@@ -202,7 +188,7 @@ class PainelProcessoController extends Controller
 
         };
 
-        return redirect()->route('processo.index', $Produto_id);
+        return redirect()->route('produto.index'    );
 
     }
 }

@@ -41,6 +41,9 @@ Route::group(['prefix' => 'painel'], function () {
     Route::resource('processo', 'PainelProcessoController', ['except' => ['index', 'create']])->middleware('painel') ;
     Route::get('processo/index/{processo}', 'PainelProcessoController@index')->name('processo.index');
     Route::get('processo/create/{processo}', 'PainelProcessoController@create')->name('processo.create');
+    Route::resource('selo', 'PainelSeloController', ['except' => ['index', 'create']])->middleware('painel') ;
+    Route::get('selo/index/{selo}', 'PainelSeloController@index')->name('selo.index');
+    Route::get('selo/create/{selo}', 'PainelSeloController@create')->name('selo.create');
 
 });
 

@@ -25,7 +25,7 @@
                         <tr>
                           <th>Id</th>
                           <th>Nome</th>
-                          <th>Caracteristicas</th>
+                          <th>Processo</th>
                           <th>Status</th>
                           <th ><a href="{{ route('processo.create', $product->id)}}" class="btn btn-lg btn-outline-primary "> <i class="fas fa-plus"></i> Adicionar</a>
                             
@@ -37,7 +37,11 @@
                             <tr role="row" class="odd">
                                 <td class="sorting_1" tabindex="0">{{ $item->id}}</td>
                                 <td>{{ $item->name}}</td>
-                                <td><img src="{{asset('storage/'. str_after($item->imagem, 'public/'))}}" width="200px" alt="{{ $item->name }}">
+                                <td>@if ($item->imagem)
+                                    <img src="{{asset('storage/'. str_after($item->imagem, 'public/'))}}" width="200px" alt="{{ $item->name }}">
+                                @else
+                                    {{$item->titulo}}
+                                @endif
                                 </td>    
                                 <td>
                                 @if ($item->status_log == 1)
@@ -62,10 +66,10 @@
                         </tbody>
                         <tfoot>
                         <tr>
-                        <th>Id</th>
-                          <th>Nome</th>
-                          <th>Caracteristicas</th>
-                          <th>Status</th>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Processo</th>
+                            <th>Status</th>
                           <th></th>
                         </tr>
                         </tfoot>
