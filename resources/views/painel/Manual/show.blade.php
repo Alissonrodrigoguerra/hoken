@@ -32,8 +32,8 @@
                             @forelse($Manual as $item)
                             <tr role="row" class="odd">
                                 <td class="sorting_1" tabindex="0">{{ $item->id}}</td>
-                                <td>{{ $item->Banner_title}}</td>
-                                <td>{{ $item->Banner_data}}</td>
+                                <td>{{ $item->nome}}</td>
+                                <td>{{ $item->updated_at}}</td>
                                 <td>
                                 @if ($item->status_log == 1)
                                  {{'Publicado'}}    

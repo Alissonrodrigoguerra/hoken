@@ -8,8 +8,12 @@
           <!-- /.card-header -->
           <!-- form start -->
             <div class="card-body">
-           
-
+              {!! Form::text('name', 'Modelo Manual')->value($Manual->nome?? '') !!}  
+              {!! Form::select('Produto_id', 'Produto', $product)->value($Manual->Produto_id?? '') !!}
+              @isset($Manual->arquivo)
+              <iframe width="500px" height="600px" src="{{asset('storage/'. str_after($Manual->arquivo, 'public/'))}}" frameborder="0"></iframe>
+              @endisset
+              {!! Form::file('arquivo', 'Manual' ) !!}
             </div>
             <!-- /.card-body -->
 
@@ -31,8 +35,8 @@
 
                     <h6 > Status: <div class="form-group">
                       <select class="form-control" name="status_log">
-                        @isset($banner->id)
-                          @if ($banner->status_log == 1)
+                        @isset($manual->id)
+                          @if ($manual->status_log == 1)
                            <option value="1">Público</option>
 
                           @else
@@ -45,7 +49,7 @@
                         <option value="0">Rascunho</option>
                       </select>
                     </div></h6>
-                    <h6 > Data da publicação: <b>@isset($banner->id){{ $banner->Banner_data}}@endisset</b></h6>
+                    <h6 > Data da publicação: <b>@isset($manual->id){{ $manual->Banner_data}}@endisset</b></h6>
 
 
   
@@ -58,7 +62,7 @@
                             <i class="far fa-calendar-alt"></i>
                           </span>
                         </div>
-                        <input type="text" name="banner_data" value="@isset($banner->id){{ $banner->Banner_data}}@endisset" class="form-control float-right" id="reservation">
+                        <input type="text" name="banner_data" value="@isset($manual->id){{ $manual->Banner_data}}@endisset" class="form-control float-right" id="reservation">
                       </div>
                     <!-- /.input group -->
                   </div>
@@ -82,8 +86,8 @@
                     <label for="exampleInputFile">Insira um imagem </label>
                     <span>na medida 1920px por 1080px</span><br>
                     <span>
-                      @isset($banner->Banner_imagem)
-                      <img src="{{asset('storage/'. str_after($banner->Banner_imagem, 'public/'))}}" width="200px" alt="{{ $banner->Banner_title }}">
+                      @isset($manual->Banner_imagem)
+                      <img src="{{asset('storage/'. str_after($manual->Banner_imagem, 'public/'))}}" width="200px" alt="{{ $manual->Banner_title }}">
                       @endisset
                     </span><br><br>
                     <div class="input-group">

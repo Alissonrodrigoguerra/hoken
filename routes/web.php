@@ -45,8 +45,8 @@ Route::group(['prefix' => 'painel'], function () {
     Route::get('selo/index/{selo}', 'PainelSeloController@index')->name('selo.index');
     Route::get('selo/create/{selo}', 'PainelSeloController@create')->name('selo.create');
     Route::resource('manual', 'PainelManualController')->middleware('painel') ;
-    Route::resource('duvidas', 'PainelDuvidasController')->middleware('painel') ;
-    Route::resource('franquias', 'PainelFranquiasController')->middleware('painel') ;
+    // Route::resource('duvidas', 'PainelDuvidasController')->middleware('painel') ;
+    // Route::resource('franquias', 'PainelFranquiasController')->middleware('painel') ;
 
 });
 
@@ -58,7 +58,7 @@ Route::get('post/categoria/{post}', 'ViewPostController@categoria')->name('post.
 Route::post('post/comentario', 'ViewPostController@comentario')->name('post.comentario');
 Route::resource('empresa', 'ViewEmpresaController', ['only' => ['index',]]);
 Route::resource('suporte', 'ViewSuporteController', ['only' => ['index',]]);
-Route::resource('manual', 'ViewManualController', ['only' => ['index',]]);
+// Route::resource('manual', 'ViewManualController', ['only' => ['index',]]);
 Route::resource('politicadequalidade', 'ViewPolicyController', ['only' => ['index',]]);
 Route::resource('pesquisa', 'ViewPesquisaController', ['only' => ['index',]]);
 

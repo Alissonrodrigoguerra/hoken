@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PainelManualController extends Controller
+class  PainelManualController  extends Controller
 {
 
     /**
@@ -27,6 +27,7 @@ class PainelManualController extends Controller
         //
       
         $Manual = \App\Manual::get();
+
         return view('painel/Manual.show', compact('Manual'));
 
     }
@@ -39,9 +40,11 @@ class PainelManualController extends Controller
     public function create(Request $request)
     {
         //
+
+     
         $product = \App\Produto::get();
 
-        return view('./painel/Manual.create', 'product');
+        return view('./painel/Manual.create', compact('product'));
 
 
     }
@@ -56,28 +59,25 @@ class PainelManualController extends Controller
     {
         // 
         
-
+        
         $Manual = new \App\Manual;
-        $Manual->Manual_autor = '1'; 
-        $Manual->Manual_title = $request->input('Manual_title');
-        $Manual->Manual_subtitle = $request->input('Manual_subtitle'); 
-        $Manual->Manual_link = $request->input('Manual_link'); 
-        $Manual->Manual_data = $request->input('Manual_data'); 
-        $Manual->slider_id = $request->input('slider_id'); 
+        $Manual->nome = $request->input('name');
+        $Manual->Produto_id = $request->input('Produto_id'); 
         $Manual->status_log = $request->input('status_log'); 
+        $Manual->updated_at = $request->input('banner_data'); 
+        
+        // Upload Imagem
+        if(!empty($request->hasfile('arquivo'))){
 
-          // Upload Imagem
-          if(!empty($request->hasfile('Manual_imagem'))){
-            $imagem =  $request->Manual_imagem->store('public/Manual/');
-            $Manual->Manual_imagem = $imagem;
+        $pdf =  $request->arquivo->store('public/Manual/');
+        $Manual->arquivo = $pdf;
  
-         }
+        }
 
 
         if($Manual->save()){
 
-            $request->session()->flash('status', 'Manual '. $Manual->Manual_title .' criado com sucesso!');
-            
+            $request->session()->flash('status', 'Manual '. $Manual->nome .' criado com sucesso!');
 
         }else{
 
@@ -85,7 +85,7 @@ class PainelManualController extends Controller
 
         };
 
-        return redirect()->route('Manual.index');
+        return redirect()->route('manual.index');
         
     }
 
@@ -116,8 +116,9 @@ class PainelManualController extends Controller
     {
         //
         $Manual = \App\Manual::find($id);
+        $product = \App\Produto::get();
 
-        return view('./painel/Manual.edit', compact('Manual'));
+        return view('./painel/Manual.edit', compact('Manual','product'));
     }
 
     /**
@@ -132,22 +133,21 @@ class PainelManualController extends Controller
         //
 
         $Manual = \App\Manual::find($id);
-        $Manual->Manual_autor = '1'; 
-        $Manual->Manual_title = $request->input('Manual_title');
-        $Manual->Manual_subtitle = $request->input('Manual_subtitle'); 
-        $Manual->Manual_link = $request->input('Manual_link'); 
-        $Manual->Manual_data = $request->input('Manual_data'); 
-        $Manual->slider_id = $request->input('slider_id'); 
+        $Manual->nome = $request->input('name');
+        $Manual->Produto_id = $request->input('Produto_id'); 
         $Manual->status_log = $request->input('status_log'); 
+        $Manual->updated_at = $request->input('banner_data'); 
+        
         // Upload Imagem
-        if($request->file('Manual_imagem') !== null){
-            $imagem =  $request->Manual_imagem->store('public/Manual/');
-            $Manual->Manual_imagem = $imagem;
+        if(!empty($request->hasfile('arquivo'))){
+
+        $pdf =  $request->arquivo->store('public/Manual/');
+        $Manual->arquivo = $pdf;
  
-         }
+        }
         if($Manual->save()){
 
-            $request->session()->flash('status', 'Manual '. $Manual->Manual_title .' atualizado com sucesso!');
+            $request->session()->flash('status', 'Manual '. $Manual->nome .' atualizado com sucesso!');
 
 
         }else{
@@ -181,7 +181,7 @@ class PainelManualController extends Controller
 
         };
 
-        return redirect()->route('Manual.index');
+        return redirect()->route('manual.index');
 
     }
 }
