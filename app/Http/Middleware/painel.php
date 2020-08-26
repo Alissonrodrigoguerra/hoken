@@ -20,6 +20,7 @@ class painel
         if(Auth::user() !== null){
             if(Auth::user()->idCargo !== 1){      
                 
+                
                 config(['adminlte.menu.21' => '']);
                 config(['adminlte.menu.20' => '']);
                 config(['adminlte.menu.19' => '']);
@@ -28,8 +29,11 @@ class painel
                 config(['adminlte.menu.16' => '']);
                 config(['adminlte.menu.15' => '']);
                 config(['adminlte.menu.14' => '']);
-                config(['adminlte.menu.12' => '']);
-                config(['adminlte.menu.13' => '']); 
+                config(['adminlte.menu.13' => '']);
+                config(['adminlte.menu.12' => '']); 
+                config(['adminlte.menu.11' => '']); 
+                config(['adminlte.menu.10' => '']); 
+                config(['adminlte.menu.9' => '']); 
                 
             }
         }

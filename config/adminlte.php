@@ -325,11 +325,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Listar',
-                    'url'  => '#',
+                    'url'  => 'painel/manual',
                 ],
                 [
-                    'text'    => 'Novo Maual',
-                    'url'     => '#',
+                    'text'    => 'Novo Produto',
+                    'url'     => 'painel/manual/create',
                    
                 ],
                
@@ -343,34 +343,17 @@ return [
             'submenu' => [
                 [
                     'text' => 'Listar',
-                    'url'  => '#',
+                    'url'  => 'painel/duvidas',
                 ],
                 [
-                    'text'    => 'Novo Dúvida',
-                    'url'     => '#',
+                    'text'    => 'Novo Produto',
+                    'url'     => 'painel/duvidas/create',
                    
                 ],
                
             ],
         ],
-        [
-            'text'    => 'Termos',
-            'icon'    => 'fas fa-paste',
-            'icon_color' => 'cyan',
-
-            'submenu' => [
-                [
-                    'text' => 'Listar',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Novo termo',
-                    'url'     => '#',
-                   
-                ],
-               
-            ],
-        ],
+    
 
         [
             'text'    => 'Franquias',
@@ -382,11 +365,7 @@ return [
                     'text' => 'Listar',
                     'url'  => '#',
                 ],
-                [
-                    'text'    => 'Visualizar',
-                    'url'     => '#',
-                   
-                ],
+            
                 [
                     'text'    => 'Nova Franquia',
                     'url'     => '#',
@@ -396,53 +375,7 @@ return [
             ],
         ],
       
-        [
-            'text'    => 'CAF',
-            'icon'    => 'fas fa-ticket-alt',
-            'icon_color' => 'cyan',
-
-            'submenu' => [
-                [
-                    'text' => 'Gestor',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Departamento',
-                    'url'     => '#',
-                   
-                ],
-                [
-                    'text'    => 'Ticket',
-                    'url'     => '#',
-                   
-                ],
-               
-            ],
-        ],
-
-        [
-            'text'    => 'SAC',
-            'icon'    => 'fas fa-headphones-alt',
-            'icon_color' => 'cyan',
-
-            'submenu' => [
-                [
-                    'text' => 'Gestor',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'Departamento',
-                    'url'     => '#',
-                   
-                ],
-                [
-                    'text'    => 'Ticket',
-                    'url'     => '#',
-                   
-                ],
-               
-            ],
-        ],
+       
 
         [
             'text'    => 'Marketing',
