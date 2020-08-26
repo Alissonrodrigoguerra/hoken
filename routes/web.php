@@ -45,7 +45,7 @@ Route::group(['prefix' => 'painel'], function () {
     Route::get('selo/index/{selo}', 'PainelSeloController@index')->name('selo.index');
     Route::get('selo/create/{selo}', 'PainelSeloController@create')->name('selo.create');
     Route::resource('manual', 'PainelManualController')->middleware('painel') ;
-    // Route::resource('duvidas', 'PainelDuvidasController')->middleware('painel') ;
+    Route::resource('duvidas', 'PainelDuvidasController')->middleware('painel') ;
     // Route::resource('franquias', 'PainelFranquiasController')->middleware('painel') ;
 
 });
