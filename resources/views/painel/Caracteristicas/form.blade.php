@@ -8,7 +8,7 @@
                           <!-- /.card-header -->
                           <!-- form start -->
                             <div class="card-body"> 
-                            {!! Form::text(config('form.name_processo.name'), config('form.name_caracteristica.label'), config('form.name_caracteristica.placeholder'))->value( $caracteristica->name ?? "") !!}
+                            {!! Form::text(config('form.name_caracteristica.name'), config('form.name_caracteristica.label'), config('form.name_caracteristica.placeholder'))->value( $caracteristica->name ?? "") !!}
                             {!! Form::text(config('form.valor.name'), config('form.valor.label'), config('form.valor.placeholder'))->value( $caracteristica->valor ?? "") !!}
                             {!! Form::select(config('form.destaque.name'),config('form.destaque.label') , ['1' => 'Sim', '0'=>'Não'])->value( $caracteristica->destaque ?? "") !!}
 
@@ -25,7 +25,6 @@
                                   <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> Processo </a>
                                   <a href="#" class="btn btn-outline-primary"><i class="fas fa-plus-circle"></i> selo </a>
                               </div>
-                              
                         </div>
                   
                   </div>

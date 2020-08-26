@@ -2,13 +2,12 @@
 @section('daterangepicker')
 @endsection
 
-
 @section('content')
 <div class="container-fluid">
     <div class="row ">
         <div class="col-md-12">
             <div class="card">
-            <div class="card-header">{{ __('Artigos Atualizar') }} <a class="float-right"  href="{{ route('blog.index') }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
+            <div class="card-header">{{ __('Caracteristica Atualizar') }} <a class="float-right"  href="{{ route('caracteristica.index', $caracteristica->Produto_id) }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,15 +17,15 @@
                     @endif
 
                 {{-- Formulário --}}
-                <form role="form" action="{{ route('blog.update', $Blog->id) }}" method="POST" enctype="multipart/form-data"> 
+                <form role="form" action="{{ route('caracteristica.update', $caracteristica->id) }}" method="POST" enctype="multipart/form-data"> 
                   {{ csrf_field() }}
                   {{ method_field('PUT') }}
                   
-                  @include('painel/Blog/form')  
+                  @include('painel/Caracteristicas/form')  
                 
                 
             </form>       
-             @include('painel/Categoria/create_modal')  
+             @include('painel/categoria/create_modal')  
  
                 </div>
             </div>

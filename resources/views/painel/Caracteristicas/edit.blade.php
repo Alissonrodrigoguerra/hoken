@@ -1,6 +1,5 @@
 @extends('adminlte::page')
-
-@section('summernote')
+@section('daterangepicker')
 @endsection
 
 @section('content')
@@ -8,7 +7,7 @@
     <div class="row ">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Novo Produto') }} <a class="float-right" href="{{ route('produto.index') }}">Voltar <i class=" fas fa-hand-point-left"></i></a></div>
+            <div class="card-header">{{ __('Caracteristica Atualizar') }} <a class="float-right"  href="{{ route('caracteristica.index', $caracteristica->Produto_id) }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,13 +17,16 @@
                     @endif
 
                 {{-- Formulário --}}
-                <form role="form" action="{{ route('produto.store') }}" method="POST" enctype="multipart/form-data"> 
+                <form role="form" action="{{ route('caracteristica.update', $caracteristica->id) }}" method="POST" enctype="multipart/form-data"> 
                   {{ csrf_field() }}
-                 
-                  @include('painel/Produto/form')  
+                  {{ method_field('PUT') }}
+                  
+                  @include('painel/Caracteristicas/form')  
                 
                 
-            </form>        
+            </form>       
+             @include('painel/categoria/create_modal')  
+ 
                 </div>
             </div>
         </div>
@@ -44,6 +46,7 @@
         height: 500,
         toolbar: [
           ['style', ['style']],
+          ['codeview', ['style']],
           ['font', ['bold', 'underline', 'clear']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
@@ -88,7 +91,7 @@
           
           }
         });
-     
+              
         }); 
       $('#remover_categoria').click(function (e) { 
           e.preventDefault();
@@ -121,7 +124,6 @@
   </script>
     
 @endsection
-@include('painel/Categoria.create_modal')  
 
 {{-- Estamos utilizando adimnlte laravel https://github.com/jeroennoten/Laravel-AdminLTE#1-requirements --}}
 {{-- Modelo https://adminlte.io/themes/v3/pages/UI/general.html --}}

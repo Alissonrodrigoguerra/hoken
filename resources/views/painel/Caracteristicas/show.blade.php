@@ -8,7 +8,8 @@
     <div class="row ">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Produtos') }}</div>
+                     
+                 <div class="card-header">{{ __('Caracteristicas - ').$product->name }}  <a class="float-right"  href="{{ route('produto.index', $product->id) }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -23,32 +24,33 @@
                         <thead>
                         <tr>
                           <th>Id</th>
-                          <th>Título</th>
-                          <th>Data Postagem</th>
+                          <th>Nome</th>
+                          <th>Caracteristicas</th>
                           <th>Status</th>
-                          <th ><a href="{{ route('produto.create')}}" class="btn btn-lg btn-outline-primary "> <i class="fas fa-plus"></i> Adicionar</a>
-                          </th>
+                          <th ><a href="{{ route('caracteristica.create', $product->id)}}" class="btn btn-lg btn-outline-primary "> <i class="fas fa-plus"></i> Adicionar</a>
+                            
+                        </th>
                         </tr>
                         </thead>
                         <tbody>
-                            @forelse($produtos as $blog)
+                            @forelse($Caracteristicas as $item)
                             <tr role="row" class="odd">
-                                <td class="sorting_1" tabindex="0">{{ $blog->id}}</td>
-                                <td>{{ $blog->post_title}}</td>
-                                <td>{{ $blog->post_data}}</td>
+                                <td class="sorting_1" tabindex="0">{{ $item->id}}</td>
+                                <td>{{ $item->name}}</td>
+                                <td>{{ $item->valor}}</td>    
                                 <td>
-                                @if ($blog->status_log == 1)
+                                @if ($item->status_log == 1)
                                  {{'Publicado'}}    
                                 @else
                                  {{'Rascunho'}}    
                                 @endif</td>
                                 <td width="150px">
-                                <form action="{{ route('produto.destroy', $blog->id )}}" method="Post">  {{ csrf_field() }} {{ method_field('DELETE')}}
+                                <form action="{{ route('caracteristica.destroy', $item->id )}}" method="Post">  {{ csrf_field() }} {{ method_field('DELETE')}}
                                     <button class="btn btn-outline-primary float-left" type="submit" onclick="return confirm('Tem certeza que deseja deletar?')">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
-                                <a href="{{ route('produto.edit', $blog->id)}}" class="btn btn-outline-primary"> <i class="fas fa-pen-alt"></i></a>
+                                <a href="{{ route('caracteristica.edit', $item->id)}}" class="btn btn-outline-primary"> <i class="fas fa-pen-alt"></i></a>
                                 </td>
                               </tr>
                              @empty
@@ -60,8 +62,8 @@
                         <tfoot>
                         <tr>
                         <th>Id</th>
-                          <th>Título</th>
-                          <th>Data Postagem</th>
+                          <th>Nome</th>
+                          <th>Caracteristicas</th>
                           <th>Status</th>
                           <th></th>
                         </tr>
@@ -91,16 +93,16 @@
         "responsive": true,
         "language": {
                         "lengthMenu": "Listando _MENU_ registros por página",
-                        "zeroRecords": "Nenhum pregistro encontrado.",
+                        "zeroReCaracteristicasds": "Nenhum pregistro encontrado.",
                         "info": " Página _PAGE_ de _PAGES_",
                         "search": "Pesquisar",
-                        "infoEmpty": "No records available",
+                        "infoEmpty": "No reCaracteristicasds available",
                         "infoFiltered": "(Filtrando de _MAX_ registros)"
                     },
         });
   });
+
   </script>
-  
 @endsection
 
 

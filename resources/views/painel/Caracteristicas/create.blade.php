@@ -1,14 +1,14 @@
 @extends('adminlte::page')
-@section('daterangepicker')
-@endsection
 
+@section('summernote')
+@endsection
 
 @section('content')
 <div class="container-fluid">
     <div class="row ">
         <div class="col-md-12">
             <div class="card">
-            <div class="card-header">{{ __('Artigos Atualizar') }} <a class="float-right"  href="{{ route('blog.index') }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
+                <div class="card-header">{{ __('Nova Caracteristicas') }} <a class="float-right" href="{{ route('caracteristica.index', $product->id) }}">Voltar <i class=" fas fa-hand-point-left"></i></a></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -18,16 +18,11 @@
                     @endif
 
                 {{-- Formulário --}}
-                <form role="form" action="{{ route('blog.update', $Blog->id) }}" method="POST" enctype="multipart/form-data"> 
+                <form role="form" action="{{ route('caracteristica.store') }}" method="POST" enctype="multipart/form-data"> 
                   {{ csrf_field() }}
-                  {{ method_field('PUT') }}
-                  
-                  @include('painel/Blog/form')  
+                  @include('painel/Caracteristicas/form')  
                 
-                
-            </form>       
-             @include('painel/Categoria/create_modal')  
- 
+            </form>        
                 </div>
             </div>
         </div>
@@ -47,7 +42,6 @@
         height: 500,
         toolbar: [
           ['style', ['style']],
-          ['codeview', ['style']],
           ['font', ['bold', 'underline', 'clear']],
           ['color', ['color']],
           ['para', ['ul', 'ol', 'paragraph']],
@@ -92,7 +86,7 @@
           
           }
         });
-              
+     
         }); 
       $('#remover_categoria').click(function (e) { 
           e.preventDefault();
@@ -125,6 +119,7 @@
   </script>
     
 @endsection
+@include('painel/Categoria.create_modal')  
 
 {{-- Estamos utilizando adimnlte laravel https://github.com/jeroennoten/Laravel-AdminLTE#1-requirements --}}
 {{-- Modelo https://adminlte.io/themes/v3/pages/UI/general.html --}}

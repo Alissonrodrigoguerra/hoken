@@ -35,6 +35,13 @@ Route::group(['prefix' => 'painel'], function () {
     Route::resource('cor', 'PainelCorController', ['except' => ['index', 'create']])->middleware('painel') ;
     Route::get('cor/index/{cor}', 'PainelCorController@index')->name('cor.index');
     Route::get('cor/create/{cor}', 'PainelCorController@create')->name('cor.create');
+    Route::resource('caracteristica', 'PainelCaracteristicaController', ['except' => ['index', 'create']])->middleware('painel') ;
+    Route::get('caracteristica/index/{caracteristica}', 'PainelCaracteristicaController@index')->name('caracteristica.index');
+    Route::get('caracteristica/create/{caracteristica}', 'PainelCaracteristicaController@create')->name('caracteristica.create');
+    Route::resource('processo', 'PainelProcessoController', ['except' => ['index', 'create']])->middleware('painel') ;
+    Route::get('processo/index/{processo}', 'PainelProcessoController@index')->name('processo.index');
+    Route::get('processo/create/{processo}', 'PainelProcessoController@create')->name('processo.create');
+
 });
 
 

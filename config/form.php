@@ -15,8 +15,8 @@ return[
     'Video_link' => ['name' => 'Video_link', 'label' => 'Código do vídeo no youtube', 'placeholder' => 'Insira código do vídeo no youtube'],
 
 
-    'name_caracteristica' => ['name' => 'name', 'label' => 'Produto', 'placeholder' => 'Nome do Produto'],
-    'valor' => ['name' => 'imagem_destaque', 'label' => 'Imagem Destaque', 'placeholder' => 'Imagem em Destaque'],
+    'name_caracteristica' => ['name' => 'name', 'label' => 'Característica', 'placeholder' => 'Insira o nome'],
+    'valor' => ['name' => 'Valor', 'label' => 'Valor', 'placeholder' => 'Insira um valor'],
     'destaque' => ['name' => 'destaque', 'label' => 'Destaque', 'placeholder' => 'Selecione este item para destaque'],
     'destaque_imagem' => ['name' => 'destaque_imagem', 'label' => 'Imagem do Destaque', 'placeholder' => 'Selecione uma imagem para destaque'],
 

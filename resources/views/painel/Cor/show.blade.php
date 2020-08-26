@@ -9,7 +9,7 @@
         <div class="col-md-12">
             <div class="card">
                      
-                 <div class="card-header">{{ __('Cores - ').$product->name }}  <a class="float-right"  href="{{ route('produto.index', $product->id) }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
+                 <div class="card-header">{{ __('Caracteristicases - ').$product->name }}  <a class="float-right"  href="{{ route('produto.index', $product->id) }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -25,7 +25,7 @@
                         <tr>
                           <th>Id</th>
                           <th>Nome</th>
-                          <th>Cor</th>
+                          <th>Caracteristicas</th>
                           <th>Hexa</th>
                           <th>Status</th>
                           <th ><a href="{{ route('cor.create', $product->id)}}" class="btn btn-lg btn-outline-primary "> <i class="fas fa-plus"></i> Adicionar</a>
@@ -65,7 +65,7 @@
                         <tr>
                         <th>Id</th>
                           <th>Nome</th>
-                          <th>Cor</th>
+                          <th>Caracteristicas</th>
                           <th>Hexa</th>
                           <th>Status</th>
                           <th></th>
@@ -96,10 +96,10 @@
         "responsive": true,
         "language": {
                         "lengthMenu": "Listando _MENU_ registros por página",
-                        "zeroRecords": "Nenhum pregistro encontrado.",
+                        "zeroReCaracteristicasds": "Nenhum pregistro encontrado.",
                         "info": " Página _PAGE_ de _PAGES_",
                         "search": "Pesquisar",
-                        "infoEmpty": "No records available",
+                        "infoEmpty": "No reCaracteristicasds available",
                         "infoFiltered": "(Filtrando de _MAX_ registros)"
                     },
         });
