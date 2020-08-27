@@ -11,7 +11,7 @@
     <div class="row ">
         <div class="col-md-12">
             <div class="card">
-            <div class="card-header">{{ __('Manual Atualizar') }} <a class="float-right"  href="{{ route('manual.index') }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
+            <div class="card-header">{{ __('duvidas.Atualizar') }} <a class="float-right"  href="{{ route('duvidas.index') }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -21,11 +21,11 @@
                     @endif
 
                 {{-- Formulário --}}
-                <form role="form" action="{{ route('manual.update', $Manual->id) }}" method="POST" enctype="multipart/form-data"> 
+                <form role="form" action="{{ route('duvidas.update', $Duvidas->id) }}" method="POST" enctype="multipart/form-data"> 
                   {{ csrf_field() }}
                   {{ method_field('PUT') }}
                   
-                  @include('painel/Manual/form')  
+                  @include('painel/duvidas.form')  
                 
                 
             </form>       

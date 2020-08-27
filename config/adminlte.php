@@ -363,12 +363,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Listar',
-                    'url'  => '#',
+                    'url'  => 'painel/franquias',
                 ],
-            
                 [
-                    'text'    => 'Nova Franquia',
-                    'url'     => '#',
+                    'text'    => 'Novo Produto',
+                    'url'     => 'painel/franquias/create',
                    
                 ],
                

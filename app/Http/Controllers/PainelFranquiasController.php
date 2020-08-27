@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class  PainelDuvidasController  extends Controller
+class  PainelFranquiasController  extends Controller
 {
 
     /**
@@ -27,9 +27,9 @@ class  PainelDuvidasController  extends Controller
     {       
         //
       
-        $Duvidas = \App\Duvidas::get();
+        $franquias = \App\franquias::get();
 
-        return view('painel/Duvidas.show', compact('Duvidas'));
+        return view('painel/Duvidas.show', compact('franquias'));
 
     }
 
@@ -58,8 +58,8 @@ class  PainelDuvidasController  extends Controller
     public function store(Request $request)
     {
         // 
-        
-        $Manual = new \App\Duvidas;
+        dd($request->input());
+        $Manual = new \App\Franquias;
         $Manual->nome = $request->input('name');
         $Manual->descripiton = $request->input('post_content'); 
         $Manual->status_log = $request->input('status_log'); 
