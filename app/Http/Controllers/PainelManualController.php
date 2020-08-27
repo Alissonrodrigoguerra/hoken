@@ -65,6 +65,11 @@ class  PainelManualController  extends Controller
         $Manual->Produto_id = $request->input('Produto_id'); 
         $Manual->status_log = $request->input('status_log'); 
         $Manual->updated_at = $request->input('banner_data'); 
+        $Manual->save();
+        $Manual = \App\Manual::latest()->first();
+        $Produto_manual =  \App\Produto::find($request->input('Produto_id'));
+        $Produto_manual->manual_id = $Manual->id;
+        $Produto_manual->save();
         
         // Upload Imagem
         if(!empty($request->hasfile('arquivo'))){
@@ -137,6 +142,9 @@ class  PainelManualController  extends Controller
         $Manual->Produto_id = $request->input('Produto_id'); 
         $Manual->status_log = $request->input('status_log'); 
         $Manual->updated_at = $request->input('banner_data'); 
+        $Produto_manual =  \App\Produto::find($request->input('Produto_id'));
+        $Produto_manual->manual_id = $Manual->id;
+        $Produto_manual->save();
         
         // Upload Imagem
         if(!empty($request->hasfile('arquivo'))){
@@ -156,7 +164,7 @@ class  PainelManualController  extends Controller
 
         };
 
-        return redirect()->route('Manual.index');
+        return redirect()->route('manual.index');
     }
 
     /**

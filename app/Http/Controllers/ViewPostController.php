@@ -87,8 +87,9 @@ class ViewPostController extends Controller
         $Post = \App\Post::where(['status_log' => 1] )->get();
         $Categoria = \App\Categoria::get();
         $Comentarios = \App\Comentario::where(['status_log' => 1, 'post_id' => $id] )->get();
+        $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto' ])->get();
 
-        return view('view.Blog', compact('Post','Post_id', 'Categoria', 'Comentarios'));
+        return view('view.Blog', compact('Post','Post_id', 'Categoria', 'Comentarios', 'categorias'));
 
     }
 

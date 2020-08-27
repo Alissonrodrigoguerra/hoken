@@ -76,7 +76,7 @@ class PainelProdutoController extends Controller
 
 
         if(!empty($request->hasfile('imagem_backgound'))){
-            $imagem =  $request->imagem_backgound->store('public/produto/');
+            $imagem = $request->imagem_backgound->store('public/produto/');
             $Blog->imagem_backgound = $imagem;
  
          }
@@ -159,9 +159,8 @@ class PainelProdutoController extends Controller
             $Blog->destaque = null; 
         }
 
-
         if(!empty($request->hasfile('imagem_backgound'))){
-            $imagem =  $request->imagem_backgound->store('public/produto/');
+            $imagem = $request->imagem_backgound->store('public/produto/');
             $Blog->imagem_backgound = $imagem;
  
          }
@@ -170,6 +169,7 @@ class PainelProdutoController extends Controller
             $imagem =  $request->imagem_destaque->store('public/produto/');
             $Blog->imagem_destaque = $imagem;
          }
+         
          
         if($Blog->save()){
 

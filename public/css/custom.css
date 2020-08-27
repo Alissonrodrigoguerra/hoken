@@ -414,7 +414,22 @@ border: 1px dotted #909090;
   background:  #1c516b ;
 }
 
+/* Produto Lista */
 
+.title_divider{
+  font-size:26px; color: #17726c;
+}
+
+.dot_divider{
+  border: 2px #00A99D dashed;
+}
+
+#header_produto{
+
+  background: #00A99D;
+ 
+
+}
 
 
 @media only screen and (max-width: 990px) {

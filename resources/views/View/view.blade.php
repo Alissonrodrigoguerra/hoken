@@ -14,7 +14,6 @@
 
 {{-- {{dd($Banner)}} --}}
 
-
                         @isset($Banner)
                         <div id="demo" class="carousel slide" data-ride="carousel">
                             <ul class="carousel-indicators">

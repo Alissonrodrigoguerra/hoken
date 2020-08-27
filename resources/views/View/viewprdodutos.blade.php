@@ -7,79 +7,48 @@
 
 
 @section('body')
-
 @include('layouts.nav_menu')
-  <section class="banner_categoria">
-      @isset($categoria->imagem_destaque)
-      <img class="img-fluid" src="{{asset('storage/'. str_after($categoria->imagem_destaque, 'public/'))}}"  alt="{{ $categoria->categoria_title }}">
-      @endisset 
- 
-  </section>
-<div class="container">
- 
-  <div class="row ">
-    @if(isset($produtos[0]))
-    <div id="Produtos" class="col-12  p-5">
-      <h1 class="text-center title_divider " ><b>Produtos</b></h1>
-      <hr class="dot_divider" >
-      <div class="row d-flex justify-content-left">
-        @foreach ($produtos as $item)
-        <div class="col-xl-4 col-lg-4 col-12">
-          <figure class="figure">
-            <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-            <br>
-            <figcaption class="figure-caption text-xs-right">
-            <a name="" id="" class="btn btn-info btn-block " href="{{ route('produtoview.produto', $item->id)}}" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-            <a name="" id="" class="btn btn-outline-info btn-block " href="{{ route('produtoview.manual', $item->manual_id)}}" role="button"><i class="fas fa-book"></i></i> Manual</a>
-          </figcaption>
-        </figure>
-        </div>
-      @endforeach
-      </div>
-    </div>
-    <div id="certificacoes" class="col-12 p-5">
-      <h1 class="text-center"><b>Certificado & Filiações</b></h1>
-      <hr class="dot_divider">
-      <div class="carrossel autoplay">
-        
-        <div class="carrossel-item">
-        <figure class="figure">
-            <img src="{{asset('imagens/ABRAFIPA1.png')}}" class="figure-img img-fluid rounded" >
-        </figure>
-        </div>
-        <div class="carrossel-item">
-        <figure class="figure">
-          <img src="{{asset('imagens/ABF1.png')}}" class="figure-img img-fluid rounded" >
-        </figure>
-        </div>
-        <div class="carrossel-item">
-        <figure class="figure">
-          <img src="{{asset('imagens/GOLD-SEAL1.png')}}" class="figure-img img-fluid rounded" >
-        </figure>
-        </div>
-        <div class="carrossel-item">
-        <figure class="figure">
-          <img src="{{asset('imagens/Water-Quality1.png')}}" class="figure-img img-fluid rounded" >
-        </figure>
-        </div>
-        <div class="carrossel-item">
-        <figure class="figure">
-          <img src="{{asset('imagens/ABF1.png')}}" class="figure-img img-fluid rounded" >
-        </figure>
-        </div>
-      </div>
-    </div>
-    @else
-    <div id="Produtos" class="col-12  p-5">
-    <div class="btn btn-outline-secondary  disabled " role="alert">
-      <strong> Ops, Nenhum produto cadastrado nesta categoria   até o momento, tente novamente mais tarde!</strong>
-    </div>
-  </div>
-   @endif
-  </div>
-</div>
 
-  
+<section id="header_produto" style="background: url('{{asset('storage/'. str_after($produtos->imagem_backgound, 'public/'))}}');  background-repeat: no-repeat; background-size: cover;">
+  <div class="container">
+    <div class="row pt-5 pb-5">
+      <div class="col-lg-6 col-xl-6 col-12 text-center">
+        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img  rounded" alt="{{$produtos->name}}">
+      </div>
+      <div class="col-lg-6 col-xl-6 col-12 p-5 mt-5">
+        <h1 class="title_divider"><b>{{$produtos->name}}</b> - <span style="font-size: 23px">{{$categoria->categoria_title}}</span></h1>
+        <div class="row">
+          <div class="col-lg-6 col-xl-6 col-12 p-2">
+            <a name="" id="" class="btn btn-info btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Comprar</a>
+          </div>
+          <div class="col-lg-6 col-xl-6 col-12 p-2">
+            <a name="" id="" class="btn btn-outline-info btn-block " href="{{ route('produtoview.manual', $produtos->manual_id)}}" role="button"><i class="fas fa-book"></i></i> Manual</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="video_produto" >
+    <div class="row" style="margin:0px -15px -6px -15px">
+      <div class="col-lg-6 col-xl-6 col-12 text-center" >
+      <iframe width="100%" height="480" src="https://www.youtube.com/embed/{{ $produtos->Video_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="col-lg-6 col-xl-6 col-12 pt-5 pb-5 ">
+        <h1 class="title_divider"><b>{{$produtos->name}}</b> - <span style="font-size: 23px">{{$categoria->categoria_title}}</span></h1>
+        <div class="row">
+          <div class="col-lg-6 col-xl-6 col-12 p-2">
+            <a name="" id="" class="btn btn-info btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Comprar</a>
+          </div>
+          <div class="col-lg-6 col-xl-6 col-12 p-2">
+            <a name="" id="" class="btn btn-outline-info btn-block " href="{{ route('produtoview.manual', $produtos->manual_id)}}" role="button"><i class="fas fa-book"></i></i> Manual</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
 
 
                         

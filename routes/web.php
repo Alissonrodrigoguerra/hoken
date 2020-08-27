@@ -58,6 +58,8 @@ Route::post('post/comentario', 'ViewPostController@comentario')->name('post.come
 Route::resource('empresa', 'ViewEmpresaController', ['only' => ['index',]]);
 Route::resource('suporte', 'ViewSuporteController', ['only' => ['index',]]);
 Route::get('produtos/categorias/{post}', 'ViewProdutoController@list_categorias')->name('produtoview.categorias');
+Route::get('produtos/{post}', 'ViewProdutoController@produto_view')->name('produtoview.produto');
+Route::get('manual/{manual}', 'ViewProdutoController@produto_manual')->name('produtoview.manual');
 
 
 Route::resource('politicadequalidade', 'ViewPolicyController', ['only' => ['index',]]);

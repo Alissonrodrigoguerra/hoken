@@ -8,7 +8,7 @@
     <div class="row ">
         <div class="col-md-12">
             <div class="card">
-            <div class="card-header">{{ __('Artigos Atualizar') }} <a class="float-right"  href="{{ route('produto.index') }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
+            <div class="card-header">{{ __('Produtos Atualizar') }} <a class="float-right"  href="{{ route('produto.index') }}">Voltar <i class="fas fa-hand-point-left"></i></a> </div>
 
                 <div class="card-body">
                     @if (session('status'))
