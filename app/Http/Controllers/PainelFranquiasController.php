@@ -29,7 +29,7 @@ class  PainelFranquiasController  extends Controller
       
         $franquias = \App\franquias::get();
 
-        return view('painel/Duvidas.show', compact('franquias'));
+        return view('painel/Franquias.show', compact('franquias'));
 
     }
 
@@ -44,7 +44,7 @@ class  PainelFranquiasController  extends Controller
 
      
 
-        return view('./painel/Duvidas.create');
+        return view('./painel/Franquias.create');
 
 
     }
@@ -57,19 +57,42 @@ class  PainelFranquiasController  extends Controller
      */
     public function store(Request $request)
     {
-        // 
-        dd($request->input());
+        //
         $Manual = new \App\Franquias;
-        $Manual->nome = $request->input('name');
-        $Manual->descripiton = $request->input('post_content'); 
+
+        $request->validate([
+            'nome' => 'required|max:255|min:3',
+            'email' => 'required|email|max:255',
+            'codigo' => 'required|max:255|min:3',
+            'tipo' => 'required|max:255|min:3',
+            'Bairro' => 'required|max:255|min:3',
+            'Rua' => 'required|max:255|min:3',
+            'Numero' => 'required|max:255|min:3',
+            'CEP' => 'required|max:255|min:3',
+            'Telefone' => 'required|max:255|min:3',
+            'Whatsapp' => 'required|max:255|min:3',
+        ]);  
+
+
+
+        $Manual->nome = $request->input('nome');
+        $Manual->codigo = $request->input('codigo');
+        $Manual->tipo = $request->input('tipo');
+        $Manual->Rua = $request->input('Rua');
+        $Manual->Numero = $request->input('Numero');
+        $Manual->Bairro = $request->input('Bairro');
+        $Manual->CEP = $request->input('CEP');
+        $Manual->Telefone = $request->input('Telefone');
+        $Manual->email = $request->input('email');
+        $Manual->referencia = $request->input('referencia'); 
+        $Manual->Whatsapp = $request->input('Whatsapp'); 
         $Manual->status_log = $request->input('status_log'); 
         $Manual->updated_at = $request->input('banner_data'); 
         
 
-
         if($Manual->save()){
 
-            $request->session()->flash('status', 'Duvidas '. $Manual->name .' criado com sucesso!');
+            $request->session()->flash('status', 'Franquia '. $Manual->codigo .' criado com sucesso!');
 
         }else{
 
@@ -77,7 +100,7 @@ class  PainelFranquiasController  extends Controller
 
         };
 
-        return redirect()->route('manual.index');
+        return redirect()->route('franquias.index');
         
     }
 
@@ -92,7 +115,7 @@ class  PainelFranquiasController  extends Controller
         //
         $Duvidas = \App\Duvidas::find($id);
    
-        return view('./painel/Duvidas.create', compact('Duvidas'));
+        return view('./painel/Franquias.create', compact('Duvidas'));
 
     }
 
@@ -104,10 +127,12 @@ class  PainelFranquiasController  extends Controller
      */
     public function edit($id)
     {
+       
         //
-        $Duvidas = \App\Duvidas::find($id);
+        $Franquias = \App\Franquias::find($id);
+       
 
-        return view('./painel/Duvidas.edit', compact('Duvidas'));
+        return view('./painel/Franquias.edit', compact('Franquias'));
     }
 
     /**
@@ -121,9 +146,31 @@ class  PainelFranquiasController  extends Controller
     {
         //
 
-        $Manual = \App\Duvidas::find($id);
-        $Manual->nome = $request->input('name');
-        $Manual->descripiton = $request->input('post_content'); 
+        $Manual = \App\Franquias::find($id);
+        $request->validate([
+            'nome' => 'required|max:255|min:3',
+            'email' => 'required|email|max:255',
+            'codigo' => 'required|max:255|min:3',
+            'tipo' => 'required|max:255|min:3',
+            'Bairro' => 'required|max:255|min:3',
+            'Rua' => 'required|max:255|min:3',
+            'Numero' => 'required|max:255|min:3',
+            'CEP' => 'required|max:255|min:3',
+            'Telefone' => 'required|max:255|min:3',
+            'Whatsapp' => 'required|max:255|min:3',
+        ]);  
+
+        $Manual->nome = $request->input('nome');
+        $Manual->codigo = $request->input('codigo');
+        $Manual->tipo = $request->input('tipo');
+        $Manual->Rua = $request->input('Rua');
+        $Manual->Numero = $request->input('Numero');
+        $Manual->Bairro = $request->input('Bairro');
+        $Manual->CEP = $request->input('CEP');
+        $Manual->Telefone = $request->input('Telefone');
+        $Manual->email = $request->input('email');
+        $Manual->referencia = $request->input('referencia'); 
+        $Manual->Whatsapp = $request->input('Whatsapp'); 
         $Manual->status_log = $request->input('status_log'); 
         $Manual->updated_at = $request->input('banner_data'); 
         
@@ -136,7 +183,7 @@ class  PainelFranquiasController  extends Controller
         }
         if($Manual->save()){
 
-            $request->session()->flash('status', 'Manual '. $Manual->nome .' atualizado com sucesso!');
+            $request->session()->flash('status', 'Franquias '. $Manual->nome .' atualizado com sucesso!');
 
 
         }else{
@@ -145,7 +192,7 @@ class  PainelFranquiasController  extends Controller
 
         };
 
-        return redirect()->route('duvidas.index');
+        return redirect()->route('franquias.index');
     }
 
     /**
@@ -157,11 +204,11 @@ class  PainelFranquiasController  extends Controller
     public function destroy(Request $request, $id)
     {
         //
-        $Duvidas = \App\Duvidas::findOrfail($id);
+        $franquias = \App\Franquias::findOrfail($id);
         
-        if($Duvidas->delete()){
+        if($franquias->delete()){
 
-            $request->session()->flash('status', 'Duvida deletada com sucesso!');
+            $request->session()->flash('status', 'Franquia deletada com sucesso!');
 
 
         }else{
@@ -170,7 +217,7 @@ class  PainelFranquiasController  extends Controller
 
         };
 
-        return redirect()->route('dvuidas.index');
+        return redirect()->route('franquias.index');
 
     }
 }

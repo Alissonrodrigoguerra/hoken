@@ -7,7 +7,7 @@
     <div class="row ">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ __('Duvidas') }}</div>
+                <div class="card-header">{{ __('Franquias') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -24,12 +24,12 @@
                           <th>Título</th>
                           <th>Data Postagem</th>
                           <th>Status</th>
-                          <th ><a href="{{ route('duvidas.create')}}" class="btn btn-lg btn-outline-primary float-right"> <i class="fas fa-plus"></i> Adicionar</a>
+                          <th ><a href="{{ route('franquias.create')}}" class="btn btn-lg btn-outline-primary float-right"> <i class="fas fa-plus"></i> Adicionar</a>
                           </th>
                         </tr>
                         </thead>
                         <tbody>
-                            @forelse($Duvidas as $item)
+                            @forelse($franquias as $item)
                             <tr role="row" class="odd">
                                 <td class="sorting_1" tabindex="0">{{ $item->id}}</td>
                                 <td>{{ $item->nome}}</td>
@@ -41,12 +41,12 @@
                                  {{'Rascunho'}}    
                                 @endif</td>
                                 <td width="150px">
-                                <form action="{{ route('duvidas.destroy', $item->id )}}" method="Post">  {{ csrf_field() }} {{ method_field('DELETE')}}
+                                <form action="{{ route('franquias.destroy', $item->id )}}" method="Post">  {{ csrf_field() }} {{ method_field('DELETE')}}
                                     <button class="btn btn-outline-primary float-left" type="submit" onclick="return confirm('Tem certeza que deseja deletar?')">
                                         <i class="fas fa-trash-alt"></i>
                                     </button>
                                 </form>
-                                <a href="{{ route('duvidas.edit', $item->id)}}" class="btn btn-outline-primary"> <i class="fas fa-pen-alt"></i></a>
+                                <a href="{{ route('franquias.edit', $item->id)}}" class="btn btn-outline-primary"> <i class="fas fa-pen-alt"></i></a>
                                 </td>
                               </tr>
                              @empty

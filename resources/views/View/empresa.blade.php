@@ -98,7 +98,6 @@
         <img  class="p-3 " src="{{ asset('imagens/HAI-Franchising.png') }}" alt="Hoken Internacional">
         <p>
           Licenciadora da marca Hoken é responsável pelas licenças internacionais do grupo e pela venda de franquias.
-
         <p>
           Também proporcionam às mais de 150 franquias do Brasil, América Latina e Europa suporte e apoio para iniciar o negócio, além de modernos sistemas de controle que são utilizados para garantir o resultado dos parceiros franqueados.
         </p>
@@ -115,19 +114,11 @@
         <p>Uma franquia rentável, segura e com rápido retorno sobre o investimento.</p>
       </div>
       <div class="col-xl-3 col-lg-3 col-12 p-4 text-center" >
-        <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
+        <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="http://sejafranqueado.hoken.com.br/" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
       </div>
     </div>
   </div>
 </section>
-
-
-                          
-                          
-                          
-                          
-                          
-
                         
 @include('layouts.footer')
 

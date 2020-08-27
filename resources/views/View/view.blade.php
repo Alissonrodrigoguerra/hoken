@@ -53,22 +53,22 @@
                             </div>
 
                             <div class="col-6 col-lg-3 col-xl-3 text-center">
-                              <span style="font-size:60px;"><img class="img-fluid" src="{{asset('imagens/icon-home-1.svg')}}" alt="Hoken"></span>
+                              <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; " src="{{asset('imagens/icon-home-1.svg')}}" alt="Hoken"></span>
                                 <h2>Bom para você</h2>
                                 <p>Dupla filtragem, carbomax purificada sem incrustações, rica em minerais saudáveis</p>
                             </div>
                             <div class="col-6 col-lg-3 col-xl-3">
-                              <span style="font-size:60px;"><img class="img-fluid" src="{{asset('imagens/icon-home-2.svg')}}" alt="Hoken"></span>
+                              <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; " src="{{asset('imagens/icon-home-2.svg')}}" alt="Hoken"></span>
                               <h2>Economize tempo</h2>
                               <p>Instalação rápida, instantânea e ilimitada e serviço abrangente e simples </p>
                             </div>
                             <div class="col-6 col-lg-3 col-xl-3">
-                              <span style="font-size:60px;"><img class="img-fluid" src="{{asset('imagens/icon-home-3.svg')}}" alt="Hoken"></span>
+                              <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; "  src="{{asset('imagens/icon-home-3.svg')}}" alt="Hoken"></span>
                                 <h2>Ótimo sabor</h2>
                                 <p>Puro refrigerado ou bem quente, sempre com excelente sabor nítido e limpo</p>
                             </div>
                             <div class="col-6 col-lg-3 col-xl-3">
-                              <span style="font-size:60px;"><img class="img-fluid" src="{{asset('imagens/icon-home-4.svg')}}" alt="Hoken"></span>
+                              <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; " src="{{asset('imagens/icon-home-4.svg')}}" alt="Hoken"></span>
                               {{-- icon-home-1.svg --}}   
                                 <h2>Bom para o planeta </h2>
                                 <p>Não há necessidade de garrafas plásticas, com baixo consumo de energia e repleto de recursos inteligentes. </p>
@@ -198,10 +198,10 @@
                           <section id="franquia">
                             <div class="container-fluid">
                               <div class="row">
-                                <div class="col-xl-8 col-lg-8 col-12">
+                                <div class="col-xl-7 col-lg-6 col-12">
                                   <img class="img-cover" src="{{asset('imagens/franchsing.jpg')}}" alt="hoken franchising" style="margin-left:-60px; ">
                                   </div>
-                                  <div class="col-xl-4 col-lg-4 col-12 p-5">
+                                  <div class="col-xl-5 col-lg-4 col-12 p-5">
                                   <h1><b>Hoken Store</b></h1>
                                   <p>A Hoken Store é um modelo inovador de unidade de negócios 
                                     que a Hoken desenvolveu com o foco no varejo e vendas diretas 
@@ -213,7 +213,6 @@
                                     em purificaores de Água
                                   </p>
 
-                                  <a name="" id="" class="btn btn-outline-success btn-lg btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Saiba Mais</a>
 
                                   </div>
                               </div>
@@ -227,7 +226,7 @@
                                   <p>Uma franquia rentável, segura e com rápido retorno sobre o investimento.</p>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-12 p-4 text-center" >
-                                  <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
+                                  <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="http://sejafranqueado.hoken.com.br/" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
                                 </div>
                               </div>
                             </div>

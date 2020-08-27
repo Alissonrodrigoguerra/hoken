@@ -22,8 +22,10 @@
                     <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("empresa.index")}}">Hoken</a></li>
                     <li class="nav-item btn-White"><a class="nav-link btn btn-link dropdown open "  id="triggerId" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"href="{{ route("post.index")}}">Produtos <i class="fas fa-caret-down"></i></a>
                         <div class="dropdown-menu" aria-labelledby="triggerId">
-                            <button class="dropdown-item" href="#"><img src="{{ asset('imagens/icon_3.svg')}}" class="img-fluid" alt="icon-categoria-hoken" style=" height: 25px; ">Água Gelada</button>
-                            <button class="dropdown-item " href="#"><img src="{{ asset('imagens/icon_3.svg')}}" class="img-fluid" alt="icon-categoria-hoken" style=" height: 25px; ">Água Natural </button>
+                                @foreach ($categorias as $item)
+                                <a class="dropdown-item" href="{{ route("produtoview.categorias", $item->id )}}">{{$item->categoria_title}}</a>{{--<img src="{{ asset('imagens/').$item->icon}}" class="img-fluid" alt="icon-categoria-hoken" style=" height: 25px; ">--}}
+                                @endforeach
+                            
                         </div>
                     </li>
                     <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("post.index")}}">Artigos</a></li>

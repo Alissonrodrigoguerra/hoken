@@ -19,9 +19,10 @@ class ViewController extends Controller {
         $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
         $Banner = \App\Banner::where(['status_log' => 1] )->take(3)->get();
         config(['adminlte.plugins.slick.active' => 'true']);
+        $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto' ])->get();
 
 
-        return view('view/view', compact('Banner', 'PostDestaque',  'Post'));
+        return view('view/view', compact('Banner', 'PostDestaque',  'Post','categorias'));
 
     }
 

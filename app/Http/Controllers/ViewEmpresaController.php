@@ -12,8 +12,9 @@ class ViewEmpresaController extends Controller
     {
         //
         $Post = \App\Post::where(['status_log' => 1] )->get();
+        $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto' ])->get();
 
-        return view('view/empresa', compact('Post'));
+        return view('view/empresa', compact('Post', 'categorias'));
 
     }
 

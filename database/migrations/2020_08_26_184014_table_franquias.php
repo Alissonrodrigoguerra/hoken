@@ -22,6 +22,7 @@ class TableFranquias extends Migration
             $table->string('Numero', 255);
             $table->string('Bairro', 255);
             $table->string('CEP', 255);
+            $table->string('Whatsapp', 255);
             $table->string('Telefone', 255);
             $table->string('E-mail', 255);
             $table->longtext('referencia')->nullable();

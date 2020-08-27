@@ -23,8 +23,9 @@ class ViewPostController extends Controller
         $Post_List = \App\Post::where(['status_log' => 1] )->get();
         $Post = \App\Post::where(['status_log' => 1] )->get();
         $Categoria = \App\Categoria::get();
-        
-        return view('view.Bloglist', compact('Post','Post_List', 'Categoria'));
+        $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto' ])->get();
+
+        return view('view.Bloglist', compact('Post','Post_List', 'Categoria', 'categorias'));
 
     }
 
@@ -34,8 +35,9 @@ class ViewPostController extends Controller
         $Post_List = \App\Post::where('categoria_id', $id)->get();
         $Post = \App\Post::where(['status_log' => 1] )->get();
         $Categoria = \App\Categoria::get();
+        $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto' ])->get();
 
-        return view('view.Bloglist', compact('Post', 'Post_List','Categoria'));
+        return view('view.Bloglist', compact('Post', 'Post_List','Categoria', 'categorias'));
 
     }
 
@@ -48,7 +50,7 @@ class ViewPostController extends Controller
         $Comentarios = \App\Comentario::where(['status_log' => 1, 'post_id' => $id] )->get();
         $Post = \App\Post::where(['status_log' => 1] )->get();
         $Categoria = \App\Categoria::get();
-
+        $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto' ])->get();
 
 
         $Comentario = new \App\Comentario;
@@ -73,7 +75,7 @@ class ViewPostController extends Controller
      
             return redirect()->route('post.show', $Comentario->post_id);
 
-        return view('view.Blog', compact('Post', 'Post_id','Categoria', 'Comentarios'));
+        return view('view.Blog', compact('Post', 'Post_id','Categoria', 'Comentarios', 'categorias'));
 
     }
 
