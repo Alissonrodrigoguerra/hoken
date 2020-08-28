@@ -65,6 +65,6 @@ Route::get('manual/{manual}', 'ViewProdutoController@produto_manual')->name('pro
 Route::resource('politicadequalidade', 'ViewPolicyController', ['only' => ['index',]]);
 Route::resource('pesquisa', 'ViewPesquisaController', ['only' => ['index',]]);
 
-// cls
+// cls na pagina unidades instalar este plugin https://leafletjs.com/download.html
 
 

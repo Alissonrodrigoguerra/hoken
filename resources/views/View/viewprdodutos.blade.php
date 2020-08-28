@@ -3,6 +3,8 @@
 
 @section('css')  
 <link rel="stylesheet" href="{{ url('css/custom.css')}}">
+<link rel="stylesheet" href="{{ url(config('adminlte.plugins.slick.files.0.location'))}}">
+<link rel="stylesheet" href="{{ url(config('adminlte.plugins.slick.files.1.location'))}}">
 @stop()
 
 
@@ -13,13 +15,13 @@
   <div class="container">
     <div class="row pt-5 pb-5">
       <div class="col-lg-6 col-xl-6 col-12 text-center">
-        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img  rounded" alt="{{$produtos->name}}">
+        <img src="{{asset('storage/'. str_after($produtos->imagem_destaque, 'public/'))}}" class="figure-img  rounded" alt="{{$produtos->name}}">
       </div>
       <div class="col-lg-6 col-xl-6 col-12 p-5 mt-5">
         <h1 class="title_divider"><b>{{$produtos->name}}</b> - <span style="font-size: 23px">{{$categoria->categoria_title}}</span></h1>
         <div class="row">
           <div class="col-lg-6 col-xl-6 col-12 p-2">
-            <a name="" id="" class="btn btn-info btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Comprar</a>
+            <a name="" id="" class="btn btn-info btn-block " href="{{ $produtos->link }}" role="button"><i class="far fa-hand-point-right"></i> Comprar</a>
           </div>
           <div class="col-lg-6 col-xl-6 col-12 p-2">
             <a name="" id="" class="btn btn-outline-info btn-block " href="{{ route('produtoview.manual', $produtos->manual_id)}}" role="button"><i class="fas fa-book"></i></i> Manual</a>
@@ -31,34 +33,137 @@
 </section>
 
 <section id="video_produto" >
-    <div class="row" style="margin:0px -15px -6px -15px">
+    <div class="row" >
       <div class="col-lg-6 col-xl-6 col-12 text-center" >
-      <iframe width="100%" height="480" src="https://www.youtube.com/embed/{{ $produtos->Video_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe class="p-5" style="width: 100%; max-width: 720px;" height="405px" src="https://www.youtube.com/embed/{{ $produtos->Video_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="col-lg-6 col-xl-6 col-12 pt-5 pb-5 ">
-        <h1 class="title_divider"><b>{{$produtos->name}}</b> - <span style="font-size: 23px">{{$categoria->categoria_title}}</span></h1>
-        <div class="row">
-          <div class="col-lg-6 col-xl-6 col-12 p-2">
-            <a name="" id="" class="btn btn-info btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Comprar</a>
+        <div class="row justify-content-center mt-5 mb-5">
+          <div class="col-md-12 text-center"> <h1 class="text-info"><b>Caracteristicas</b></h1></div>
+          @foreach ($caracteristica_destaque as $item)
+          <div class="m-2 p-3 caracteristica" data-toggle="tooltip" data-placement="bottom" title="{{$item->name}}">
+            <object type="image/svg+xml" class="icon" data="{{asset('storage/'. str_after($item->destaque_imagem, 'public/'))}}"></object>
           </div>
-          <div class="col-lg-6 col-xl-6 col-12 p-2">
-            <a name="" id="" class="btn btn-outline-info btn-block " href="{{ route('produtoview.manual', $produtos->manual_id)}}" role="button"><i class="fas fa-book"></i></i> Manual</a>
-          </div>
+          @endforeach 
         </div>
       </div>
     </div>
 </section>
 
+<section id="processo_produto" >
+  <div class="row" >
+    <div class="col-lg-6 col-xl-6 col-12 text-center p-5" >
+      <div class="col-md-12 text-center"> </div>
+      @foreach ($processo as $item)
+      <h1 class="text-white"><b>{{$item->name}}</b></h1>
+      <img src="{{asset('storage/'. str_after($item->imagem, 'public/'))}}" class="img-fluid" alt="{{$categoria->categoria_title}}">
+      <p class="btn btn-outline-light disabled text-withe">{{$item->titulo}}</p>
+      @endforeach
+    </div>
+    <div class="col-lg-6 col-xl-6 col-12 pt-5 pb-5 ">
+      <div class="row justify-content-center mt-5 mb-5">
+        @foreach ($processo as $item)
+          <img src="{{asset('storage/'. str_after($item->imagem_destaque, 'public/'))}}" class="img-cover-full" alt="{{$categoria->categoria_title}}">
+          @endforeach
+      </div>
+    </div>
+  </div>
+</section>
 
+<section id="caracteristicas_produto" class="pt-5" >
+  <div class=" container "  style="background: #fff;    border-radius: 50px 50px 0px 0px; ">
+    {{-- box-shadow: 3px 3px 5px 6px rgb(28, 157, 231); --}}
+    <div class="row ">
+      <div class="col-lg-6 col-xl-6 col-12 mt-5 mb-5  pt-5 pb-5 text-center ">
+        <img src="{{asset('storage/'. str_after($produtos->imagem_destaque, 'public/'))}}" width="250px" alt="{{$categoria->categoria_title}}">
+      </div>
+      <div class="col-lg-6 col-xl-6 col-12 pt-5 pb-5 ">
+        <div class="row justify-content-left mt-5 mb-5">
+         @if (isset($cores))
+          <div class="col-md-12 text-left"> 
+            <h2 class="text-info"><b>Escolha a<br>
+            cor que mais<br>
+            combina com a <br>
+            sua cozinha.</b></h2>
+          </div>
+          @foreach ($cores as $item)
+          <div class="m-2 p-3 cor"  data-toggle="tooltip" data-placement="top" title="{{$item->nome}}" style="background: {{$item->hexa}}">
+          </div>
+          @endforeach 
+          <div class="col-12 p-2">
+            <a name="" id="" class="btn btn-info btn-lg mt-3 pl-3 pr-3 " href="{{ $produtos->link }}" role="button"><i class="far fa-hand-point-right"></i> Comprar</a>
+          </div>
+          @else
+          <div class="col-md-12 text-left"> 
+            <h2 class="text-info"><b>Veja as principais<br>
+            Caracteristicas do<br>
+            {{$Produtos->name}}</b></h2>
+          </div>
+          <div class="col-12 p-2">
+            <a name="" id="" class="btn btn-info btn-lg mt-3 pl-3 pr-3 " href="{{ $produtos->link }}" role="button"><i class="far fa-hand-point-right"></i> Comprar</a>
+          </div>
 
-                        
+         @endif
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8 col-xl-8  col-11">
+        <h2 class="text-info"><b>Especificações</b></h2>
+        <hr class="dot_divider">
+        @foreach ($caracteristica as $item)
+        <div class="row " >
+        <div class="col-6 text-info text-left" style="border-right: 2px solid #00A99D;" ><h4><b>{{$item->name}}</b></h4></div>
+        <div class="col-6 text-info text-right"><h4><b>{{$item->valor}}</b></h4></div>
+        </div>
+        <hr class="solid_divider">
+        @endforeach 
+                
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+<div id="certificacoes" class="col-12 p-5">
+  <h1 class="text-center"><b>Certificado & Filiações</b></h1>
+  <hr class="dot_divider">
+  <div class="carrossel autoplay">
+    
+    <div class="carrossel-item">
+    <figure class="figure">
+        <img src="{{asset('imagens/ABRAFIPA1.png')}}" class="figure-img img-fluid rounded" >
+    </figure>
+    </div>
+    <div class="carrossel-item">
+    <figure class="figure">
+      <img src="{{asset('imagens/ABF1.png')}}" class="figure-img img-fluid rounded" >
+    </figure>
+    </div>
+    <div class="carrossel-item">
+    <figure class="figure">
+      <img src="{{asset('imagens/GOLD-SEAL1.png')}}" class="figure-img img-fluid rounded" >
+    </figure>
+    </div>
+    <div class="carrossel-item">
+    <figure class="figure">
+      <img src="{{asset('imagens/Water-Quality1.png')}}" class="figure-img img-fluid rounded" >
+    </figure>
+    </div>
+    <div class="carrossel-item">
+    <figure class="figure">
+      <img src="{{asset('imagens/ABF1.png')}}" class="figure-img img-fluid rounded" >
+    </figure>
+    </div>
+  </div>
+</div>
+</section>
+
+              
+
 @include('layouts.footer')
 
-
 @stop
-
-
-
 
 @section('js')
 
@@ -154,7 +259,22 @@
 
    });
 
+ 
 
+
+$('[data-toggle="tooltip"]').tooltip();   
+
+
+   
+</script>
+
+<script src="{{ url(config('adminlte.plugins.slick.files.2.location'))}}}}
+)}}"></script>
+<script src="{{ url(config('adminlte.plugins.slick.files.3.location'))}}"></script>
+<script src="{{ url(config('adminlte.plugins.slick.files.4.location'))}}"></script>
+
+<script>
+  
 $('.autoplay').slick({
   dots: true,
   infinite: true,
@@ -180,9 +300,6 @@ $('.autoplay').slick({
     }
   ],
 });
-
-  
-   
 </script>
 
 @stop

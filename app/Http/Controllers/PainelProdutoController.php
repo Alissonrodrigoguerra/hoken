@@ -44,7 +44,6 @@ class PainelProdutoController extends Controller
 
         $Categorias = \App\Categoria::where(['status_log' => 1, 'status_log' => 1] )->get();
 
-
         return view('./painel/Produto.create', compact('Categorias'));
 
 

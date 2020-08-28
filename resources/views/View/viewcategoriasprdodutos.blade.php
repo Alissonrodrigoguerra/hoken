@@ -11,9 +11,8 @@
 @include('layouts.nav_menu')
   <section class="banner_categoria">
       @isset($categoria->imagem_destaque)
-      <img class="img-fluid" src="{{asset('storage/'. str_after($categoria->imagem_destaque, 'public/'))}}"  alt="{{ $categoria->categoria_title }}">
+        <img class="img-fluid" src="{{asset('storage/'. str_after($categoria->imagem_destaque, 'public/'))}}"  alt="{{ $categoria->categoria_title }}">
       @endisset 
- 
   </section>
 <div class="container">
  
@@ -184,7 +183,6 @@
 
 
    });
-
 
 $('.autoplay').slick({
   dots: true,
