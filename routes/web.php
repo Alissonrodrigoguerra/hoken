@@ -60,11 +60,12 @@ Route::resource('suporte', 'ViewSuporteController', ['only' => ['index',]]);
 Route::get('produtos/categorias/{post}', 'ViewProdutoController@list_categorias')->name('produtoview.categorias');
 Route::get('produtos/{post}', 'ViewProdutoController@produto_view')->name('produtoview.produto');
 Route::get('manual/{manual}', 'ViewProdutoController@produto_manual')->name('produtoview.manual');
+Route::get('unidades/', 'ViewUnidadeController@listar')->name('lista.unidade');
+Route::get('unidades/{manual}', 'ViewUnidadeController@unidade')->name('exibir.unidade');
 
 
 Route::resource('politicadequalidade', 'ViewPolicyController', ['only' => ['index',]]);
 Route::resource('pesquisa', 'ViewPesquisaController', ['only' => ['index',]]);
 
-// cls na pagina unidades instalar este plugin https://leafletjs.com/download.html
 
 

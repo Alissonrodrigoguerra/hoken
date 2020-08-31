@@ -752,8 +752,25 @@ return [
                 ],
                
             ],
-
         ],
+        'leaflet' => [
+                'active' => true,
+                'files' => [
+             
+                    [
+                        'type' => 'css',
+                        'asset' => true ,
+                        'location' => '/plugins/leaflet/leaflet.css',
+                    ],
+                    [
+                        'type' => 'js',
+                        'asset' => true,
+                        'location' => '/plugins/leaflet/leaflet.js',
+                    ],
+                   
+                ],
+            ],
+
         
     ],
 ];
