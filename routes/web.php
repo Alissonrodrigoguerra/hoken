@@ -61,7 +61,8 @@ Route::get('produtos/categorias/{post}', 'ViewProdutoController@list_categorias'
 Route::get('produtos/{post}', 'ViewProdutoController@produto_view')->name('produtoview.produto');
 Route::get('manual/{manual}', 'ViewProdutoController@produto_manual')->name('produtoview.manual');
 Route::get('unidades/', 'ViewUnidadeController@listar')->name('lista.unidade');
-Route::get('unidades/{manual}', 'ViewUnidadeController@unidade')->name('exibir.unidade');
+Route::get('unidades/{uniades}', 'ViewUnidadeController@unidade')->name('exibir.unidade');
+Route::get('unidades/estado/{estados}', 'ViewUnidadeController@estados')->name('estado.unidade');
 
 
 Route::resource('politicadequalidade', 'ViewPolicyController', ['only' => ['index',]]);

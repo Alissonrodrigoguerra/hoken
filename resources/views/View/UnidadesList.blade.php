@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
-
+ 
 @section('css')  
 <link rel="stylesheet" href="{{ url('css/custom.css')}}">
 
@@ -14,23 +14,23 @@
 
 
 <div id="mapid"></div>
+
+
  <div class="container pt-5 pb-5">
   <div class="row">
     <div id="sidebar_left" class="col-xl-3 col-lg-3 col-12">
      <ul>
-       <h1  class="title">Unidades</h1>
+       <h1  class="title">Franquias</h1>
       <li></li>
       <li>
       {!! Form::open('#') !!}
       {!! Form::text('pesquisa_unidade',)->placeholder('Digite sua cidade') !!} 
       {!! Form::close() !!}
       </li>
-      <li><a href="{{route('post.index')}}"></a></li>
-
-       @isset($Categoria)
-        @foreach ($Categoria as $categoria)
+       @isset($Estados)
+        @foreach ($Estados as $item)
         <li>
-          <a href="{{route('post.categoria', $categoria->id ) }}">{{$categoria->categoria_title }}</a>
+        <a href="{{ route('estado.unidade', $item->uf) }}">{{$item->nome }}</a>
         </li>
         @endforeach
        @endisset  
@@ -38,23 +38,40 @@
     </div>
     <div class="col-xl-9 col-lg-9 col-12">
       <div class="row">
-        @isset($Post_List)
-        @foreach ($Post_List as $post)
-        <div class="box col-xl-4 col-lg-4 col-12 text-center">
-          <figure class="figure">
-            <img class="img-fluid" src="{{asset('storage/'. str_after($post->post_imagem, 'public/'))}}" alt="{{$post->post_title }} - Hoken">
-            <figcaption class="figure-caption text-xs-right">
-              <h1 style="color: #fff; font-size:20px; padding: 10px 0px;">{{$post->post_title }}</h1>
-              
-              <a class="btn btn-lg btn-sm btn-outline-light" href="{{route('post.show', $post->id ) }}"><i class="far fa-hand-point-right"></i>Ver detalhes</a>
-            </figcaption>
-          </figure>
+        @isset($unidades)
+        <div id="accordianId" role="tablist" aria-multiselectable="true">
+        <div class="accordion" id="accordionExample">
+        <div class="row">
+        @foreach ($unidades as $item)
+          <div class="card col-6">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+              <button class="btn text-info btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-street-view"></i>&nbsp;&nbsp;<b>{{$item->nome}}</b></button>
+              </h2>
+            </div>
+        
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <p style='text-align: left'>
+                  <span if="endereco">{{$item->Rua}}, {{$item->Numero}}</span><br>
+                  <span if="bairro">Bairro: {{$item->Bairro}}</span><br>
+                  <span if="cidade">Cidade: {{$item->cidade}}</span><br>
+                  <span if="cep">CEP: {{$item->CEP}}</span><br>
+                  <span if="telefone">Telefone(s): {{$item->Telefone}}| <a href='https://api.whatsapp.com/send?phone={{$item->Whatsapp}}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a></span><br>
+                  <span if="email">E-mail:  <a href='mailto:{{$item->email}}?subject=Hoken 995'>{{$item->email}}><br></span><br>
+                  <span if="unidade"><a href='{{ route('exibir.unidade', $item->id)}}' class='btn btn-block btn-info' >site</a></p>
+              </div>
+            </div>
+          </div>
         </div>
         @endforeach
+        </div>
+      </div>
       @endisset
-      @if (empty($Post_List[0]))
+      @if (empty($unidades[0]))
         <div class="btn btn-outline-secondary  disabled " role="alert">
-          <strong> Ops, Nenhum artigo cadastrado até o momento, tente novamente mais tarde!</strong>
+          <strong> Ops, Nenhuma unidade cadastrada nesta região até o momento, tente novamente mais tarde!
+          </strong>
         </div>
       @endif
       </div>
@@ -164,12 +181,6 @@
    });
 
 
-// $('.autoplay').slick({
-//   slidesToShow: 3,
-//   slidesToScroll: 1,
-//   autoplay: true,
-//   autoplaySpeed: 2000,
-// });
 var mymap = L.map('mapid').setView([-20.838330, -49.350817], 3);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
@@ -181,13 +192,25 @@ var mymap = L.map('mapid').setView([-20.838330, -49.350817], 3);
 		tileSize: 512,
 		zoomOffset: -1
 	}).addTo(mymap);
-
-	L.marker([-20.838330, -49.350817]).addTo(mymap).bindPopup("<p style='text-align: left'>Endereço: Rua Cabral, 579<br>Bairro: Centro<br>Cidade: Marechal Cândido Rondon/PR<br>CEP: 85960-000<br>Telefone(s): (45) 3254-0780 | <a href='https://api.whatsapp.com/send?phone=5517981182036&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a><br>E-mail:  <a href='mailto:995@franquiahoken.com.br?subject=Hoken 995'>995@franquiahoken.com.br</a><br><br><a href='#unidade' class='btn btn-block btn-info' >site</a></p> ").closePopup();
-	L.marker([-20.738430, -49.350817]).addTo(mymap).bindPopup("<p style='text-align: left'>Endereço: Rua Cabral, 579<br>Bairro: Centro<br>Cidade: Marechal Cândido Rondon/PR<br>CEP: 85960-000<br>Telefone(s): (45) 3254-0780 | <a href='https://api.whatsapp.com/send?phone=5517981182036&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a><br>E-mail:  <a href='mailto:995@franquiahoken.com.br?subject=Hoken 995'>995@franquiahoken.com.br</a><br><br><a href='#unidade' class='btn btn-block btn-info' >site</a></p> ").closePopup();
-	L.marker([-20.638320, -49.350817]).addTo(mymap).bindPopup("<p style='text-align: left'>Endereço: Rua Cabral, 579<br>Bairro: Centro<br>Cidade: Marechal Cândido Rondon/PR<br>CEP: 85960-000<br>Telefone(s): (45) 3254-0780 | <a href='https://api.whatsapp.com/send?phone=5517981182036&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a><br>E-mail:  <a href='mailto:995@franquiahoken.com.br?subject=Hoken 995'>995@franquiahoken.com.br</a><br><br><a href='#unidade' class='btn btn-block btn-info' >site</a></p> ").closePopup();
-	L.marker([-20.535330, -49.350817]).addTo(mymap).bindPopup("<p style='text-align: left'>Endereço: Rua Cabral, 579<br>Bairro: Centro<br>Cidade: Marechal Cândido Rondon/PR<br>CEP: 85960-000<br>Telefone(s): (45) 3254-0780 | <a href='https://api.whatsapp.com/send?phone=5517981182036&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a><br>E-mail:  <a href='mailto:995@franquiahoken.com.br?subject=Hoken 995'>995@franquiahoken.com.br</a><br><br><a href='#unidade' class='btn btn-block btn-info' >site</a></p> ").closePopup();
-
    
 </script>
 
+@isset($unidades)
+@foreach ($unidades as $item)
+<script>
+    var longitude = {{$item->longitude}}
+    var latitude = {{$item->latitude}}
+  	L.marker([longitude, latitude]).addTo(mymap).bindPopup("<p style='text-align: left'><span if='endereco'>{{$item->Rua}}, {{$item->Numero}}</span><br><span if='bairro'>Bairro: {{$item->Bairro}}</span><br><span if='cidade'>Cidade: {{$item->cidade}}</span><br><span if='cep'>CEP: {{$item->CEP}}</span><br><span if='telefone'>Telefone(s): {{$item->Telefone}}| <a href='https://api.whatsapp.com/send?phone={{$item->Whatsapp}}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a></span><br><span if='email'>E-mail:  <a href='mailto:{{$item->email}}?subject=Hoken 995'>{{$item->email}}><br></span><br><span if='unidade'><a href='{{ route('exibir.unidade', $item->id)}}' class='btn btn-block btn-info' >site</a></p>").closePopup();
+</script>
+@endforeach
+@endisset
 @stop
+
+@if(empty($unidades[0]))
+<script>
+
+setTimeout(function () {
+  document.location.href = '{{ route("lista.unidade")}}'; //will redirect to your blog page (an ex: blog.html)
+    }, 2000); //will call the function after 2 secs.
+</script>
+@endif   

@@ -12,12 +12,14 @@ class ViewUnidadeController extends Controller
 
     public function listar(Request $request) {
 
-        $unidades = \App\franquias::where(['status_log'=> 1 ])->get();
         $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto'])->get();
         $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
         config(['adminlte.plugins.leaflet.active' => 'true']);
+        $Estados = \App\Estados::get();
+        $unidades = \App\franquias::where(['status_log'=> 1 ])->get();
 
-        return view('view/UnidadesList', compact('unidades', 'categorias','Post'));
+
+        return view('view/UnidadesList', compact('unidades','Estados', 'categorias','Post'));
 
     }
 
@@ -25,7 +27,6 @@ class ViewUnidadeController extends Controller
         
         $produtos = \App\Produto::find($id);
         $categoria = \App\Categoria::find($produtos->categoria_id);
-        
         $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto', ])->get();
         $caracteristica_destaque = \App\Caracteristica::where(['status_log'=> 1, 'destaque' => '1'])->get();
         $caracteristica = \App\Caracteristica::where(['status_log'=> 1, 'destaque' => '0'])->get();
@@ -38,14 +39,16 @@ class ViewUnidadeController extends Controller
 
     }
 
-    public function produto_manual (Request $request, $id){
+    public function estados (Request $request, $id){
     
+        $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto'])->get();
         $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
-        $manual = \App\Manual::find($id);
-        $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto', ])->get();
+        config(['adminlte.plugins.leaflet.active' => 'true']);
+        $Estados = \App\Estados::get();
+        $unidades = \App\franquias::where(['estado'=> $id,'status_log'=> 1 ])->get();
 
 
-        return view('view/viewmanual', compact('categorias','manual', 'Post'));
+        return view('view/UnidadesList', compact('unidades','Estados', 'categorias','Post'));
 
     }
     

@@ -42,9 +42,11 @@ class  PainelFranquiasController  extends Controller
     {
         //
 
-     
+        $municipios = \App\Municipios::orderBy('nome', 'ASC')->get();
+        $estados = \App\Estados::orderBy('nome', 'ASC')->get();
+        
 
-        return view('./painel/Franquias.create');
+        return view('./painel/Franquias.create', compact('municipios', 'estados'));
 
 
     }
@@ -81,6 +83,10 @@ class  PainelFranquiasController  extends Controller
         $Manual->Rua = $request->input('Rua');
         $Manual->Numero = $request->input('Numero');
         $Manual->Bairro = $request->input('Bairro');
+        $Manual->longitude = $request->input('longitude');
+        $Manual->latitude = $request->input('latitude');
+        $Manual->cidade = $request->input('cidade');
+        $Manual->estado = $request->input('estado');
         $Manual->CEP = $request->input('CEP');
         $Manual->Telefone = $request->input('Telefone');
         $Manual->email = $request->input('email');
@@ -114,8 +120,11 @@ class  PainelFranquiasController  extends Controller
     {
         //
         $Duvidas = \App\Duvidas::find($id);
+        $municipios = \App\Municipios::orderBy('nome', 'ASC')->get();
+        $estados = \App\Estados::orderBy('nome', 'ASC')->get();
+
    
-        return view('./painel/Franquias.create', compact('Duvidas'));
+        return view('./painel/Franquias.create', compact('Duvidas', 'municipios','estados'));
 
     }
 
@@ -130,9 +139,11 @@ class  PainelFranquiasController  extends Controller
        
         //
         $Franquias = \App\Franquias::find($id);
-       
+        $municipios = \App\Municipios::orderBy('nome', 'ASC')->get();
+        $estados = \App\Estados::orderBy('nome', 'ASC')->get();
 
-        return view('./painel/Franquias.edit', compact('Franquias'));
+
+        return view('./painel/Franquias.edit', compact('Franquias', 'municipios', 'estados'));
     }
 
     /**
@@ -166,6 +177,10 @@ class  PainelFranquiasController  extends Controller
         $Manual->Rua = $request->input('Rua');
         $Manual->Numero = $request->input('Numero');
         $Manual->Bairro = $request->input('Bairro');
+        $Manual->cidade = $request->input('cidade');
+        $Manual->longitude = $request->input('longitude');
+        $Manual->latitude = $request->input('latitude');
+        $Manual->estado = $request->input('estado');
         $Manual->CEP = $request->input('CEP');
         $Manual->Telefone = $request->input('Telefone');
         $Manual->email = $request->input('email');

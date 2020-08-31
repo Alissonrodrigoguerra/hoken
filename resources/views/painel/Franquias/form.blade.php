@@ -12,9 +12,13 @@
               {!! Form::text('codigo', 'Código Franquia')->value($Franquias->codigo?? '') !!}
               {!! Form::select('tipo','Tipo', ['vendas'=>'Vendas','pos_vendas'=>'Pós Vendas','venda_pos_vendas'=>'Vendas e Pós Vendas']) !!}  
               {!! Form::text('Rua', 'Rua')->value($Franquias->Rua?? '') !!}  
-              {!! Form::text('Numero', 'Número')->value($Franquias->Numero?? '') !!}  
+              {!! Form::text('Numero', 'Número')->value($Franquias->Numero?? '') !!} 
               {!! Form::text('Bairro', 'Bairro')->value($Franquias->Bairro?? '') !!}  
-              {!! Form::text('CEP', 'CEP')->value($Franquias->CEP?? '') !!}  
+              {!! Form::select('cidade', "Cidades")->options($municipios->prepend('Encontre sua cidade', ''), 'nome', 'nome')->autocomplete('nome')->value($Franquias->cidade ?? "") !!}
+              {!! Form::select('estado', "Estados")->options($estados->prepend('Encontre o seu estado', ''), 'nome', 'uf')->autocomplete('if')->value($Franquias->estado?? "") !!}
+              {!! Form::text('CEP', 'CEP')->value($Franquias->CEP?? '') !!}
+              {!! Form::text('longitude', 'Longitude')->value($Franquias->longitude?? '') !!} 
+              {!! Form::text('latitude', 'Latitude')->value($Franquias->latitude?? '') !!}    
               {!! Form::text('Whatsapp', 'Whatsapp')->value($Franquias->Telefone?? '') !!}  
               {!! Form::text('Telefone', 'Telefone')->value($Franquias->Telefone?? '') !!}  
               {!! Form::text('email', 'E-mail')->value($Franquias->email?? '')->type('email') !!}  
