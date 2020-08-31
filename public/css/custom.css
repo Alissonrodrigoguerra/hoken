@@ -484,6 +484,22 @@ border: 1px dotted #909090;
 
 #mapid { height: 480px; }
 
+#section_caracteristicas{ color:#46cec4;
+   background-image: url('../imagens/bckground_wather.jpg'); 
+   background-blend-mode: overlay;
+   background-size: cover;
+   background-repeat: no-repeat;
+}
+
+#section_regioes{
+  color:#46cec4;
+}
+
+#section_regioes a{
+  color:#46cec4;
+}
+
+
 
 @media only screen and (max-width: 990px) {
   

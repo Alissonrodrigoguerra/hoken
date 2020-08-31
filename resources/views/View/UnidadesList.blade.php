@@ -36,21 +36,21 @@
        @endisset  
      </ul>
     </div>
-    <div class="col-xl-9 col-lg-9 col-12">
-      <div class="row">
+    <div class="col-xl-9 col-lg-9 col-12 ">
+      <div class="row ml-5">
         @isset($unidades)
         <div id="accordianId" role="tablist" aria-multiselectable="true">
         <div class="accordion" id="accordionExample">
         <div class="row">
         @foreach ($unidades as $item)
-          <div class="card col-6">
+          <div class="card ">
             <div class="card-header" id="headingOne">
               <h2 class="mb-0">
-              <button class="btn text-info btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-street-view"></i>&nbsp;&nbsp;<b>{{$item->nome}}</b></button>
+              <button class="btn text-info btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$item->id}}" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-street-view"></i>&nbsp;&nbsp;<b>{{$item->nome}}</b></button>
               </h2>
             </div>
         
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div id="collapseOne{{$item->id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
                 <p style='text-align: left'>
                   <span if="endereco">{{$item->Rua}}, {{$item->Numero}}</span><br>
@@ -211,6 +211,6 @@ var mymap = L.map('mapid').setView([-20.838330, -49.350817], 3);
 
 setTimeout(function () {
   document.location.href = '{{ route("lista.unidade")}}'; //will redirect to your blog page (an ex: blog.html)
-    }, 2000); //will call the function after 2 secs.
+    }, 1000); //will call the function after 2 secs.
 </script>
 @endif   
