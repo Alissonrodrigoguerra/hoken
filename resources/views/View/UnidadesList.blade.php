@@ -16,14 +16,14 @@
 <div id="mapid"></div>
 
 
- <div class="container pt-5 pb-5">
+ <div id="sidebar_float" class="container pt-5 pb-5">
   <div class="row">
     <div id="sidebar_left" class="col-xl-3 col-lg-3 col-12 text-left">
      <ul>
        <h1  class="title">Franquias</h1>
       <li></li>
       <li>
-      {!! Form::open('#') !!}
+      {!! Form::open()->id('formulario') !!}
       {!! Form::text('pesquisa_unidade', 'Encontre a cidade mais próxima',)->placeholder('Digite sua cidade') !!} 
       
       </li>
@@ -31,6 +31,7 @@
       <li>
         {!! Form::select('estado', 'Pesquise por estado')->options($Estados->prepend('Escolha seu estado'), 'nome' ,'uf') !!}
       </li>
+      {!! Form::submit('submit', 'Pesquisar') !!}
       @endisset  
       </ul>
     </div>
@@ -40,34 +41,7 @@
     <div class="col-xl-9 col-lg-9 col-12 ">
       <div class="row ml-5">
         @isset($unidadesa)
-        <div id="accordianId" role="tablist" aria-multiselectable="true">
-        <div class="accordion" id="accordionExample">
-        <div class="row">
-        @foreach ($unidades as $item)
-          <div class="card ">
-            <div class="card-header" id="headingOne">
-              <h2 class="mb-0">
-              <button class="btn text-info btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne{{$item->id}}" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-street-view"></i>&nbsp;&nbsp;<b>{{$item->nome}}</b></button>
-              </h2>
-            </div>
-        
-            <div id="collapseOne{{$item->id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <div class="card-body">
-                <p style='text-align: left'>
-                  <span if="endereco">{{$item->Rua}}, {{$item->Numero}}</span><br>
-                  <span if="bairro">Bairro: {{$item->Bairro}}</span><br>
-                  <span if="cidade">Cidade: {{$item->cidade}}</span><br>
-                  <span if="cep">CEP: {{$item->CEP}}</span><br>
-                  <span if="telefone">Telefone(s): {{$item->Telefone}}| <a href='https://api.whatsapp.com/send?phone={{$item->Whatsapp}}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a></span><br>
-                  <span if="email">E-mail:  <a href='mailto:{{$item->email}}?subject=Hoken 995'>{{$item->email}}><br></span><br>
-                  <span if="unidade"><a href='{{ route('exibir.unidade', $item->id)}}' class='btn btn-block btn-info' >site</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-        @endforeach
-        </div>
-      </div>
+       
       @endisset
       <div id="msg">
        <div class="btn btn-outline-secondary  disabled " role="alert"><strong> Ops, Nenhuma unidade foi encotrada, tente novamente!</strong></div>
@@ -178,8 +152,10 @@
 
 
    });
+   
    $('#msg').hide();
-   $('#inp-pesquisa_unidade').mouseleave(function (e) { 
+  
+   $('#formulario').submit(function (e) { 
     e.preventDefault();
     var url = "{{ route('pesquisa.unidade')}}";
     var pesquisa = $('#inp-pesquisa_unidade').val();
@@ -196,8 +172,10 @@
       success: function (data){
         if (data[0]) {
             //alert(data[1]);
-            
-
+            unidade_marker_icon(data);
+            $.each( data, function( key, value ) {
+              alert( key + ": " + value['nome'] );
+            });
         } else{
           $('#msg').show();
           setTimeout(function(){
@@ -210,36 +188,35 @@
    
     });
 
-    $('select option:selected').each(function (e) { 
-    e.preventDefault();
-    var url = "{{ route('pesquisa.unidade')}}";
-    var pesquisa = $('input[name="estado"]').val();
-    var token = $('input[name=_token]').val();  
-    var pesquisa = {
-      pesquisa : pesquisa,
-      _token: token 
-    }
+    // $('select').change(function (e) { 
+    // e.preventDefault();
+    
+    // var url = "{{ route('pesquisa.unidade')}}";
+    // var estado = $('select[name="estado"]').val();
+    // var token = $('input[name=_token]').val();  
+    // var pesquisa = {
+    //   estado : estado,
+    //   _token: token 
+    // }
+    // $.ajax({
+    //   type: "post",
+    //   url: url,
+    //   data: pesquisa,
+    //   success: function (data){
+    //     if (data[0]) {
+    //         unidade_marker(data[0]);
+    //         unidade_marker_icon(data[0]);
+    //     } else{
+    //       $('#msg').show();
+    //       setTimeout(function(){
+    //         $('#msg').hide();
+    //       },'2000');
+    //     }
 
-    $.ajax({
-      type: "post",
-      url: url,
-      data: pesquisa,
-      success: function (data){
-        if (data[0]) {
-            //alert(data[1]);
-            
-
-        } else{
-          $('#msg').show();
-          setTimeout(function(){
-            $('#msg').hide();
-          },'2000');
-        }
-
-       }
-    });
+    //    }
+    // });
    
-    });
+    // });
   
 
 
@@ -256,18 +233,30 @@ var mymap = L.map('mapid').setView([-20.838330, -49.350817], 4);
 	}).addTo(mymap);
 
   
-   
+  L.marker([1, 2]).addTo(mymap).bindPopup('');
+
+  function unidade_marker_icon(data){
+    $.each( data, function( key, value ) {
+      L.marker([1, 2]).addTo(mymap).bindPopup('');
+      var longitude = value["longitude"]
+      var latitude = value["latitude"]
+
+  	L.marker([longitude, latitude]).addTo(mymap).bindPopup("<p style='text-align: left'><span if='endereco'>"+value['Rua']+","+value['Numero']+"</span><br><span if='bairro'>Bairro: "+value['Bairro']+"</span><br><span if='cidade'>Cidade: "+value['cidade']+"</span><br><span if='cep'>CEP: "+value['CEP']+"</span><br><span if='telefone'>Telefone(s): "+value['Telefone']+" | <a href='https://api.whatsapp.com/send?phone="+value['Whatsapp']+"&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> "+value['Whatsapp']+"</a></span><br><span if='email'>E-mail:  <a href='mailto:"+value['email']+"?subject=Hoken 995'>"+value['email']+"><br></span><br><span if='unidade'><a href='{{ route('exibir.unidade', "+value['id']+")}}' class='btn btn-block btn-info' >site</a></p>").closePopup();
+
+    });
+  }
+
 </script>
 
-@isset($unidades)
-@foreach ($unidades as $item)
+{{-- @isset($unidades)
+@foreach ($unidades as $item ?? '')
 <script>
-    var longitude = {{$item->longitude}}
-    var latitude = {{$item->latitude}}
-  	L.marker([longitude, latitude]).addTo(mymap).bindPopup("<p style='text-align: left'><span if='endereco'>{{$item->Rua}}, {{$item->Numero}}</span><br><span if='bairro'>Bairro: {{$item->Bairro}}</span><br><span if='cidade'>Cidade: {{$item->cidade}}</span><br><span if='cep'>CEP: {{$item->CEP}}</span><br><span if='telefone'>Telefone(s): {{$item->Telefone}}| <a href='https://api.whatsapp.com/send?phone={{$item->Whatsapp}}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a></span><br><span if='email'>E-mail:  <a href='mailto:{{$item->email}}?subject=Hoken 995'>{{$item->email}}><br></span><br><span if='unidade'><a href='{{ route('exibir.unidade', $item->id)}}' class='btn btn-block btn-info' >site</a></p>").closePopup();
+    var longitude = 3
+    var latitude = 3
+  	L.marker([longitude, latitude]).addTo(mymap).bindPopup("<p style='text-align: left'><span if='endereco'>{{$item ?? ''->Rua}}, {{$item ?? ''->Numero}}</span><br><span if='bairro'>Bairro: {{$item ?? ''->Bairro}}</span><br><span if='cidade'>Cidade: {{$item ?? ''->cidade}}</span><br><span if='cep'>CEP: {{$item ?? ''->CEP}}</span><br><span if='telefone'>Telefone(s): {{$item ?? ''->Telefone}}| <a href='https://api.whatsapp.com/send?phone={{$item ?? ''->Whatsapp}}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a></span><br><span if='email'>E-mail:  <a href='mailto:{{$item ?? ''->email}}?subject=Hoken 995'>{{$item ?? ''->email}}><br></span><br><span if='unidade'><a href='{{ route('exibir.unidade', $item ?? ''->id)}}' class='btn btn-block btn-info' >site</a></p>").closePopup();
 </script>
 @endforeach
-@endisset
+@endisset --}}
 @stop
 
 @if(empty($unidades[0]))
