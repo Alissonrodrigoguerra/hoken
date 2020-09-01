@@ -18,27 +18,28 @@
 
  <div class="container pt-5 pb-5">
   <div class="row">
-    <div id="sidebar_left" class="col-xl-3 col-lg-3 col-12">
+    <div id="sidebar_left" class="col-xl-3 col-lg-3 col-12 text-left">
      <ul>
        <h1  class="title">Franquias</h1>
       <li></li>
       <li>
       {!! Form::open('#') !!}
-      {!! Form::text('pesquisa_unidade',)->placeholder('Digite sua cidade') !!} 
-      {!! Form::close() !!}
+      {!! Form::text('pesquisa_unidade', 'Encontre a cidade mais próxima',)->placeholder('Digite sua cidade') !!} 
+      
       </li>
-       @isset($Estados)
-        @foreach ($Estados as $item)
-        <li>
-        <a href="{{ route('estado.unidade', $item->uf) }}">{{$item->nome }}</a>
-        </li>
-        @endforeach
-       @endisset  
-     </ul>
+      @isset($Estados)
+      <li>
+        {!! Form::select('estado', 'Pesquise por estado')->options($Estados->prepend('Escolha seu estado'), 'nome' ,'uf') !!}
+      </li>
+      @endisset  
+      </ul>
     </div>
+      
+      {!! Form::close() !!}
+      
     <div class="col-xl-9 col-lg-9 col-12 ">
       <div class="row ml-5">
-        @isset($unidades)
+        @isset($unidadesa)
         <div id="accordianId" role="tablist" aria-multiselectable="true">
         <div class="accordion" id="accordionExample">
         <div class="row">
@@ -68,12 +69,9 @@
         </div>
       </div>
       @endisset
-      @if (empty($unidades[0]))
-        <div class="btn btn-outline-secondary  disabled " role="alert">
-          <strong> Ops, Nenhuma unidade cadastrada nesta região até o momento, tente novamente mais tarde!
-          </strong>
-        </div>
-      @endif
+      <div id="msg">
+       <div class="btn btn-outline-secondary  disabled " role="alert"><strong> Ops, Nenhuma unidade foi encotrada, tente novamente!</strong></div>
+      </div>
       </div>
     </div>
   </div>
@@ -167,6 +165,7 @@
 
        
    });
+   
 
    
    $('.btn-search-moblie').focusout(function (e) { 
@@ -179,9 +178,72 @@
 
 
    });
+   $('#msg').hide();
+   $('#inp-pesquisa_unidade').mouseleave(function (e) { 
+    e.preventDefault();
+    var url = "{{ route('pesquisa.unidade')}}";
+    var pesquisa = $('#inp-pesquisa_unidade').val();
+    var token = $('input[name=_token]').val();  
+    var pesquisa = {
+      pesquisa : pesquisa,
+      _token: token 
+    }
+
+    $.ajax({
+      type: "post",
+      url: url,
+      data: pesquisa,
+      success: function (data){
+        if (data[0]) {
+            //alert(data[1]);
+            
+
+        } else{
+          $('#msg').show();
+          setTimeout(function(){
+            $('#msg').hide();
+          },'2000');
+        }
+
+       }
+    });
+   
+    });
+
+    $('select option:selected').each(function (e) { 
+    e.preventDefault();
+    var url = "{{ route('pesquisa.unidade')}}";
+    var pesquisa = $('input[name="estado"]').val();
+    var token = $('input[name=_token]').val();  
+    var pesquisa = {
+      pesquisa : pesquisa,
+      _token: token 
+    }
+
+    $.ajax({
+      type: "post",
+      url: url,
+      data: pesquisa,
+      success: function (data){
+        if (data[0]) {
+            //alert(data[1]);
+            
+
+        } else{
+          $('#msg').show();
+          setTimeout(function(){
+            $('#msg').hide();
+          },'2000');
+        }
+
+       }
+    });
+   
+    });
+  
 
 
-var mymap = L.map('mapid').setView([-20.838330, -49.350817], 3);
+var mymap = L.map('mapid').setView([-20.838330, -49.350817], 4);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
@@ -192,6 +254,8 @@ var mymap = L.map('mapid').setView([-20.838330, -49.350817], 3);
 		tileSize: 512,
 		zoomOffset: -1
 	}).addTo(mymap);
+
+  
    
 </script>
 
@@ -213,4 +277,5 @@ setTimeout(function () {
   document.location.href = '{{ route("lista.unidade")}}'; //will redirect to your blog page (an ex: blog.html)
     }, 1000); //will call the function after 2 secs.
 </script>
-@endif   
+@endif
+

@@ -25,7 +25,6 @@
                                 @foreach ($categorias as $item)
                                 <a class="dropdown-item" href="{{ route("produtoview.categorias", $item->id )}}">{{$item->categoria_title}}</a>{{--<img src="{{ asset('imagens/').$item->icon}}" class="img-fluid" alt="icon-categoria-hoken" style=" height: 25px; ">--}}
                                 @endforeach
-                            
                         </div>
                     </li>
                     <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("post.index")}}">Artigos</a></li>
@@ -35,7 +34,7 @@
                                 <button class="dropdown-item disabled" href="#">Hoken Shop </button>
                             </div>
                     </li>
-                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="#">Unidades</a></li>
+                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("lista.unidade")}}">Unidades</a></li>
 
                 </ul>
             </div>

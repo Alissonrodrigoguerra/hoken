@@ -39,16 +39,12 @@ class ViewUnidadeController extends Controller
 
     }
 
-    public function estados (Request $request, $id){
-    
-        $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto'])->get();
-        $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
-        config(['adminlte.plugins.leaflet.active' => 'true']);
-        $Estados = \App\Estados::get();
-        $unidades = \App\franquias::where(['estado'=> $id,'status_log'=> 1 ])->get();
+    public function pesquisa (Request $request){
+        
+        
+        $unidades = \App\franquias::where('nome', 'like',  '%'.$request->input('pesquisa').'%')->orwhere('cidade', 'like',  '%'.$request->input('pesquisa').'%')->orwhere('estado', 'like',  '%'.$request->input('pesquisa').'%')->get();
+        return json_decode($unidades);
 
-
-        return view('view/UnidadesList', compact('unidades','Estados', 'categorias','Post'));
 
     }
     
