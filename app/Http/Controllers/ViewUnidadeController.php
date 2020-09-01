@@ -31,9 +31,6 @@ class ViewUnidadeController extends Controller
     public function pesquisa (Request $request){
         
        $pesquisa =  $request->input("pesquisa");
-       $estado =  $request->input("estado");
-      
-       if(!empty($pesquisa)){
        $municipio = \App\Municipios::where('nome', 'like',  '%'.$pesquisa.'%')->get();
        $latitude = $municipio[0]->latitude;
        $latitude_Max = $latitude - 1.0000 ;
@@ -50,26 +47,17 @@ class ViewUnidadeController extends Controller
                 $unidades = \App\Franquias::where('estado', $estado[0]->uf)->get();
                 $unidade_pesquisa[$i++] = \App\Franquias::where('cidade',  $key->nome)->get();
        }
-       
-       exit;
-
-        $i = '';
+        $i = ''; 
         $i++;
-        $a = '';
-        $a++;
         foreach ( $unidade_pesquisa as $key ) {
             // echo $key;
             if($key == '[]'){
-                unset($key[$i++]);
+                unset($unidade_pesquisa[$i++]);
             }else{
-                $unidade_pesquisa[$a++] = $key; 
+                $unidade_pesquisa[$i++]= $key; 
             };
         }
-
-        preg_match("/\{(.*)\}/s", $unidade_pesquisa);
-        return json_decode($unidade_pesquisa);
-       } 
-       
+       return json_encode($unidade_pesquisa);
 
     }
     

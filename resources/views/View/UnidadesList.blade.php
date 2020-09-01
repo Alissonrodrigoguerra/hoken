@@ -169,10 +169,10 @@
       type: "post",
       url: url,
       data: pesquisa,
-      success: function (data){
+      success: function (data[0]){
         if (data[0]) {
             //alert(data[1]);
-            unidade_marker_icon(data);
+            unidade_marker_icon(data[0]);
             $.each( data, function( key, value ) {
               alert( key + ": " + value['nome'] );
             });
