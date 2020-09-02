@@ -31,7 +31,8 @@
       <li>
         {!! Form::select('estado', 'Pesquise por estado')->options($Estados->prepend('Escolha seu estado'), 'nome' ,'uf') !!}
       </li>
-      {!! Form::submit('submit', 'Pesquisar') !!}
+      <br>
+      {!! Form::submit('Pesquisar', 'submit')->info()->block() !!}
       @endisset  
       </ul>
     </div>
@@ -39,14 +40,24 @@
       {!! Form::close() !!}
       
     <div class="col-xl-9 col-lg-9 col-12 ">
-      <div class="row ml-5">
-        @isset($unidadesa)
-       
+      <div id="Unidades" class="row ml-5">
+      @isset($unidades)
+      @foreach ($unidades as $item )
+      
+      <div class='col-5 p-2 '>
+        <p>
+          <button class='btn btn-outline-info btn-block' type='button' data-toggle='collapse' data-target='#contentId{{ $item->id }}' aria-expanded='false'aria-controls='contentId'>{{ $item->nome }}</button>
+        </p>
+        <div class='collapse' id='contentId{{ $item->id }}'><p style='text-align: left'><span if='endereco'>{{ $item->Rua }},{{ $item->Numero }}</span><br><span if='bairro'>Bairro: {{ $item->Bairro }}</span><br><span if='cidade'>Cidade:{{ $item->cidade }}</span><br><span if='cep'>CEP: {{ $item->CEP }}</span><br><span if='telefone'>Telefone(s): {{ $item->Telefone }} | <a href='https://api.whatsapp.com/send?phone={{ $item->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> {{ $item->Whatsapp }}</a></span><br><span if='email'>E-mail:  <a href='mailto:{{ $item->email }}?subject=Hoken {{ $item->codigo }}'>{{ $item->email }}<br></span><br><span if='unidade'><a href='{{ route('exibir.unidade', $item->id )}}' class='btn btn-block btn-info' >site</a></p></div></div>
+
+      @endforeach
       @endisset
+       
+      
+      </div>
       <div id="msg">
-       <div class="btn btn-outline-secondary  disabled " role="alert"><strong> Ops, Nenhuma unidade foi encotrada, tente novamente!</strong></div>
-      </div>
-      </div>
+        <div class="btn btn-outline-secondary  disabled " role="alert"><strong> Ops, Nenhuma unidade foi encotrada, veja outro estado! </div>
+       </div>
     </div>
   </div>
 </div> 
@@ -154,14 +165,49 @@
    });
    
    $('#msg').hide();
+
+   $('#inp-pesquisa_unidade').focus(function (e) { 
+      e.preventDefault();
+      $('li:last-of-type').hide();
+      $('label').hide();
+      $('select[name=estado]').hide();
+      $('select[name=estado]').val('');
+
+    });
+
+    $('#inp-pesquisa_unidade').focusout(function (e) { 
+      e.preventDefault();
+      $('li:last-of-type').show();
+      $('label').show();
+      $('select[name=estado]').show();
+    });
+    $('select[name=estado]').focus(function (e) { 
+      e.preventDefault();
+      $('li:nth-child(2)').hide();
+      $('label').hide();
+      $('#inp-pesquisa_unidade').hide();
+      $('#inp-pesquisa_unidade').val('');
+
+    });
+
+    $('select[name=estado]').focusout(function (e) { 
+      e.preventDefault();
+      $('li:last-of-type').show();
+      $('label').show();
+      $('#inp-pesquisa_unidade').show();
+    });       
   
    $('#formulario').submit(function (e) { 
     e.preventDefault();
     var url = "{{ route('pesquisa.unidade')}}";
     var pesquisa = $('#inp-pesquisa_unidade').val();
-    var token = $('input[name=_token]').val();  
+    var estado = $('select[name=estado]').val();
+    var token = $('input[name=_token]').val();
+
+
     var pesquisa = {
       pesquisa : pesquisa,
+      estado : estado,
       _token: token 
     }
 
@@ -169,14 +215,18 @@
       type: "post",
       url: url,
       data: pesquisa,
-      success: function (data[0]){
+      success: function (data){
         if (data[0]) {
-            //alert(data[1]);
-            unidade_marker_icon(data[0]);
-            $.each( data, function( key, value ) {
-              alert( key + ": " + value['nome'] );
+            unidade_marker_icon(data);
+            $('#Unidades').empty()
+            $('#unidades_icon').empty()
+            $.each( data, function( key, value ) { 
+              var html = "<div class='col-5 p-2 '><p><button class='btn btn-outline-info btn-block' type='button' data-toggle='collapse' data-target='#contentId"+value['id']+"' aria-expanded='false'aria-controls='contentId'>"+value['nome']+"</button></p><div class='collapse' id='contentId"+value['id']+"'><p style='text-align: left'><span if='endereco'>"+value['Rua']+","+value['Numero']+"</span><br><span if='bairro'>Bairro: "+value['Bairro']+"</span><br><span if='cidade'>Cidade: "+value['cidade']+"</span><br><span if='cep'>CEP: "+value['CEP']+"</span><br><span if='telefone'>Telefone(s): "+value['Telefone']+" | <a href='https://api.whatsapp.com/send?phone="+value['Whatsapp']+"&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> "+value['Whatsapp']+"</a></span><br><span if='email'>E-mail:  <a href='mailto:"+value['email']+"?subject=Hoken "+value['codigo']+"'>"+value['email']+"<br></span><br><span if='unidade'><a href='{{ route('exibir.unidade', "+value['id']+")}}' class='btn btn-block btn-info' >site</a></p></div></div>'"
+              $('#Unidades').prepend(html)             
+              // 
             });
         } else{
+          $('#Unidades').empty();
           $('#msg').show();
           setTimeout(function(){
             $('#msg').hide();
@@ -188,36 +238,11 @@
    
     });
 
-    // $('select').change(function (e) { 
-    // e.preventDefault();
     
-    // var url = "{{ route('pesquisa.unidade')}}";
-    // var estado = $('select[name="estado"]').val();
-    // var token = $('input[name=_token]').val();  
-    // var pesquisa = {
-    //   estado : estado,
-    //   _token: token 
-    // }
-    // $.ajax({
-    //   type: "post",
-    //   url: url,
-    //   data: pesquisa,
-    //   success: function (data){
-    //     if (data[0]) {
-    //         unidade_marker(data[0]);
-    //         unidade_marker_icon(data[0]);
-    //     } else{
-    //       $('#msg').show();
-    //       setTimeout(function(){
-    //         $('#msg').hide();
-    //       },'2000');
-    //     }
-
-    //    }
-    // });
-   
-    // });
-  
+          
+            
+         
+        
 
 
 var mymap = L.map('mapid').setView([-20.838330, -49.350817], 4);
@@ -237,7 +262,6 @@ var mymap = L.map('mapid').setView([-20.838330, -49.350817], 4);
 
   function unidade_marker_icon(data){
     $.each( data, function( key, value ) {
-      L.marker([1, 2]).addTo(mymap).bindPopup('');
       var longitude = value["longitude"]
       var latitude = value["latitude"]
 
@@ -248,15 +272,17 @@ var mymap = L.map('mapid').setView([-20.838330, -49.350817], 4);
 
 </script>
 
-{{-- @isset($unidades)
-@foreach ($unidades as $item ?? '')
-<script>
-    var longitude = 3
-    var latitude = 3
-  	L.marker([longitude, latitude]).addTo(mymap).bindPopup("<p style='text-align: left'><span if='endereco'>{{$item ?? ''->Rua}}, {{$item ?? ''->Numero}}</span><br><span if='bairro'>Bairro: {{$item ?? ''->Bairro}}</span><br><span if='cidade'>Cidade: {{$item ?? ''->cidade}}</span><br><span if='cep'>CEP: {{$item ?? ''->CEP}}</span><br><span if='telefone'>Telefone(s): {{$item ?? ''->Telefone}}| <a href='https://api.whatsapp.com/send?phone={{$item ?? ''->Whatsapp}}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a></span><br><span if='email'>E-mail:  <a href='mailto:{{$item ?? ''->email}}?subject=Hoken 995'>{{$item ?? ''->email}}><br></span><br><span if='unidade'><a href='{{ route('exibir.unidade', $item ?? ''->id)}}' class='btn btn-block btn-info' >site</a></p>").closePopup();
+@isset($unidades)
+@foreach ($unidades as $item )
+<div id="unidades_icon">
+  <script>
+    var longitude = {{$item->longitude}}
+    var latitude = {{$item->latitude}}
+  	L.marker([longitude, latitude]).addTo(mymap).bindPopup("<p style='text-align: left'><span if='endereco'>{{$item->Rua}}, {{$item->Numero}}</span><br><span if='bairro'>Bairro: {{$item->Bairro}}</span><br><span if='cidade'>Cidade: {{$item->cidade}}</span><br><span if='cep'>CEP: {{$item->CEP}}</span><br><span if='telefone'>Telefone(s): {{$item->Telefone}}| <a href='https://api.whatsapp.com/send?phone={{$item->Whatsapp}}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> 17 9.8118.2036</a></span><br><span if='email'>E-mail:  <a href='mailto:{{$item->email}}?subject=Hoken 995'>{{$item->email}}><br></span><br><span if='unidade'><a href='{{ route('exibir.unidade', $item->id)}}' class='btn btn-block btn-info' >site</a></p>").closePopup();
 </script>
+</div>
 @endforeach
-@endisset --}}
+@endisset
 @stop
 
 @if(empty($unidades[0]))
