@@ -258,7 +258,7 @@ var mymap = L.map('mapid').setView([-20.838330, -49.350817], 4);
 	}).addTo(mymap);
 
   
-  L.marker([1, 2]).addTo(mymap).bindPopup('');
+  // L.marker([1, 2]).addTo(mymap).bindPopup('');
 
   function unidade_marker_icon(data){
     $.each( data, function( key, value ) {
