@@ -210,36 +210,7 @@
    
     });
 
-    $('select option:selected').each(function (e) { 
-    e.preventDefault();
-    var url = "{{ route('pesquisa.unidade')}}";
-    var pesquisa = $('input[name="estado"]').val();
-    var token = $('input[name=_token]').val();  
-    var pesquisa = {
-      pesquisa : pesquisa,
-      _token: token 
-    }
-
-    $.ajax({
-      type: "post",
-      url: url,
-      data: pesquisa,
-      success: function (data){
-        if (data[0]) {
-            //alert(data[1]);
-            
-
-        } else{
-          $('#msg').show();
-          setTimeout(function(){
-            $('#msg').hide();
-          },'2000');
-        }
-
-       }
-    });
-   
-    });
+  
   
 
 
