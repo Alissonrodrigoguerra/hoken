@@ -3,8 +3,6 @@
 
 @section('css')  
 <link rel="stylesheet" href="{{ url('css/custom.css')}}">
-<link rel="stylesheet" href="{{ url(config('adminlte.plugins.slick.files.0.location'))}}">
-<link rel="stylesheet" href="{{ url(config('adminlte.plugins.slick.files.1.location'))}}">
 @stop()
 
 
@@ -268,13 +266,11 @@ $('[data-toggle="tooltip"]').tooltip();
    
 </script>
 
-<script src="{{ url(config('adminlte.plugins.slick.files.2.location'))}}}}
-)}}"></script>
+<script src="{{ url(config('adminlte.plugins.slick.files.2.location'))}}"></script>
 <script src="{{ url(config('adminlte.plugins.slick.files.3.location'))}}"></script>
 <script src="{{ url(config('adminlte.plugins.slick.files.4.location'))}}"></script>
 
 <script>
-  
 $('.autoplay').slick({
   dots: true,
   infinite: true,

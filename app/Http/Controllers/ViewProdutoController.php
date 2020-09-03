@@ -16,8 +16,6 @@ class ViewProdutoController extends Controller
         $categoria = \App\Categoria::find($id);
         $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto'])->get();
         $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
-
-
         config(['adminlte.plugins.slick.active' => 'true']);
         return view('view/viewcategoriasprdodutos', compact('produtos', 'categorias', 'categoria', 'Post'));
 

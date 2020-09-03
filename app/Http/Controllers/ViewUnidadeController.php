@@ -25,6 +25,8 @@ class ViewUnidadeController extends Controller
 
     public function unidade (Request $request, $id){
         $unidades = \App\franquias::find($id);
+        config(['adminlte.plugins.slick.active' => 'true']);
+
         return view('view/Unidadeview', compact('unidades'));
 
     }

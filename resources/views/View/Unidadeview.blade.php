@@ -1,37 +1,49 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{--config()--}}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ url('vendor/fontawesome-free/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{ url('plugins/leaflet/leaflet.css')}}">
-    <link rel="stylesheet" href="{{ url('vendor/adminlte/dist/css/adminlte.min.css')}}">
-    <link rel="stylesheet" href="{{ url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic')}}">
-    <link rel="stylesheet" href="{{ url('css/custom.css')}}">
+@extends('adminlte::page')
 
-</head>
-<body>
-    <section class="section1" id="Início" s>
+@inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
+ 
+@section('css')  
+<link rel="stylesheet" href="{{ url('css/custom.css')}}">
+
+@stop()
+
+
+@section('body')
+    
+<div id="fullpage">
+    <div id="menu" class="fixed-top">
         <div class="container">
-            <div class="row" style="margin: 100px 0px">
+            <div class="row justify-content-center m-4">
+                <div class="col-lg-4 col-xl-3 col-12">
+                    <img src="{{ asset('./imagens/logo-color.svg')}}" class="logomin1 img-fluid" alt="Mais Saude para sua família">
+                    <img src="{{ asset('./imagens/logo-white.svg')}}" class="logomin2 img-fluid" alt="Mais Saude para sua família">
+
+                </div>
+                <div class="col-lg-8 col-xl-8 col-12  text-lg-right text-xl-right text-center">
+                   <h2 class="id_franquia"> Franquia: 000 <a class="btn btn-success" href=""><i class="fab fa-whatsapp"></i> 17 9999 9999</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section fp-auto-height" id="Inicio" >
+        <div class="container" style="padding: 100px 0px ;" >
+            <div class="row  justify-content-left">
                 <div class="col-xl-6 col-lg-6 col-12">
                 <img src="{{ asset('./imagens/maissaudeparasuafamilia-hoken.png')}}" class="img-fluid" alt="Mais Saude para sua família">
-                <div class="call_to_action row  justify-content-center">
-                    <div class=" col-6 btn btn-outline-light btn-large">
-                        Comprar 
-                     </div>   
-                </div>     
                 </div>
                 <div class="col-xl-6 col-lg-6 col-12">
                     <img src="{{ asset('./imagens/linhaprodutoshoken.png')}}" class="img-fluid" alt="Mais Saude para sua família">
                 </div>
+                <div class="col-5  ">
+                    <button class="btn btn-outline-light btn-block">Comprar</button>
+                </div>   
             </div>
+         
+                
+           
         </div>
     </section>
-    <section class="section2" id="institucional">
+    <section class="section" id="institucional">
         <div class="container">
             <div class="row" style="margin: 100px 0px">
                 <div class="col-12 text-center">
@@ -39,15 +51,23 @@
                     <p class="text-info">A água filtrada proporciona grandes benefícios para sua saúde: ela regula a temperatura corporal, combate acne, estrias e celulite, melhora o funcionamento dos rins, altura na prevenção do aparecimento de pedras nos rins, facilita a digestão, diminui o inchaço corporal, melhora a circulação  sanguínia e ainda ajuda emagrecer.</p>
                     <div class="row">
                         <div class="col-lg-3 col-lx-3 col-6">
+                            <img src="{{ asset('./imagens/icons-6.svg')}}" class="img-fluid" alt="">
                             <p class="text-info"> <b>Lubrifica os músculos e articulações</b> </p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
+
+                            <img src="{{ asset('./imagens/icons-7.svg')}}" class="img-fluid" alt="">
+
                             <p class="text-info"> <b> Qualidade da pele</b></p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
+                            <img src="{{ asset('./imagens/icons-8.svg')}}" class="img-fluid" alt="">
+
                             <p class="text-info"> <b> Hidrata e mantem um bom funcionamento dos órgãos</b></p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
+                            <img src="{{ asset('./imagens/icons-9.svg')}}" class="img-fluid" alt="">
+
                             <p class="text-info"> <b> Auxilia no emagracimento</b></p>
                         </div>
                     </div>
@@ -55,11 +75,11 @@
             </div>
         </div>
     </section>
-    <section class="section3" id="produtos" >
+    <section class="section" id="produtos" >
         <div class="container">
             <div class="row" style="margin: 100px 0px">
                 <div class="col-lg-4 col-lx-4 col-6">
-                    <img src="" class="img-fluid" alt="">
+                    <img src="{{ asset('./imagens/icons-12.svg')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-8 col-lx-8 col-6 text-center">
                     <h1 class="text-white"><b>100% SEM CHEIRO</b></h1>
@@ -67,24 +87,67 @@
                    
             </div>
             <div class="col-12">
-                <div class="carrossel autoplay">
-                    <div>
-                      <h3 class="carrossel-item">
+            <div class="carrossel autoplay">
+                <div class="carrossel-item">
+                    <h3>
                     <figure class="figure">
                         <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
                         <br>
                         <figcaption class="figure-caption text-xs-right">
                         <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-    
                       </figcaption>
                     </figure>
                   </h3>
-                  </div>
+                </div>
+                <div class="carrossel-item">
+                    <h3>
+                    <figure class="figure">
+                        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
+                        <br>
+                        <figcaption class="figure-caption text-xs-right">
+                        <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                      </figcaption>
+                    </figure>
+                  </h3>
+                </div>
+                <div class="carrossel-item">
+                    <h3>
+                    <figure class="figure">
+                        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
+                        <br>
+                        <figcaption class="figure-caption text-xs-right">
+                        <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                      </figcaption>
+                    </figure>
+                  </h3>
+                </div>
+                <div class="carrossel-item">
+                    <h3>
+                    <figure class="figure">
+                        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
+                        <br>
+                        <figcaption class="figure-caption text-xs-right">
+                        <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                      </figcaption>
+                    </figure>
+                  </h3>
+                </div>
+                <div class="carrossel-item">
+                    <h3>
+                    <figure class="figure">
+                        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
+                        <br>
+                        <figcaption class="figure-caption text-xs-right">
+                        <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                      </figcaption>
+                    </figure>
+                  </h3>
                 </div>
             </div>
+                
         </div>
     </section>
-    <section class="section4 " id="assistenciatecnica" >
+    <section class="section " id="assistencia" >
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-xl-5 col-12 p-5">
@@ -96,18 +159,18 @@
                         </button>
                 </div>
                 <div class="col-lg-3 col-xl-4 col-12">
-                    <img src="" class="img-fluid" alt="hoken-assistência-tecnica">
+                    <img src="{{ asset('./imagens/icons-11.png')}}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="mapid"></div>
-        </div>
+        <div id="mapid"></div>
+       
+
     </section>
-    <section class="section5 " id="Contato" >
+    <section class="section " id="Contato" >
         
         <a href="https://api.whatsapp.com/send?phone=5517991080582&text=Ol%C3%A1%20Gostaria%20de%20solicitar%20atendimento." class="btn pulse-button "><i class="fab fa-whatsapp" width="50px"></i></a>
-    
+
         <div class="row footer_read">
             <div class="container">
                 <div class="row ">
@@ -180,12 +243,92 @@
                   <div class="traigulo"></div>
         
             </div>
-    
-    </section>
 
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="http://127.0.0.1/hoken/public/plugins/leaflet/leaflet.js"></script>
-<script src="http://127.0.0.1/hoken/public/vendor/adminlte/dist/js/adminlte.min.js"></script>
-</body>
-</html>
+    </section>
+</div>
+
+@stop
+
+@section('js')
+
+<script type="text/javascript">
+ 
+    $('.logomin1').css('display','none'); 
+    $('.logomin2').css('display','block');
+    $('.id_franquia').css('color','#fff');
+    $('a').click(function(){logiverter();});
+    $(window).scroll(function(){logiverter();});
+    $('#mapid').css('heigth','250px'); 
+
+    function logiverter() { 
+        var hash = $(location).attr('hash');
+        if(hash == '#firstPage'){ 
+            $('.logomin1').css('display','none'); 
+            $('.logomin2').css('display','block');
+            $('.id_franquia').css('color','#fff');
+
+            } if(hash == '#secondPage'){ 
+            $('.logomin1').css('display','block'); 
+            $('.logomin2').css('display','none');
+            $('.id_franquia').css('color','#979797');
+
+            } if(hash == '#3rdPage'){ 
+            $('.logomin1').css('display','block'); 
+            $('.logomin2').css('display','none');
+            $('.id_franquia').css('color','#fff');
+
+            } if(hash == '#4rdPage'){ 
+            $('.logomin1').css('display','block'); 
+            $('.logomin2').css('display','none');
+            $('.id_franquia').css('color','#fff');
+
+        }
+    }
+
+    var mymap = L.map('mapid').setView([-20.838330, -49.350817], 20);
+
+	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox/streets-v11',
+		tileSize: 512,
+		zoomOffset: -1
+	}).addTo(mymap);
+
+    L.marker([-20.838330, -49.350817]).addTo(mymap);
+      
+</script>
+
+
+
+<script type="text/javascript">
+$('.autoplay').slick({
+  dots: true,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: true,
+        centerPadding: '40px',
+        slidesToShow: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: true,
+        centerPadding: '40px',
+        slidesToShow: 1
+      }
+    }
+  ],
+});
+</script>
+@stop
+

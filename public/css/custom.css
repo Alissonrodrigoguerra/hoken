@@ -499,16 +499,24 @@ border: 1px dotted #909090;
   color:#46cec4;
 }
 
-#Início{
+#Inicio{
   background-image: url(' ../imagens/background-blue.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 480px;
-  padding:100px ;
+  padding:100px  0px;
 }
-.call_to_action{
-  margin-top:-60px;
+/* .call_to_action{
+  margin-top:-15px;
+} */
 }
+
+#assistencia{
+  background-image: url('../imagens/bckground_wather.jpg'); 
+   padding:100px  0px;
+}
+
+
+
 
 #produtos{
   background: #4FBAFF;
@@ -517,6 +525,10 @@ border: 1px dotted #909090;
 #contato{
   background-image: url('../imagens/bckground_wather.jpg'); 
   padding-top:100px ;
+}
+.scroll-container section {
+	width: 100%;
+	height: 100%;
 }
 
 @media only screen and (max-width: 990px) {
@@ -534,6 +546,12 @@ border: 1px dotted #909090;
 }
 .call_to_action{
   margin-top:-15px;
+}
+
+
+.scroll-container section {
+	width: 100%;
+	height: auto;
 }
 
 
