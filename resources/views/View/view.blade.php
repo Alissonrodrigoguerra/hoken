@@ -85,77 +85,9 @@
                         <div id="ribbon-blue-top" ></div>
                         <div id="section-ribbon-blue">
                         <div class="container">
-                          <div class="row m-5 text-center">
+                        <div class="row m-5 text-center">
                             <div class="col-12">
-                            <div class="carrossel autoplay">
-                              <div>
-                                <h3 class="carrossel-item">
-                              <figure class="figure">
-                                  <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-                                  <br>
-                                  <figcaption class="figure-caption text-xs-right">
-                                  <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-
-                                </figcaption>
-                              </figure>
                             
-                            </h3>
-                            </div>
-                              <div>
-                                <h3 class="carrossel-item">
-                              <figure class="figure">
-                                  <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-                                  <br>
-                                  <figcaption class="figure-caption text-xs-right">
-                                  <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-
-                                </figcaption>
-                              </figure>
-                            
-                            </h3>
-                            </div>
-                              <div>
-                                <h3 class="carrossel-item">
-                              <figure class="figure">
-                                  <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-                                  <br>
-                                  <figcaption class="figure-caption text-xs-right">
-                                  <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-
-                                </figcaption>
-                              </figure>
-                            
-                            </h3>
-                            </div>
-                              <div>
-                                <h3 class="carrossel-item">
-                              <figure class="figure">
-                                  <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-                                  <br>
-                                  <figcaption class="figure-caption text-xs-right">
-                                  <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-
-                                </figcaption>
-                              </figure>
-                            
-                            </h3>
-                            </div>
-                            <div>
-                              <h3 class="carrossel-item">
-                              <figure class="figure">
-                                  <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-                                  <br>
-                                  <figcaption class="figure-caption text-xs-right">
-                                  <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-
-                                </figcaption>
-                              </figure>
-                            
-                            </h3>
-                            </div>
-                            
-                         
-                            </div>
                           </div>
                           </div>
                         </div>

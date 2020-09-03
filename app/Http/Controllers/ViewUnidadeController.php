@@ -24,7 +24,9 @@ class ViewUnidadeController extends Controller
     }
 
     public function unidade (Request $request, $id){
-   
+        $unidades = \App\franquias::find($id);
+        return view('view/Unidadeview', compact('unidades'));
+
     }
   
 

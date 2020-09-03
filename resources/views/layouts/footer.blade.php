@@ -69,7 +69,7 @@
     </div>
 </div>
 
-    {{-- <div id="hadset_menu" class=" text-right d-none">
+    <div id="hadset_menu" class=" text-right d-none">
         <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link desable" href="#">2ª Via de Boleto</a>
@@ -82,5 +82,4 @@
           </ul>
           <div class="traigulo"></div>
 
-    </div> --}}
-{{-- rhumanos@labtajara.com.br --}}
+    </div>

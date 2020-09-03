@@ -64,7 +64,6 @@ Route::get('unidades/', 'ViewUnidadeController@listar')->name('lista.unidade');
 Route::get('unidades/{uniades}', 'ViewUnidadeController@unidade')->name('exibir.unidade');
 Route::post('unidades/pesquisa', 'ViewUnidadeController@pesquisa')->name('pesquisa.unidade');
 
-
 Route::resource('politicadequalidade', 'ViewPolicyController', ['only' => ['index',]]);
 Route::resource('pesquisa', 'ViewPesquisaController', ['only' => ['index',]]);
 

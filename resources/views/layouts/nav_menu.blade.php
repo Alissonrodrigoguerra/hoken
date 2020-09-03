@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-12">
                 <a href="http://" class="btn btn-flat btn-secondary float-left"><i class="fas fa-medal"></i> Politica de Qualidade</a>
-                <a href="http://" class="btn btn-flat btn-success float-right"><i class="fas fa-store"></i> Seja Franqueado</a>
+                <a href="http://hoken.projetosprospecta.com.br/" class="btn btn-flat btn-success float-right"><i class="fas fa-store"></i> Seja Franqueado</a>
                 
             </div>
         </div>
@@ -109,7 +109,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route("post.index")}}">Artigos</a>
         </li>
-        <li class="nav-item btn-White"><a class="nav-link  " href="#">Unidades</a></li>
+        <li class="nav-item btn-White"><a class="nav-link  " href="{{ route("lista.unidade")}}">Unidades</a></li>
 
         <li class="nav-item">
             <a class="nav-link dropdown open "  id="triggerId" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"href="{{ route("post.index")}}">Suporte ao Franqueado</a>
@@ -138,7 +138,7 @@
             <ul class="nav flex-column">
                 
             </ul>
-            <a name="" id="" class="btn btn-block btn-success btn-lg" href="#" role="button">Seja Franquado</a>
+            <a name="" id="" class="btn btn-block btn-success btn-lg" href="http://hoken.projetosprospecta.com.br/" role="button">Seja Franquado</a>
             <div class="col-12 p-3 text-center" style="background: #000; " >
                 <a class="social-facebook ml-3 " href="https://www.facebook.com/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-facebook"></i></a>
                 <a class="social-twitter ml-3 " href="https://twitter.com/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-twitter"></i></a>

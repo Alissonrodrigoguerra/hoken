@@ -62,8 +62,12 @@
 
       </div>
     </div>
-    <div class="col-xl-6 col-lg-6 col-12">
+    <div class="col-xl-6 col-lg-6 col-12 pt-5 pb-5">
       <img src="{{ asset('imagens/Fabrica-3-880x495.jpg') }}" class="img-fluid" alt="Hoken Franching">
+    </div>
+    <div class="col-xl-12 col-lg-12 col-12 pt-5 pb-5" >
+      <img src="{{ asset('imagens/timeline-hoken.svg') }}" class="img-fluid" alt="Hoken Franching">
+
     </div>
   </div>
 </div>

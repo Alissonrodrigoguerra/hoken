@@ -499,22 +499,41 @@ border: 1px dotted #909090;
   color:#46cec4;
 }
 
+#Início{
+  background-image: url(' ../imagens/background-blue.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 480px;
+  padding:100px ;
+}
+.call_to_action{
+  margin-top:-60px;
+}
 
+#produtos{
+  background: #4FBAFF;
+}
+
+#contato{
+  background-image: url('../imagens/bckground_wather.jpg'); 
+  padding-top:100px ;
+}
 
 @media only screen and (max-width: 990px) {
   
 #box-emprensa{
-   
+
   /* background: #fff; */
   margin-left: 0px;
   
-
 }
 
 .box_background{
   margin: 0px;
   background:#fff;
-
+}
+.call_to_action{
+  margin-top:-15px;
 }
 
 
