@@ -38,7 +38,7 @@
 
                 </ul>
             </div>
-            <div class="col-md-2">
+            {{-- <div class="col-md-2">
                 <form>
                     <div class="input-group m-2">
                         <input type="text" class="form-control btn-search">
@@ -49,7 +49,7 @@
 
                 </form>
             
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

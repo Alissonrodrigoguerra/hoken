@@ -87,7 +87,22 @@
                         <div class="container">
                         <div class="row m-5 text-center">
                             <div class="col-12">
-                            
+                              <div class="carrossel autoplay">
+                                @foreach ($produtosDestaque as $item)
+                                <div class="carrossel-item">
+                                    <h3>
+                                    <figure class="figure">
+                                        <img src="{{asset('storage/'. str_after($item->imagem_destaque, 'public/'))}}" class="figure-img img-fluid rounded" alt="">
+                                        <br>
+                                        <figcaption class="figure-caption text-xs-right">
+                                            <a name="" id="" class="btn btn-light btn-block " href="{{ route('produtoview.produto', $item->id)}}" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                                            <a name="" id="" class="btn btn-outline-light btn-block " href="{{ route('produtoview.manual', $item->manual_id)}}" role="button"><i class="fas fa-book"></i></i> Manual</a>
+                                          </figcaption>
+                                    </figure>
+                                  </h3>
+                                </div>
+                                @endforeach
+                            </div>
                           </div>
                           </div>
                         </div>
@@ -213,7 +228,7 @@
                                   <p>Uma franquia rentável, segura e com rápido retorno sobre o investimento.</p>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-12 p-4 text-center" >
-                                  <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="http://sejafranqueado.hoken.com.br/" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
+                                  <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="http://hoken.projetosprospecta.com.br/" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
                                 </div>
                               </div>
                             </div>

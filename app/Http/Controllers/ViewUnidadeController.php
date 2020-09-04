@@ -18,16 +18,16 @@ class ViewUnidadeController extends Controller
         $Estados = \App\Estados::get();
         $unidades = \App\franquias::where(['status_log'=> 1 ])->get();
 
-
         return view('view/UnidadesList', compact('unidades','Estados', 'categorias','Post'));
 
     }
 
     public function unidade (Request $request, $id){
         $unidades = \App\franquias::find($id);
+        $produtos = \App\Produto::where(['destaque'=> 1, 'status_log'=> 1 ])->take(5)->get();
         config(['adminlte.plugins.slick.active' => 'true']);
 
-        return view('view/Unidadeview', compact('unidades'));
+        return view('view/Unidadeview', compact('unidades', 'produtos'));
 
     }
   

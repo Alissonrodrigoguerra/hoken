@@ -15,12 +15,11 @@
         <div class="container">
             <div class="row justify-content-center m-4">
                 <div class="col-lg-4 col-xl-3 col-12">
-                    <img src="{{ asset('./imagens/logo-color.svg')}}" class="logomin1 img-fluid" alt="Mais Saude para sua família">
                     <img src="{{ asset('./imagens/logo-white.svg')}}" class="logomin2 img-fluid" alt="Mais Saude para sua família">
 
                 </div>
                 <div class="col-lg-8 col-xl-8 col-12  text-lg-right text-xl-right text-center">
-                   <h2 class="id_franquia"> Franquia: 000 <a class="btn btn-success" href=""><i class="fab fa-whatsapp"></i> 17 9999 9999</a></h2>
+                   <h2 class="id_franquia"> Franquia: {{$unidades->codigo }} <a class="btn btn-success" id="telefone" href="https://api.whatsapp.com/send?phone={{$unidades->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken."><i class="fab fa-whatsapp"></i> {{$unidades->Whatsapp }}</a></h2>
                 </div>
             </div>
         </div>
@@ -35,7 +34,7 @@
                     <img src="{{ asset('./imagens/linhaprodutoshoken.png')}}" class="img-fluid" alt="Mais Saude para sua família">
                 </div>
                 <div class="col-5  ">
-                    <button class="btn btn-outline-light btn-block">Comprar</button>
+                    <a href="https://api.whatsapp.com/send?phone={{$unidades->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken." class="btn btn-outline-light btn-lg btn-block">Comprar</a>
                 </div>   
             </div>
          
@@ -51,22 +50,22 @@
                     <p class="text-info">A água filtrada proporciona grandes benefícios para sua saúde: ela regula a temperatura corporal, combate acne, estrias e celulite, melhora o funcionamento dos rins, altura na prevenção do aparecimento de pedras nos rins, facilita a digestão, diminui o inchaço corporal, melhora a circulação  sanguínia e ainda ajuda emagrecer.</p>
                     <div class="row">
                         <div class="col-lg-3 col-lx-3 col-6">
-                            <img src="{{ asset('./imagens/icons-6.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('./imagens/icons-07.svg')}}" class="img-fluid" alt="">
                             <p class="text-info"> <b>Lubrifica os músculos e articulações</b> </p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
 
-                            <img src="{{ asset('./imagens/icons-7.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('imagens/icons-08.svg')}}" class="img-fluid" alt="">
 
                             <p class="text-info"> <b> Qualidade da pele</b></p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
-                            <img src="{{ asset('./imagens/icons-8.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('imagens/icons-09.svg')}}" class="img-fluid" alt="">
 
                             <p class="text-info"> <b> Hidrata e mantem um bom funcionamento dos órgãos</b></p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
-                            <img src="{{ asset('./imagens/icons-9.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('imagens/icons-10.svg')}}" class="img-fluid" alt="">
 
                             <p class="text-info"> <b> Auxilia no emagracimento</b></p>
                         </div>
@@ -78,85 +77,45 @@
     <section class="section" id="produtos" >
         <div class="container">
             <div class="row" style="margin: 100px 0px">
-                <div class="col-lg-4 col-lx-4 col-6">
+                <div class="col-lg-4 col-lx-4 col-12">
                     <img src="{{ asset('./imagens/icons-12.svg')}}" class="img-fluid" alt="">
                 </div>
-                <div class="col-lg-8 col-lx-8 col-6 text-center">
+                <div class="col-lg-8 col-lx-8 col-12 text-center " style="margin: 100px 0px">
                     <h1 class="text-white"><b>100% SEM CHEIRO</b></h1>
                     <p class="text-white">Se a água que você ingere apresenta cheiro, é melhro ficar atento pois esse não é um bom sinal. A água pura não deve ter nem odor nem cor! A ingestão de uma água de qualidade. Isso porque entre diversos motivos, o excesso de color ocasiona alteração no cheiro da água. Além do problema do cloro, outros tipos de contaminação pondem estar presente.s</p>
                    
             </div>
             <div class="col-12">
             <div class="carrossel autoplay">
+                @foreach ($produtos as $item)
                 <div class="carrossel-item">
                     <h3>
                     <figure class="figure">
-                        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
+                        <img src="{{asset('storage/'. str_after($item->imagem_destaque, 'public/'))}}" class="figure-img img-fluid rounded" alt="">
                         <br>
                         <figcaption class="figure-caption text-xs-right">
-                        <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-                      </figcaption>
+                            <a name="" id="" class="btn btn-light btn-block " href="{{ route('produtoview.produto', $item->id)}}" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
+                            <a name="" id="" class="btn btn-outline-light btn-block " href="{{ route('produtoview.manual', $item->manual_id)}}" role="button"><i class="fas fa-book"></i></i> Manual</a>
+                          </figcaption>
                     </figure>
                   </h3>
                 </div>
-                <div class="carrossel-item">
-                    <h3>
-                    <figure class="figure">
-                        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-                        <br>
-                        <figcaption class="figure-caption text-xs-right">
-                        <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-                      </figcaption>
-                    </figure>
-                  </h3>
-                </div>
-                <div class="carrossel-item">
-                    <h3>
-                    <figure class="figure">
-                        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-                        <br>
-                        <figcaption class="figure-caption text-xs-right">
-                        <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-                      </figcaption>
-                    </figure>
-                  </h3>
-                </div>
-                <div class="carrossel-item">
-                    <h3>
-                    <figure class="figure">
-                        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-                        <br>
-                        <figcaption class="figure-caption text-xs-right">
-                        <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-                      </figcaption>
-                    </figure>
-                  </h3>
-                </div>
-                <div class="carrossel-item">
-                    <h3>
-                    <figure class="figure">
-                        <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
-                        <br>
-                        <figcaption class="figure-caption text-xs-right">
-                        <a name="" id="" class="btn btn-outline-light btn-block " href="#" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
-                      </figcaption>
-                    </figure>
-                  </h3>
-                </div>
+                @endforeach
             </div>
                 
         </div>
     </section>
-    <section class="section " id="assistencia" >
+    <section class="section " id="assistencia" style="background-image: url('../imagens/bckground_wather.jpg'); 
+    " >
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-xl-5 col-12 p-5">
                     <h1 class="text-info"><b>Garanta a manutenção 
                         constante com a equipe
                         técnica <b>Hoken</b>.</b></h1>
-                        <button class="btn btn-block btn-outline-info">
+                        <a href="https://api.whatsapp.com/send?phone={{$unidades->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken." class="btn btn-block btn-outline-info">
                             Solicitar Visita
-                        </button>
+                        </a>
                 </div>
                 <div class="col-lg-3 col-xl-4 col-12">
                     <img src="{{ asset('./imagens/icons-11.png')}}" class="img-fluid" alt="">
@@ -199,9 +158,9 @@
                     <div class="col-lg-4 bg_Navyblue_2  p-4">
                         <h2 class="footer_title pt-4 text-center">CONTATO</h2>
                         <div class="footer_content">
-                            <p class=""><a href=""><i class="fas fa-street-view"></i> Rua Doutor José Jorge Cury, 270 - São José do Rio Preto - SP<hr class="hr_footer"></a></p>
-                            <p class=""><a href=""><i class="fas fa-phone"></i> 0800 701 13 15<hr class="hr_footer"></a></p>
-                            <p class=""><a href=""><i class="fas fa-envelope"></i> contato@hoken.com.br<hr class="hr_footer"></a></p>
+                            <p class=""><a href="https://www.google.com.br/maps/@ {{ $unidades->latitude }}, {{ $unidades->longitude }},15z"><i class="fas fa-street-view"></i> {{$unidades->Rua }}, {{$unidades->Numero }} - {{$unidades->cidade }} - {{$unidades->estado }}<hr class="hr_footer"></a></p>
+                            <p class="{{ $unidades->Telefone }}"><a href=" tel:5555555555 " id="telefone"><i class="fas fa-phone"></i> {{ $unidades->Telefone }}<hr class="hr_footer"></a></p>
+                            <p class=""><a href=""><i class="fas fa-envelope"></i> {{ $unidades->email }}<hr class="hr_footer"></a></p>
                         </div> 
                     </div>
                     </div>
@@ -250,6 +209,7 @@
 @stop
 
 @section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
 <script type="text/javascript">
  
@@ -281,11 +241,11 @@
             $('.logomin1').css('display','block'); 
             $('.logomin2').css('display','none');
             $('.id_franquia').css('color','#fff');
-
         }
     }
-
-    var mymap = L.map('mapid').setView([-20.838330, -49.350817], 20);
+    var latitude =  {{$unidades->latitude }};
+    var longitude =  {{$unidades->longitude }};
+    var mymap = L.map('mapid').setView([latitude, longitude], 20);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
@@ -297,8 +257,26 @@
 		zoomOffset: -1
 	}).addTo(mymap);
 
-    L.marker([-20.838330, -49.350817]).addTo(mymap);
+    L.marker([latitude, longitude]).addTo(mymap);
       
+</script>
+
+<script>
+    $(function(){   
+            var nav = $('#menu');
+            var heigth = $('#menu');
+
+            $(window).scroll(function () { 
+                if ($(this).scrollTop() > 150) { 
+                    nav.css("background-color","#00000040").fadein('show');  
+                } else { 
+                    
+                    nav.css("background-color","#00000000");   
+ 
+                } 
+            });  
+        });
+        $("#telefone, #celular").mask("+00 00 0.0000.0000");
 </script>
 
 
