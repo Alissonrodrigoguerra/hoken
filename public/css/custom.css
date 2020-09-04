@@ -23,8 +23,8 @@ input, .btn-search:focus{color: #fff; background-color: #55bbd2; border-top: 0px
 
 /* Colors */
 
-.bg_Navyblue{ background: #15517a;}
-.bg_Navyblue_2{ background: #0d2e46;}
+.bg_Navyblue{ background: #185b6b;}
+.bg_Navyblue_2{ background: #185b6b;}
 
 .bg_Blue_1{ background: #005085;}
 .bg_Blue_2{ background: #004675;}
@@ -36,7 +36,7 @@ input, .btn-search:focus{color: #fff; background-color: #55bbd2; border-top: 0px
 
 /* session */
 .footer_read {
-  background: #0f293a;}
+  background: #1a5563;}
 .hr_footer{ 
 border: 1px dotted #909090;
 }

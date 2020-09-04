@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <a href="http://" class="btn btn-flat btn-secondary float-left"><i class="fas fa-medal"></i> Politica de Qualidade</a>
+                <a href="{{ asset('imagens/Política-de-Qualidade-1.pdf') }}" class="btn btn-flat btn-secondary float-left"><i class="fas fa-medal"></i> Politica de Qualidade</a>
                 <a href="http://hoken.projetosprospecta.com.br/" class="btn btn-flat btn-success float-right"><i class="fas fa-store"></i> Seja Franqueado</a>
                 
             </div>
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2" ><img src="{{ asset(config('adminlte.logo_view'))}}" alt="Hoken" width="150px" class=" m-2" ></div>
-            <div class="col-md-8" >
+            <div class="col-md-10" >
                 <ul class=" nav m-2">
                 <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("view.index")}}">Home</a></li>
                     <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("empresa.index")}}">Hoken</a></li>
@@ -38,7 +38,10 @@
 
                 </ul>
             </div>
-            {{-- <div class="col-md-2">
+            {{--  --}}
+        </div>
+    </div>
+    {{-- </div><div class="col-md-2">
                 <form>
                     <div class="input-group m-2">
                         <input type="text" class="form-control btn-search">
@@ -50,8 +53,6 @@
                 </form>
             
             </div> --}}
-        </div>
-    </div>
 </div>
 <div id="megamenu" class="row d-none bg_Navyblue">
     <div class="container">
@@ -95,8 +96,8 @@
 </div>
 <div class="row bg_Navyblue megamenu_moblie">
     <div class="col-12"><h2 class="text-center white">Produtos</h2></div>
-    <div class="col-6 text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="{{ route("view.index")}}"> <img src="{{ asset('imagens/icon_3.svg')}}" class="img-fluid" alt="Água Gelada e Natural" style=" height: 50px;"></a></div>
-    <div class="col-6 text-center bg_Blue_2"> <a class="btn btn-white btn-link mt-4" href="{{ route("view.index")}}"> <img src="{{ asset('imagens/icon_4.svg')}}" class="img-fluid" alt="Água Natural" style=" height: 50px;"></a></div>
+    <div class="col-6 text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="{{ route("produtoview.categorias", '4' )}}"> <img src="{{ asset('imagens/icon_3.svg')}}" class="img-fluid" alt="Água Gelada e Natural" style=" height: 50px;"></a></div>
+    <div class="col-6 text-center bg_Blue_2"> <a class="btn btn-white btn-link mt-4" href="{{ route("produtoview.categorias", '5' )}}"> <img src="{{ asset('imagens/icon_4.svg')}}" class="img-fluid" alt="Água Natural" style=" height: 50px;"></a></div>
 </div>
 <div id="menu-list-moblie" class="row moblile-Menu ">
     <ul class="nav flex-column col-12">
@@ -119,17 +120,16 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route("politicadequalidade.index")}}">Politica de Qualidade</a>
+        <a class="nav-link" href="{{ asset('imagens/Política-de-Qualidade-1.pdf') }}">Politica de Qualidade</a>
         </li>
         <li class="nav-item ">
-            <form class="">
-                <div class="input-group m-2">
-                    <input type="text" class="form-control btn-search-moblie">
-                    <div class="input-group-append">
+           {!! Form::open()->route('pesquisa.unidade')->method('post') !!}
+            <input type="text"  class="form-control btn-search-moblie" placeholder="Encontre a unidade mais próxima">
+          <div class="input-group-append">
                     <button type="submit" class="btn btn-icon-moblie"><i class="fas fa-search"></i></button>
                     </div>
                   </div>                    
-
+           {!! Form::close() !!}
             </form>
         </li>
         

@@ -198,7 +198,17 @@
 
 
 	
-  
+   $('.pulse-button').click(function() { 
+        
+        $('#hadset_menu').fadeIn('show');
+        $('#hadset_menu').removeClass('d-none');
+        $('#hadset_menu').mouseleave(function(){
+            $('#hadset_menu').addClass('d-none');
+            
+        });
+
+        
+    });
   
    
 </script>

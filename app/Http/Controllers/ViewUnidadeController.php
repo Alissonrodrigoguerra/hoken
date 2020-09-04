@@ -24,6 +24,7 @@ class ViewUnidadeController extends Controller
 
     public function unidade (Request $request, $id){
         $unidades = \App\franquias::find($id);
+        
         $produtos = \App\Produto::where(['destaque'=> 1, 'status_log'=> 1 ])->take(5)->get();
         config(['adminlte.plugins.slick.active' => 'true']);
 

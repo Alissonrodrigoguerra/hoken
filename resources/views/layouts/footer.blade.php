@@ -1,4 +1,4 @@
-<a href="https://api.whatsapp.com/send?phone=5517991080582&text=Ol%C3%A1%20Gostaria%20de%20solicitar%20atendimento." class="btn pulse-button "><i class="fab fa-whatsapp" width="50px"></i></a>
+<a href="#" class="btn pulse-button "><i class="fab fa-whatsapp" width="50px"></i></a>
 
 <div class="row footer_read">
     <div class="container">
@@ -70,16 +70,12 @@
 </div>
 
     <div id="hadset_menu" class=" text-right d-none">
-        <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link desable" href="#">2ª Via de Boleto</a>
+        <ul class="nav flex-column text-center">
+            <p style="padding: 5px">Peça a segunda via do seu boleto pelo whatsapp</p>
+            <li class="nav-item ">
+              <a class="nav-link btn btn-outline-info " href="https://api.whatsapp.com/send?phone=5517991080582&text=Ol%C3%A1%20Gostaria%20de%20solicitar%20atendimento.">2ª Via de Boleto</a>
             </li>
          
-            <li class="nav-item">
-                <a class="nav-link" href="#">SAC</a>
-              </li>
-            
           </ul>
           <div class="traigulo"></div>
-
     </div>

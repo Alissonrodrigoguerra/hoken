@@ -17,8 +17,13 @@
                         @isset($Banner)
                         <div id="demo" class="carousel slide" data-ride="carousel">
                             <ul class="carousel-indicators">
+                            @php
+                              $i = "";
+                              $i++;
+                            @endphp
                            @foreach ($Banner as $banner)
-                            <li data-target="#demo{{$banner->id}}" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="{{$i++}}" class="active"></li>
+
                             @endforeach
                             </ul>
                             <div class="carousel-inner">

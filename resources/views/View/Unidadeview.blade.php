@@ -128,7 +128,7 @@
     </section>
     <section class="section " id="Contato" >
         
-        <a href="https://api.whatsapp.com/send?phone=5517991080582&text=Ol%C3%A1%20Gostaria%20de%20solicitar%20atendimento." class="btn pulse-button "><i class="fab fa-whatsapp" width="50px"></i></a>
+        <a href="#" class="btn pulse-button "><i class="fab fa-whatsapp" width="50px"></i></a>
 
         <div class="row footer_read">
             <div class="container">
@@ -152,6 +152,17 @@
                             <ul class="list-default" style="list-style: none;">
                                 <li><a href=""></a></li>
                                 <hr class="hr_footer"> 
+                                <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("empresa.index")}}">Hoken</a></li>
+                               
+                                <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("post.index")}}">Artigos</a></li>
+                                <li class="nav-item btn-White"><a class="nav-link btn btn-link dropdown open "  id="triggerId" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"href="{{ route("post.index")}}">Suporte ao Franqueado <i class="fas fa-caret-down"></i></a>
+                                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                                            <button class="dropdown-item" href="https://mirai.hoken.com.br/">Mirai</button>
+                                            <button class="dropdown-item disabled" href="#">Hoken Shop </button>
+                                        </div>
+                                </li>
+                                <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("lista.unidade")}}">Unidades</a></li>
+            
                             </ul>
                         </div>
                     </div>
@@ -188,20 +199,17 @@
             </div>
         </div>
         
-            <div id="hadset_menu" class=" text-right d-none">
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                      <a class="nav-link desable" href="#">2ª Via de Boleto</a>
-                    </li>
-                 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">SAC</a>
-                      </li>
-                    
-                  </ul>
-                  <div class="traigulo"></div>
-        
-            </div>
+        <div id="hadset_menu" class=" text-right d-none">
+            <ul class="nav flex-column text-center">
+                <p style="padding: 5px">Peça a segunda via do seu boleto pelo whatsapp</p>
+                <li class="nav-item ">
+                  <a class="nav-link btn btn-outline-info " href="https://api.whatsapp.com/send?phone=5517991080582&text=Ol%C3%A1%20Gostaria%20de%20solicitar%20atendimento.">2ª Via de Boleto</a>
+                </li>
+             
+              </ul>
+              <div class="traigulo"></div>
+        </div>
+    
 
     </section>
 </div>
@@ -245,7 +253,7 @@
     }
     var latitude =  {{$unidades->latitude }};
     var longitude =  {{$unidades->longitude }};
-    var mymap = L.map('mapid').setView([latitude, longitude], 20);
+    var mymap = L.map('mapid').setView([longitude, latitude], 10);
 
 	L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
 		maxZoom: 18,
@@ -257,11 +265,23 @@
 		zoomOffset: -1
 	}).addTo(mymap);
 
-    L.marker([latitude, longitude]).addTo(mymap);
+    L.marker([longitude, latitude]).addTo(mymap);
       
 </script>
 
 <script>
+     $('.pulse-button').click(function() { 
+        
+        $('#hadset_menu').fadeIn('show');
+        $('#hadset_menu').removeClass('d-none');
+        $('#hadset_menu').mouseleave(function(){
+            $('#hadset_menu').addClass('d-none');
+            
+        });
+
+        
+    });
+
     $(function(){   
             var nav = $('#menu');
             var heigth = $('#menu');
