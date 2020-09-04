@@ -27,7 +27,7 @@
                                 @endforeach
                         </div>
                     </li>
-                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("post.index")}}">Artigos</a></li>
+                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("post.index")}}">Notícias</a></li>
                     <li class="nav-item btn-White"><a class="nav-link btn btn-link dropdown open "  id="triggerId" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"href="{{ route("post.index")}}">Suporte ao Franqueado <i class="fas fa-caret-down"></i></a>
                             <div class="dropdown-menu" aria-labelledby="triggerId">
                                 <button class="dropdown-item" href="https://mirai.hoken.com.br/">Mirai</button>
@@ -108,7 +108,7 @@
           <a class="nav-link" href="{{ route("empresa.index")}}">Hoken</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route("post.index")}}">Artigos</a>
+          <a class="nav-link" href="{{ route("post.index")}}">Notícias</a>
         </li>
         <li class="nav-item btn-White"><a class="nav-link  " href="{{ route("lista.unidade")}}">Unidades</a></li>
 
@@ -123,8 +123,8 @@
         <a class="nav-link" href="{{ asset('imagens/Política-de-Qualidade-1.pdf') }}">Politica de Qualidade</a>
         </li>
         <li class="nav-item ">
-           {!! Form::open()->route('pesquisa.unidade')->method('post') !!}
-            <input type="text"  class="form-control btn-search-moblie" placeholder="Encontre a unidade mais próxima">
+           {!! Form::open()->route('pesquisamoblie.unidade')->method('post') !!}
+            <input type="text" name="pesquisa"  class="form-control btn-search-moblie" placeholder="Encontre a unidade mais próxima">
           <div class="input-group-append">
                     <button type="submit" class="btn btn-icon-moblie"><i class="fas fa-search"></i></button>
                     </div>

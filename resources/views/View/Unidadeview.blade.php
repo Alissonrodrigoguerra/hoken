@@ -34,7 +34,7 @@
                     <img src="{{ asset('./imagens/linhaprodutoshoken.png')}}" class="img-fluid" alt="Mais Saude para sua família">
                 </div>
                 <div class="col-5  ">
-                    <a href="https://api.whatsapp.com/send?phone={{$unidades->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken." class="btn btn-outline-light btn-lg btn-block">Comprar</a>
+                    <a href="https://api.whatsapp.com/send?phone={{$unidades->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken." class="btn btn-success btn-lg btn-block">QUERO SABER MAIS</a>
                 </div>   
             </div>
          
@@ -113,8 +113,8 @@
                     <h1 class="text-info"><b>Garanta a manutenção 
                         constante com a equipe
                         técnica <b>Hoken</b>.</b></h1>
-                        <a href="https://api.whatsapp.com/send?phone={{$unidades->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken." class="btn btn-block btn-outline-info">
-                            Solicitar Visita
+                        <a href="https://api.whatsapp.com/send?phone={{$unidades->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken." class="btn btn-block btn-success">
+                            SOLICITAR VISITA
                         </a>
                 </div>
                 <div class="col-lg-3 col-xl-4 col-12">
@@ -201,9 +201,9 @@
         
         <div id="hadset_menu" class=" text-right d-none">
             <ul class="nav flex-column text-center">
-                <p style="padding: 5px">Peça a segunda via do seu boleto pelo whatsapp</p>
+                <p style="padding: 5px">Se você já é nosso cliente e precisa da sua segunda via do boleto clique aqui</p>
                 <li class="nav-item ">
-                  <a class="nav-link btn btn-outline-info " href="https://api.whatsapp.com/send?phone=5517991080582&text=Ol%C3%A1%20Gostaria%20de%20solicitar%20atendimento.">2ª Via de Boleto</a>
+                  <a class="nav-link btn btn-outline-info " href="https://api.whatsapp.com/send?phone=5517991080582&text=Ol%C3%A1%20Gostaria%20de%20solicitar%20atendimento.">Fale conosco</a>
                 </li>
              
               </ul>

@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="col-lg-4  p-4">
-                <h2 class="footer_title pt-4 pl-3 text-center">ARTIGOS RECENTES</h2>
+                <h2 class="footer_title pt-4 pl-3 text-center">Notícias</h2>
                 <div class="footer_content">
                     <ul class="list-default" style="list-style: none;">
                         @isset($Post)

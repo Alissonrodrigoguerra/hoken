@@ -233,7 +233,7 @@
                                   <p>Uma franquia rentável, segura e com rápido retorno sobre o investimento.</p>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-12 p-4 text-center" >
-                                  <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="http://hoken.projetosprospecta.com.br/" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
+                                  <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="http://hoken.projetosprospecta.com.br/" role="button"><i class="far fa-hand-point-right"></i> Plano de Negócio</a>
                                 </div>
                               </div>
                             </div>
