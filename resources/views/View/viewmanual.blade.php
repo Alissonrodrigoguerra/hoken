@@ -1,8 +1,9 @@
+
 @extends('adminlte::page')
 
 
 @section('css')  
-<link rel="stylesheet" href="{{ url('css/custom.css')}}">
+<link rel="stylesheet" href="{{ url('public/css/custom.css')}}">
 <link rel="stylesheet" href="{{ url(config('adminlte.plugins.slick.files.0.location'))}}">
 <link rel="stylesheet" href="{{ url(config('adminlte.plugins.slick.files.1.location'))}}">
 @stop()
@@ -24,7 +25,7 @@
       </div>
 
     <hr class="dot_divider">
-    <iframe width="100%" height="480px" src="{{asset('storage/'. str_after($manual->arquivo, 'public/'))}}" frameborder="0"></iframe>
+    <iframe width="100%" height="480px" src="{{url('storage/app/'.$manual->arquivo )}}" frameborder="0"></iframe>
     </div>
   </div>
 

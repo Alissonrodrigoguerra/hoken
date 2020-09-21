@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',  'ViewController@index');
 
 // cls
 Auth::routes();
 
-Route::get('/home', function() {
+Route::get('/admin', function() {
     return view('home');
 })->name('home')->middleware(['auth','painel']);
 
