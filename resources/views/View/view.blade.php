@@ -29,7 +29,7 @@
                             <div class="carousel-inner">
                               @foreach ($Banner as $banner)
                               <div class="carousel-item ">
-                                <img class="slider_responive" src=" {{asset('public/storage/'. str_after($banner->Banner_imagem, 'public/'))}}" alt="{{$banner->Banner_title}}" >
+                                <img class="slider_responive" src=" {{url('storage/app/'. $banner->Banner_imagem)}}" alt="{{$banner->Banner_title}}" >
                                 <div class="carousel-caption" style="top:30%;">
                                   @isset($banner->Banner_title)
                                   <h1>{{$banner->Banner_title}}</h1>

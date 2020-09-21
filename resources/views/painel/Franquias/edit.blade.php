@@ -25,7 +25,7 @@
                   {{ csrf_field() }}
                   {{ method_field('PUT') }}
                   
-                  @include('painel/franquias/form')  
+                  @include('painel/Franquias.form')  
                 
                 
             </form>       

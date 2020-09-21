@@ -27,7 +27,7 @@ class  PainelFranquiasController  extends Controller
     {       
         //
       
-        $franquias = \App\franquias::get();
+        $franquias = \App\Franquias::get();
 
         return view('painel/Franquias.show', compact('franquias'));
 

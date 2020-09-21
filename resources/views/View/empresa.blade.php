@@ -22,10 +22,10 @@
           <div class="box_background ">
             <h1 class="p-3">O Grupo <img  class="p-3 img-fluid" src="{{ asset('public/imagens/Hoken-International-Company1.png') }}" alt="Hoken Internacional"></h1>
   
-          <p class="p-3">Há 23 anos a Hoken atua em todo o Brasil, Paraguai, Portugal e Espanha, e se consolidou como um dos mais sólidas empresas do país.</p>
+          <p class="p-3">Há 23 anos a Hoken atua em todo o Brasil, Paraguai e Portugal, e se consolidou como um dos mais sólidas empresas do país.</p>
           <p class="p-3 text-justify">
             Ocupa a posição de destaque nas áreas de pesquisa e desenvolvimento de aparelhos e acessórios para tratamento de água, franchising, vendas diretas e treinamento. A Hoken possui a mais completa linha de aparelhos para tratamento de água desenvolvidos com alta tecnologia e sob rígido controle de qualidade. Mais saúde e qualidade de vida para você e toda sua família. 
-            Os produtos Hoken são sinônimos de alta tecnologia e qualidade, proporcionando total segurança e comodidade para seus consumidores. Primeira indústria de aparelhos para tratamento de água do Brasil a obter a certificação ISO 9001, é responsável pela produção e comercialização dos mais avançados produtos, com tecnologia de ponta exclusiva e patenteada. 
+            Os produtos Hoken são sinônimos de alta tecnologia e qualidade, proporcionando total segurança e comodidade para seus consumidores.  
             O comprometimento da Hoken com a qualidade de seus produtos e serviços resulta em conquistas históricas: a Hoken é a única empresa da América Latina a receber o Gold Seal, da Water Quality Association, certificação dada aos processadores com elementos filtrantes Carbomax®.
               
           <ul>
@@ -34,7 +34,6 @@
             <li>•	Líder no segmento de aparelhos para tratamento de água residencial;</li>
             <li>• Empresa 100% brasileira;</li>
             <li>•	Possui mais de 100 franquias;</li>
-            <li>•	Primeira indústria de aparelhos para tratamento de água residencial do Brasil a receber a certificação ISO 9001;
             </li>
             <li>•	Possui mais de 2 milhões de clientes;</li>
           </ul>
@@ -42,15 +41,16 @@
           <div class="col-lg-12">
            
             <div class="float-left p-3">
-              <small>Acompanhe a <b>Hoken </b>nas Redes Sociais:</small>
+              <small>Acompanhe a <b>Hoken Água </b>nas Redes Sociais:</small>
                 <a class="social-facebook ml-3 " href="https://www.facebook.com/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-facebook"></i></a>
                 <a class="social-twitter ml-3 " href="https://twitter.com/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-twitter"></i></a>
                 <a class="social-google-plus ml-3 " href="https://plus.google.com/+BlogHokenBrFranquia/videos" target="&quot;_blank&quot;"><i class="fab fa-google-plus-g"></i></a>
                 <a class="social-linkedin ml-3 " href="https://www.linkedin.com/company/hoken-internacional-company" target="&quot;_blank&quot;"><i class="fab fa-linkedin"></i></a>
                 {{-- <a class="social-youtube ml-3 " href="https://www.youtube.com/user/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-youtube"></i></a> --}}
-                <a class="social-instagram ml-3 " href="https://www.instagram.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-instagram"></i></a>
+                <a class="social-instagram ml-3 " href="https://www.instagram.com/hokenagua" target="&quot;_blank&quot;"><i class="fab fa-instagram"></i></a>
                 {{-- <a class="social-pinterest ml-3 " href="https://www.pinterest.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-pinterest"></i></a></div> --}}
         </div>
+        {{-- https://www.instagram.com/hokenoficial --}}
          </p>
           </div>
         </div>
@@ -96,7 +96,7 @@
         <p>Uma franquia rentável, segura e com rápido retorno sobre o investimento.</p>
       </div>
       <div class="col-xl-3 col-lg-3 col-12 p-4 text-center" >
-        <a name="" id="" class="btn  btn-lg btn-lg btn-block pulse" href="http://hoken.projetosprospecta.com.br/" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócios</a>
+        <a name="" id="" class="btn  btn-lg btn-lg btn-block pulse" href="http://hoken.projetosprospecta.com.br/" role="button"><i class="far fa-hand-point-right"></i> Plano de Negócios</a>
       </div>
     </div>
   </div>

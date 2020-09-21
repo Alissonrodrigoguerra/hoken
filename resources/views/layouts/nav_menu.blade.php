@@ -15,7 +15,7 @@
 <div class="row d-none d-lg-block alert-info p-3">
     <div class="container">
         <div class="row">
-            <div class="col-md-2" ><img src="{{ asset(config('adminlte.logo_view'))}}" alt="Hoken" width="150px" class=" m-2" ></div>
+            <div class="col-md-2" ><a href="http://sitenovo.hoken.com.br/novosite/"><img src="{{ asset(config('adminlte.logo_view'))}}" alt="Hoken" width="150px" class=" m-2" ></a></div>
             <div class="col-md-10" >
                 <ul class=" nav m-2">
                 <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("view.index")}}">Home</a></li>
@@ -86,7 +86,7 @@
     <div class="container-fluid ">
         <div class="row">
             <div class="col-8">
-                <a href=""><img src="{{ asset(config('adminlte.logo_view'))}}" alt="Hoken" class=" m-1 img-fluid" ></a>
+                <a href="http://sitenovo.hoken.com.br/novosite/"><img src="{{ asset(config('adminlte.logo_view'))}}" alt="Hoken" class=" m-1 img-fluid" ></a>
             </div>
             <div id="menu_moblie"  class="col-4 mt-0">
                 <button id="menu_close" class="btn float-right "><i class="fas fa-times"></i></button>
@@ -144,9 +144,9 @@
                 <a class="social-twitter ml-3 " href="https://twitter.com/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-twitter"></i></a>
                 <a class="social-google-plus ml-3 " href="https://plus.google.com/+BlogHokenBrFranquia/videos" target="&quot;_blank&quot;"><i class="fab fa-google-plus-g"></i></a>
                 <a class="social-linkedin ml-3 " href="https://www.linkedin.com/company/hoken-internacional-company" target="&quot;_blank&quot;"><i class="fab fa-linkedin"></i></a>
-                <a class="social-youtube ml-3 " href="https://www.youtube.com/user/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-youtube"></i></a>
-                <a class="social-instagram ml-3 " href="https://www.instagram.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-instagram"></i></a>
-                <a class="social-pinterest ml-3 " href="https://www.pinterest.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-pinterest"></i></a></div>
+                {{-- <a class="social-youtube ml-3 " href="https://www.youtube.com/user/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-youtube"></i></a> --}}
+                <a class="social-instagram ml-3 " href="https://www.instagram.com/hokenagua/" target="&quot;_blank&quot;"><i class="fab fa-instagram"></i></a>
+                {{-- <a class="social-pinterest ml-3 " href="https://www.pinterest.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-pinterest"></i></a></div> --}}
             </div>
         </div>
       </ul>

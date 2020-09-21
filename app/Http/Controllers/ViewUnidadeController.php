@@ -16,14 +16,14 @@ class ViewUnidadeController extends Controller
         $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
         config(['adminlte.plugins.leaflet.active' => 'true']);
         $Estados = \App\Estados::get();
-        $unidades = \App\franquias::where(['status_log'=> 1 ])->get();
+        $unidades = \App\Franquias::where(['status_log'=> 1 ])->get();
 
         return view('View/UnidadesList', compact('unidades','Estados', 'categorias','Post'));
 
     }
 
     public function unidade (Request $request, $id){
-        $unidades = \App\franquias::find($id);
+        $unidades = \App\Franquias::find($id);
         
         $produtos = \App\Produto::where(['destaque'=> 1, 'status_log'=> 1 ])->take(5)->get();
         config(['adminlte.plugins.slick.active' => 'true']);
@@ -37,7 +37,7 @@ class ViewUnidadeController extends Controller
         $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
         config(['adminlte.plugins.leaflet.active' => 'true']);
         $Estados = \App\Estados::get();
-        $unidades = \App\franquias::where(['status_log'=> 1 ])->get();
+        $unidades = \App\Franquias::where(['status_log'=> 1 ])->get();
         
         $pesquisa =  $request->input("pesquisa");
         if(!empty($pesquisa )){

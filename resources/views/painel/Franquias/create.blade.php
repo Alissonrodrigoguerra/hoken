@@ -21,7 +21,7 @@
                 <form role="form" action="{{ route('franquias.store') }}" method="POST" enctype="multipart/form-data"> 
                   {{ csrf_field() }}
                  
-                  @include('painel/franquias/form')  
+                  @include('painel/Franquias.form')  
                 
                 
             </form>        
