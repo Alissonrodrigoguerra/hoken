@@ -27,7 +27,7 @@
                                 @endforeach
                         </div>
                     </li>
-                    <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("post.index")}}">Notícias</a></li>
+                    {{-- <li class="nav-item btn-White"><a class="nav-link btn btn-link " href="{{ route("post.index")}}">Notícias</a></li> --}}
                     <li class="nav-item btn-White"><a class="nav-link btn btn-link dropdown open "  id="triggerId" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"href="{{ route("post.index")}}">Suporte ao Franqueado <i class="fas fa-caret-down"></i></a>
                             <div class="dropdown-menu" aria-labelledby="triggerId">
                                 <button class="dropdown-item" href="https://mirai.hoken.com.br/">Mirai</button>
@@ -58,7 +58,7 @@
     <div class="container">
        <div class="row bg_Navyblue">
         <div class="col-lg-12">
-            <h4 class="text-center white m-2"> Produtos</h4>
+            <h4 class="text-center white m-2">Produtos</h4>
         </div>
         <div class="col-lg-6 btn-megamenu text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="http://"> <img src="{{ asset('imagens/icon_3.svg')}}" class="img-fluid" alt="icon-categoria-hoken" style=" height: 50px;"> Água Gelada e Natural</a></div>
         <div class="col-lg-6 btn-megamenu text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="http://"> <img src="{{ asset('imagens/icon_4.svg')}}" class="img-fluid" alt="icon-categoria-hoken" style=" height: 50px;"> Água Natural</a></div>
@@ -96,8 +96,8 @@
 </div>
 <div class="row bg_Navyblue megamenu_moblie">
     <div class="col-12"><h2 class="text-center white">Produtos</h2></div>
-    <div class="col-6 text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="{{ route("produtoview.categorias", '4' )}}"> <img src="{{ asset('imagens/icon_3.svg')}}" class="img-fluid" alt="Água Gelada e Natural" style=" height: 50px;"></a></div>
-    <div class="col-6 text-center bg_Blue_2"> <a class="btn btn-white btn-link mt-4" href="{{ route("produtoview.categorias", '5' )}}"> <img src="{{ asset('imagens/icon_4.svg')}}" class="img-fluid" alt="Água Natural" style=" height: 50px;"></a></div>
+    <div class="col-6 text-center bg_Blue_1"> <a class="btn btn-white btn-link mt-4" href="{{ route("produtoview.categorias", '4' )}}"> <img src="{{ asset('public/imagens/icon_3.svg')}}" class="img-fluid" alt="Água Gelada e Natural" style=" height: 50px;"></a></div>
+    <div class="col-6 text-center bg_Blue_2"> <a class="btn btn-white btn-link mt-4" href="{{ route("produtoview.categorias", '5' )}}"> <img src="{{ asset('public/imagens/icon_4.svg')}}" class="img-fluid" alt="Água Natural" style=" height: 50px;"></a></div>
 </div>
 <div id="menu-list-moblie" class="row moblile-Menu ">
     <ul class="nav flex-column col-12">
@@ -107,16 +107,16 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route("empresa.index")}}">Hoken</a>
         </li>
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link" href="{{ route("post.index")}}">Notícias</a>
-        </li>
+        </li> --}}
         <li class="nav-item btn-White"><a class="nav-link  " href="{{ route("lista.unidade")}}">Unidades</a></li>
 
         <li class="nav-item">
             <a class="nav-link dropdown open "  id="triggerId" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown"href="{{ route("post.index")}}">Suporte ao Franqueado</a>
             <div class="dropdown-menu" aria-labelledby="triggerId">
                 <button class="dropdown-item" href="https://mirai.hoken.com.br/">Mirai</button>
-                <button class="dropdown-item disabled" href="#">Hoken Shop </button>
+                <button class="dropdown-item disabled" href="#">Hoken Shop</button>
             </div>
         </li>
         <li class="nav-item">

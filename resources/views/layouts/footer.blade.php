@@ -8,9 +8,7 @@
                     <div class="col-lg-6   p-4">
                         <h2 class="footer_title "><img src="{{ asset(config('adminlte.logo_view'))}}" alt="Hoken Logo"></h2>
                         <div class="footer_content  pt-4">
-                            <p>Com mais de 23 anos de atuação no mercado, a Hoken é uma empresa com 100 franquias espalhadas pelo Brasil, além de Paraguai e Portugal. 
-                                Atuando no fornecimento de água purificada, a empresa tem o melhor e mais abrangente atendimento de assistência técnica e prestação de serviços, visando sempre a maior satisfação de seus clientes 
-                                Um dos mais sólidos grupos econômicos do país, ocupa posição de destaque nas áreas de pesquisa e desenvolvimento de aparelhos e acessórios para tratamento de água, franchising, vendas diretas e treinamento. 
+                            <p>Com mais de 23 anos de atuação no mercado, a Hoken é uma empresa com 100 franquias espalhadas pelo Brasil, além de Paraguai e Portugal. Atuando no fornecimento de água purificada, a empresa tem o melhor e mais abrangente atendimento de assistência técnica e prestação de serviços, visando sempre a maior satisfação de seus clientes. A Hoken ocupa posição de destaque nas áreas de pesquisa e desenvolvimento de aparelhos e acessórios para tratamento de água, franchising e vendas diretas. 
         
                             </p>
                         </div>
@@ -42,9 +40,9 @@
                     <a class="social-twitter ml-3 " href="https://twitter.com/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-twitter"></i></a>
                     <a class="social-google-plus ml-3 " href="https://plus.google.com/+BlogHokenBrFranquia/videos" target="&quot;_blank&quot;"><i class="fab fa-google-plus-g"></i></a>
                     <a class="social-linkedin ml-3 " href="https://www.linkedin.com/company/hoken-internacional-company" target="&quot;_blank&quot;"><i class="fab fa-linkedin"></i></a>
-                    <a class="social-youtube ml-3 " href="https://www.youtube.com/user/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-youtube"></i></a>
+                    {{-- <a class="social-youtube ml-3 " href="https://www.youtube.com/user/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-youtube"></i></a> --}}
                     <a class="social-instagram ml-3 " href="https://www.instagram.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-instagram"></i></a>
-                    <a class="social-pinterest ml-3 " href="https://www.pinterest.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-pinterest"></i></a></div>
+                    {{-- <a class="social-pinterest ml-3 " href="https://www.pinterest.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-pinterest"></i></a></div> --}}
             </div>
         </div>
     </div>

@@ -57,7 +57,9 @@
                             <div class="row m-5 text-center">
                               <div class="col-12 p-5">
                                 <h1>Conheça a Água Pura <span><b>Hoken</b></span></h1>
-                                <p>A mais pura água distribuída fervendo ou resfriada em uma máquina inteligente.Sem resíduos, produtos químicos ou bactérias, apenas degustando água de forma consistente sempre que você quiser em sua casa ou local de trabalho.</p>
+                                <p>Experimente a mais pura água distribuída de forma natural, gelada ou quente em uma máquina Purificadora inteligente.
+                                  Sem resíduos, produtos químicos ou bactérias, apenas degustando água de forma consistente sempre que você quiser em sua casa ou local de trabalho.
+                                  </p>
                               </div>
   
                               <div class="col-6 col-lg-3 col-xl-3 text-center">
@@ -68,7 +70,7 @@
                               <div class="col-6 col-lg-3 col-xl-3">
                                 <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; " src="{{asset('public/imagens/icon-home-2.svg')}}" alt="Hoken"></span>
                                 <h3><b>Economize tempo</b></h3>
-                                <p>Instalação rápida, instantânea e ilimitada e serviço abrangente e simples</p>
+                                <p>Instalação rápida, instantânea e ilimitada com serviço abrangente e simples</p>
                               </div>
                               <div class="col-6 col-lg-3 col-xl-3">
                                 <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; "  src="{{asset('public/imagens/icon-home-3.svg')}}" alt="Hoken"></span>
@@ -98,8 +100,7 @@
                             </div>
                           <div class="col-12 white">
                             <h1>Produtos Hoken</h1>
-                            <p>Qualidade de vida, começa pela água que você bebe.
-                              A Hoken possui a mais completa linha de aparelhos para tratamento de água desenvolvidos com alta tecnologia e sob rígido controle de qualidade. 
+                            <p>O Purificador de Água Hoken é um produto moderno e ideal para a utilização em residências, comércios e empresas, oferecendo água gelada e natural de alta qualidade. 
                               </p>
                               <b>Mais saúde e qualidade de vida para você e toda sua família.</b>
                           </div>
@@ -131,8 +132,8 @@
                           <div class="container">
                             <div class="row m-5 text-center">
                               <div class="col-12 p-5">
-                                <h1><b>A qualidade da água, em diversas regiões do Brasil, está preocupante.</b></h1>
-                                <p>Em várias cidades e regiões do Brasilas noticias sobre a qualidade da água que você consome não são boas.</p>
+                                <h1><b>A qualidade da água em diversas regiões do Brasil está preocupante.</b></h1>
+                                <p>Em várias cidades e regiões do Brasil as notícias sobre a qualidade da água que você consome não são boas.</p>
                               </div>
                               <div class="row">
                                 <div class="col-xl- col-lg-6 col-12">
@@ -193,7 +194,7 @@
                                     </div>
                                     <div class="col-lg-6 col-xl-6 col-12">
                                       <div class="card p-4">
-                                      <h6>“Quem conhece o CCLI sabe da nossa preocupação com a qualidade e com a excelência em serviços. Quando montamos nosso projeto da casa nova não descuidamos de nenhum detalhe. Por isso tratamos tudo com muito cuidado, inclusive a qualidade da água. Analisamos as várias opções do mercado e escolhemos o produto de mais excelência e mais qualidade, alinhado com a nossa missão e nossa visão, ou seja, escolhemos o filtro da Hoken.”</h6>
+                                      <h6>“Aqui na nossa empresa, Fabiano Hayasaki Arquitetura Interiores e Urbanismo, a nossa missão é levar qualidade de vida às pessoas, designer e a mais alta tecnologia em projeto. Por isso eu escolhi os produtos da Hoken, que aliam tecnologia, designer e qualidade. No restaurante Yokohama nós também utilizamos produtos da Hoken. Os alimentos são preparados com a água da Hoken, por isso leva mais saúde e mais qualidade ao alimento.”                                      </h6>
                                       <span><b>Fabiano Haysaki, Arquitetura Interiores e Urbanismo</b></span>
                                     </div>
                                     </div>
@@ -225,9 +226,7 @@
                                   </div>
                                   <div class="col-xl-5 col-lg-4 col-12 p-5">
                                   <h1><b>Hoken Store</b></h1>
-                                  <p>A HokenFranchising é um modelo inovador de unidade de negócios desenvolvido com o foco no varejo e vendas diretas personalizadas.
-                                    Visto como algo promissor, o mercado da água é para muitos empreendedores fonte de vida, uma vez que a crise hídrica se tornou uma oportunidade para a venda de purificadores de água. 
-                                    Franquias como a Hoken, que há 23 anos atua com a venda de aparelhos para garantir a qualidade da água oferecida aos clientes, têm aproveitado esse momento para intensificar seus planos de expansão e atrair novos franqueados.
+                                  <p>A Hoken Franchising é um modelo inovador de unidade de negócios desenvolvido com o foco no varejo e vendas diretas personalizadas. Visto como algo promissor, o mercado da água é para muitos empreendedores fonte de vida, uma vez que a crise hídrica se tornou uma oportunidade para a venda de purificadores de água. Franquias como a Hoken, que há 23 anos atua com a venda de aparelhos para garantir a qualidade da água oferecida aos clientes, têm aproveitado esse momento para intensificar seus planos de expansão e atrair novos franqueados.
                                   </p>
                                   </div>
                               </div>
