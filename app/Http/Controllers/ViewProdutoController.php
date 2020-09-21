@@ -17,24 +17,25 @@ class ViewProdutoController extends Controller
         $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto'])->get();
         $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
         config(['adminlte.plugins.slick.active' => 'true']);
-        return view('view/viewcategoriasprdodutos', compact('produtos', 'categorias', 'categoria', 'Post'));
+        return View('View/viewcategoriasprdodutos', compact('produtos', 'categorias', 'categoria', 'Post'));
 
     }
 
-    public function produto_view(Request $request, $id){
+    public function produto_View(Request $request, $id){
         
         $produtos = \App\Produto::find($id);
         $categoria = \App\Categoria::find($produtos->categoria_id);
         
         $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto', ])->get();
-        $caracteristica_destaque = \App\Caracteristica::where(['status_log'=> 1, 'destaque' => '1'])->get();
-        $caracteristica = \App\Caracteristica::where(['status_log'=> 1, 'destaque' => '0'])->get();
+        $caracteristica_destaque = \App\Caracteristica::where(['status_log'=> 1, 'destaque' => '1', 'Produto_id' => $produtos->id])->get();
+        $caracteristica = \App\Caracteristica::where(['status_log'=> 1, 'destaque' => '0', 'Produto_id' => $produtos->id])->get();
         $processo = \App\Processo::where(['status_log'=> 1, 'Produto_id' => $produtos->id])->get();
         $cores =  \App\Cores::where(['status_log'=> 1, 'Produto_id' => $produtos->id])->get();
         $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
+        config(['adminlte.plugins.slick.active' => 'true']);
 
   
-        return view('view/viewprdodutos', compact('produtos', 'categorias','categoria', 'caracteristica_destaque', 'caracteristica', 'processo', 'cores', 'Post'));
+        return View('View/viewprdodutos', compact('produtos', 'categorias','categoria', 'caracteristica_destaque', 'caracteristica', 'processo', 'cores', 'Post'));
 
     }
 
@@ -45,7 +46,7 @@ class ViewProdutoController extends Controller
         $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto', ])->get();
 
 
-        return view('view/viewmanual', compact('categorias','manual', 'Post'));
+        return View('View/viewmanual', compact('categorias','manual', 'Post'));
 
     }
     

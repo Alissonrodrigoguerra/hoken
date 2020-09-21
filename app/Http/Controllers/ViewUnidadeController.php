@@ -18,7 +18,7 @@ class ViewUnidadeController extends Controller
         $Estados = \App\Estados::get();
         $unidades = \App\franquias::where(['status_log'=> 1 ])->get();
 
-        return view('view/UnidadesList', compact('unidades','Estados', 'categorias','Post'));
+        return view('View/UnidadesList', compact('unidades','Estados', 'categorias','Post'));
 
     }
 
@@ -28,7 +28,7 @@ class ViewUnidadeController extends Controller
         $produtos = \App\Produto::where(['destaque'=> 1, 'status_log'=> 1 ])->take(5)->get();
         config(['adminlte.plugins.slick.active' => 'true']);
 
-        return view('view/Unidadeview', compact('unidades', 'produtos'));
+        return view('View/Unidadeview', compact('unidades', 'produtos'));
 
     }
     public function pesquisamoblie (Request $request){
@@ -70,7 +70,7 @@ class ViewUnidadeController extends Controller
              $unidades = $unidade_pesquisa;
 
         }
-        return view('view/UnidadesList', compact('unidades','Estados', 'categorias','Post'));
+        return view('View/UnidadesList', compact('unidades','Estados', 'categorias','Post'));
 
      }
   

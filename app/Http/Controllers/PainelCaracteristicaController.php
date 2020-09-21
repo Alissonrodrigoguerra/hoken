@@ -70,7 +70,8 @@ class PainelCaracteristicaController extends Controller
         $Blog->valor = $request->input('Valor');
         $Blog->destaque = $request->input('destaque'); 
         $Blog->Produto_id = $request->input('Produto_id');
-        $Blog->updated_at = $request->input('post_data');  
+        $Blog->updated_at = $request->input('post_data');
+        $Blog->status_log = $request->input('status_log');  
         $voltar = $Blog->Produto_id;
         // Upload Imagem
         if(!empty($request->hasfile('imagem_destaque'))){
@@ -142,7 +143,8 @@ class PainelCaracteristicaController extends Controller
         $Blog->valor = $request->input('Valor');
         $Blog->destaque = $request->input('destaque'); 
         $Blog->Produto_id = $request->input('Produto_id');
-        $Blog->updated_at = $request->input('post_data');  
+        $Blog->updated_at = $request->input('post_data');
+        $Blog->status_log = $request->input('status_log');  
         $voltar = $Blog->Produto_id;
         // Upload Imagem
         if(!empty($request->hasfile('imagem_destaque'))){

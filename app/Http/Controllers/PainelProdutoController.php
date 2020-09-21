@@ -157,18 +157,20 @@ class PainelProdutoController extends Controller
         }else{
             $Blog->destaque = null; 
         }
-
+        
         if(!empty($request->hasfile('imagem_backgound'))){
             $imagem = $request->imagem_backgound->store('public/produto/');
             $Blog->imagem_backgound = $imagem;
  
          }
+
+       
           // Upload Imagem
           if(!empty($request->hasfile('imagem_destaque'))){
             $imagem =  $request->imagem_destaque->store('public/produto/');
             $Blog->imagem_destaque = $imagem;
          }
-         
+ 
          
         if($Blog->save()){
 

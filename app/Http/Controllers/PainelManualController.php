@@ -145,10 +145,9 @@ class  PainelManualController  extends Controller
         $Produto_manual =  \App\Produto::find($request->input('Produto_id'));
         $Produto_manual->manual_id = $Manual->id;
         $Produto_manual->save();
-        
         // Upload Imagem
-        if(!empty($request->hasfile('arquivo'))){
-
+        if(!empty($request->file())){
+        
         $pdf =  $request->arquivo->store('public/Manual/');
         $Manual->arquivo = $pdf;
  

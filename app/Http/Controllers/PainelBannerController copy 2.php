@@ -23,10 +23,10 @@ class PainelBannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {       
         //
-
+      
         $Banners = \App\Banner::get();
         return view('painel/Banner.show', compact('Banners'));
 
@@ -37,9 +37,10 @@ class PainelBannerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+
 
         return view('./painel/Banner.create' );
 
@@ -56,7 +57,7 @@ class PainelBannerController extends Controller
     {
         // 
         
-      
+
         $Banner = new \App\Banner;
         $Banner->Banner_autor = '1'; 
         $Banner->Banner_title = $request->input('banner_title');
@@ -67,12 +68,11 @@ class PainelBannerController extends Controller
         $Banner->status_log = $request->input('status_log'); 
 
           // Upload Imagem
-          if(!empty($request->hasfile('Banner_imagem'))){
-            $imagem =  $request->Banner_imagem->store('public/Banner/');
+         if($request->file('banner_imagem') !== null){
+            $imagem =  $request->banner_imagem->store('public/Banner/');
             $Banner->Banner_imagem = $imagem;
  
          }
-
 
         if($Banner->save()){
 
@@ -95,9 +95,10 @@ class PainelBannerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         //
+ 
 
         $Banner = \App\Banner::get();
 

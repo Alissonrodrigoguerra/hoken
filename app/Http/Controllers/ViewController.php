@@ -15,15 +15,17 @@ class ViewController extends Controller {
     {
         //
        
-        $PostDestaque = \App\Post::where(['destaque' => 1, 'status_log' => 1])->take(1)->get();
+        $PostDestaque = \App\Post::where(['destaque' => 1, 'status_log' => 1])->take(0)->get();
         $Post = \App\Post::where(['destaque' => null, 'status_log' => 1] )->take(3)->get();
-        $Banner = \App\Banner::where(['status_log' => 1] )->take(3)->get();
+        $Banner = \App\Banner::where(['status_log' => 1] )->take(5)->get();
         config(['adminlte.plugins.slick.active' => 'true']);
         $categorias = \App\Categoria::where(['status_log'=> 1, 'type' => 'produto' ])->get();
         $produtos = \App\Produto::where(['status_log'=> 1, 'destaque' => 1])->get();
-        $produtosDestaque  = \App\Produto::where(['status_log'=> 1, 'destaque' => 1])->take(1)->get();
+        $produtosDestaque  = \App\Produto::where(['status_log'=> 1, 'destaque' => 1])->take(7)->get();
+       
 
-        return view('view/view', compact('Banner', 'PostDestaque',  'Post','categorias', 'produtosDestaque'));
+        return view('View/view', compact('Banner', 'PostDestaque',  'Post','categorias', 'produtosDestaque'));
+
 
     }
 

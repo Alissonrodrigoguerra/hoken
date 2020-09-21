@@ -47,12 +47,12 @@ return [
     */
 
     'logo' => '<b>Hoken</b>Água',
-    'logo_img' => '/imagens/logo.gif',
+    'logo_img' => 'public/imagens/logo.gif',
     'logo_img_class' => 'brand-image img-responsive ',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
     'logo_img_alt' => 'AdminLTE',
-    'logo_view' => '/imagens/logo.png',
+    'logo_view' => '/public/imagens/logo.png',
 
     /*
     |--------------------------------------------------------------------------
@@ -681,12 +681,12 @@ return [
                 [
                     'type' => 'css',
                     'asset' => true ,
-                    'location' => 'plugins/summernote/summernote-bs4.css',
+                    'location' => 'public/plugins/summernote/summernote-bs4.css',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'plugins/summernote/summernote-bs4.min.js',
+                    'location' => 'public/plugins/summernote/summernote-bs4.min.js',
                 ],
             ],
 
@@ -699,22 +699,22 @@ return [
                 [
                     'type' => 'css',
                     'asset' => true ,
-                    'location' => 'plugins/daterangepicker/daterangepicker.css',
+                    'location' => 'public/plugins/daterangepicker/daterangepicker.css',
                 ],
                 // [
                 //     'type' => 'css',
                 //     'asset' => true ,
-                //     'location' => 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
+                //     'location' => 'public/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css',
                 // ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'plugins/moment/moment.min.js',
+                    'location' => 'public/plugins/moment/moment.min.js',
                 ],
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'plugins/daterangepicker/daterangepicker.js',
+                    'location' => 'public/plugins/daterangepicker/daterangepicker.js',
                 ],
                
             ],
@@ -727,12 +727,12 @@ return [
                 [
                     'type' => 'css',
                     'asset' => true ,
-                    'location' => 'plugins/slick/slick.css',
+                    'location' => 'public/plugins/slick/slick.css',
                 ],
                 [
                     'type' => 'css',
                     'asset' => true ,
-                    'location' => 'plugins/slick/slick-theme.css',
+                    'location' => 'public/plugins/slick/slick-theme.css',
                 ],
         
                 [
@@ -748,7 +748,7 @@ return [
                 [
                     'type' => 'js',
                     'asset' => true,
-                    'location' => 'plugins/slick/slick.min.js',
+                    'location' => 'public/plugins/slick/slick.min.js',
                 ],
                
             ],
@@ -760,12 +760,12 @@ return [
                     [
                         'type' => 'css',
                         'asset' => true ,
-                        'location' => '/plugins/leaflet/leaflet.css',
+                        'location' => '/public/plugins/leaflet/leaflet.css',
                     ],
                     [
                         'type' => 'js',
                         'asset' => true,
-                        'location' => '/plugins/leaflet/leaflet.js',
+                        'location' => '/public/plugins/leaflet/leaflet.js',
                     ],
                    
                 ],
