@@ -3,7 +3,7 @@
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
 
 @section('css')  
-<link rel="stylesheet" href="{{ url('css/custom.css')}}">
+<link rel="stylesheet" href="{{ url('public/css/custom.css')}}">
 
 @stop()
 
@@ -35,7 +35,7 @@
         @foreach ($Post_List as $post)
         <div class="box col-xl-4 col-lg-4 col-12 text-center">
           <figure class="figure">
-            <img class="img-fluid" src="{{asset('storage/'. str_after($post->post_imagem, 'public/'))}}" alt="{{$post->post_title }} - Hoken">
+            <img class="img-fluid" src="{{asset('public/storage/'. str_after($post->post_imagem, 'public/'))}}" alt="{{$post->post_title }} - Hoken">
             <figcaption class="figure-caption text-xs-right">
               <h1 style="color: #fff; font-size:20px; padding: 10px 0px;">{{$post->post_title }}</h1>
               

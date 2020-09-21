@@ -3,7 +3,7 @@
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
 
 @section('css')  
-<link rel="stylesheet" href="{{ url('css/custom.css')}}">
+<link rel="stylesheet" href="{{ url('public/css/custom.css')}}">
 @stop()
 
 
@@ -32,7 +32,7 @@
       <div class="row">
         <div class="col-12">
         
-            <img class="img-cover rounded" src="{{asset('storage/'. str_after($Post_id->post_imagem, 'public/'))}}" alt="{{$Post_id->post_title }} - Hoken">
+            <img class="img-cover rounded" src="{{  asset('public/storage/'. str_after($Post_id->post_imagem, 'public/'))}}" alt="{{$Post_id->post_title }} - Hoken">
           
         </div>
         <div class="col-12">

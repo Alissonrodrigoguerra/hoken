@@ -12,11 +12,11 @@
                             {!! Form::text(config('form.titulo.name'), config('form.titulo.label'), config('form.titulo.placeholder'))->value( $processo->titulo ?? "") !!}
 
                             @isset($processo->imagem)
-                            <img src="{{asset('storage/'. str_after($processo->imagem, 'public/'))}}" width="200px" alt="{{ $processo->name }}">
+                            <img src="{{url('storage/app/'. $processo->imagem)}}" width="200px" alt="{{ $processo->name }}">
                             @endisset
                             {!! Form::file(config('form.imagem.name'), config('form.imagem.label')) !!}
                             @isset($processo->imagem_destaque)
-                            <img src="{{asset('storage/'. str_after($processo->imagem_destaque, 'public/'))}}" width="200px" alt="{{ $processo->name }}">
+                            <img src="{{url('storage/app/'. $processo->imagem_destaque)}}" width="200px" alt="{{ $processo->name }}">
                             @endisset
                             {!! Form::file(config('form.imagem_destaque.name'), config('form.imagem_destaque.label')) !!}
                             {!! Form::hidden('Produto_id')->value($product->id) !!}

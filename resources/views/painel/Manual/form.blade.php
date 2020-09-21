@@ -11,7 +11,7 @@
               {!! Form::text('name', 'Modelo Manual')->value($Manual->nome?? '') !!}  
               {!! Form::select('Produto_id', 'Produto', $product)->value($Manual->Produto_id?? '') !!}
               @isset($Manual->arquivo)
-              <iframe width="500px" height="600px" src="{{asset('storage/'. str_after($Manual->arquivo, 'public/'))}}" frameborder="0"></iframe>
+              <iframe width="500px" height="600px" src="{{url('storage/app/'. $Manual->arquivo)}}" frameborder="0"></iframe>
               @endisset
               {!! Form::file('arquivo', 'Manual' ) !!}
             </div>

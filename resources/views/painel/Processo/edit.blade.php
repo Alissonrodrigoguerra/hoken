@@ -25,7 +25,7 @@
                 
                 
             </form>       
-             @include('painel/categoria/create_modal')  
+             @include('painel/Categoria/create_modal')  
  
                 </div>
             </div>

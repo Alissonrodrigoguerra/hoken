@@ -3,7 +3,7 @@
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
 
 @section('css')  
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="{{ url('public/css/custom.css')}}">
 
 @stop()
 
@@ -15,58 +15,73 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xl-6 col-lg-6 col-12">
-      <img src="{{ asset('imagens/Fachada-Hoken.jpg') }}" class="img-cover" alt="Hoken Franching">
+      <img src="{{ asset('public/imagens/Fachada-Hoken.jpg') }}" class="img-cover-right" alt="Hoken Franching">
     </div>
       <div class="col-xl-6 col-lg-6 col-12">
         <div id="box-emprensa" class="col-12 text-justify">
           <div class="box_background ">
-            <h1 class="p-3">O Grupo Hoken</h1>
+            <h1 class="p-3">O Grupo <img  class="p-3 img-fluid" src="{{ asset('public/imagens/Hoken-International-Company1.png') }}" alt="Hoken Internacional"></h1>
   
-          <p class="p-3">Formado por 3 empresas, Hoken International Company, Hai Franchising e Brasil Service e atuante em todo o Brasil,
-             Paraguai, Portugual e Espanha, o Grupo Hoken se consolidou como um dos mais sólidos grupos econômicos do país. Ocupa a posição de 
-             destaque nas áreas de pesquisa e desenvolvimento de aparelhos e acessórios para tratamento de água,
-             franchising, vendas diretas e treinamento.</p>
-  
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#Brasil-Service">
-              <img src="{{ asset('imagens/Brasil-Service.png') }}" class="img-fluid" alt="">
-          </button>
-          <button type="button" class="btn btn-ligth" data-toggle="modal" data-target="#HAI-Franchising">
-            <img src="{{ asset('imagens/HAI-Franchising.png') }}" class="img-fluid"  alt="">
-          </button>
+          <p class="p-3">Há 23 anos a Hokenatua em todo o Brasil, Paraguai, Portugal e Espanha, o Grupo Hoken se consolidou como um dos mais sólidos grupos econômicos do país. </p>
+          <p class="p-3 text-justify">
+          Ocupa a posição de destaque nas áreas de pesquisa e desenvolvimento de aparelhos e acessórios para tratamento de água, franchising, vendas diretas e treinamento.
+A Hoken possui a mais completa linha de aparelhos para tratamento de água desenvolvidos com alta tecnologia e sob rígido controle de qualidade. Mais saúde e qualidade de vida para você e toda sua família.
+Os produtos Hoken são sinônimos de alta tecnologia e qualidade, proporcionando total segurança e comodidade para seus consumidores.
+Primeira indústria de aparelhos para tratamento de água do Brasil a obter a certificação ISO 9001, é responsável pela produção e comercialização dos mais avançados produtos, com tecnologia de ponta exclusiva e patenteada. 
+O comprometimento da Hoken com a qualidade de seus produtos e serviços resulta em conquistas históricas: a Hoken é a única empresa da América Latina a receber o Gold Seal, da WaterQualityAssociation, certificação dada aos processadores com elementos filtrantes Carbomax®. 
+
+          <ul>
+            <li>•	Fundada em 1997 na cidade de São José do Rio Preto, estado de São Paulo, está presente em dois continentes (América e Europa) e em quatro países.
+            </li>
+            <li>•	Líder no segmento de aparelhos para tratamento de água residencial;</li>
+            <li>•	Empresa 100% brasileira;</li>
+            <li>•	Possui mais de 100 franquias;</li>
+            <li>•	Primeira indústria de aparelhos para tratamento de água residencial do Brasil a receber a certificação ISO 9001;
+            </li>
+            <li>•	Possui mais de 2 milhões de clientes;</li>
+          </ul>
+
+          <div class="col-lg-12">
+           
+            <div class="float-left p-3">
+              <small>Acompanhe a <b>Hoken </b>nas Redes Sociais:</small>
+                <a class="social-facebook ml-3 " href="https://www.facebook.com/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-facebook"></i></a>
+                <a class="social-twitter ml-3 " href="https://twitter.com/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-twitter"></i></a>
+                <a class="social-google-plus ml-3 " href="https://plus.google.com/+BlogHokenBrFranquia/videos" target="&quot;_blank&quot;"><i class="fab fa-google-plus-g"></i></a>
+                <a class="social-linkedin ml-3 " href="https://www.linkedin.com/company/hoken-internacional-company" target="&quot;_blank&quot;"><i class="fab fa-linkedin"></i></a>
+                <a class="social-youtube ml-3 " href="https://www.youtube.com/user/hokenoficial" target="&quot;_blank&quot;"><i class="fab fa-youtube"></i></a>
+                <a class="social-instagram ml-3 " href="https://www.instagram.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-instagram"></i></a>
+                <a class="social-pinterest ml-3 " href="https://www.pinterest.com/hokenoficial/" target="&quot;_blank&quot;"><i class="fab fa-pinterest"></i></a></div>
+        </div>
+         </p>
           </div>
         </div>
       </div>
     </div>
 </div>
-<div class="container">
-  <div class="row pt-5 pb-5">
-    <div class="col-xl-6 col-lg-6 col-12 ">
-      <div  class="col-12">
-        <img  class="p-3 img-fluid" src="{{ asset('imagens/Hoken-International-Company1.png') }}" alt="Hoken Internacional">
-        <p class="p-3 text-justify">Primeira indústria de aparelhos para tratamento de água do Brasil a obter a certificação ISO 9001, é responsável pela produção e comercialização dos mais avançados produtos, com tecnologia de ponta exclusiva e patenteada.
-
-          O comprometimento da Hoken com a qualidade de seus produtos e serviços resulta em conquistas históricas: a Hoken é a única empresa da América Latina a receber o Gold Seal, da Water Quality Association, certificação dada aos processadores com elementos filtrantes Carbomax®. Além disso, todos os processadores Hoken contam com a certificação Inmetro.
-          
-          <ul>
-            <li>Fundado em 1997 na cidade de São José do Rio Preto, estado de São Paulo, está presente em dois continentes (América e Europa) e em quatro países.
-            </li>
-            <li>Líder no segmento de aparelhos para tratamento de água residencial;</li>
-            <li>Empresa 100% brasileira;</li>
-            <li>Possui mais de 150 franquias;</li>
-            <li>Primeira indústria de aparelhos para tratamento de água residencial do Brasil a receber a certificação ISO 9001;
-            </li>
-            <li>Possui mais de 2 milhão de clientes;</li>
-          </ul>
-         </p>
+<section class="alert-info" >
+  <div id="section-ribbon-unidades" class="container">
+    <div class="row justify-content-center">
+      <div class="col-8 m-5 text-center">
+        <a name="" id="" class="btn btn-success pulse" href="#" role="button"><h5><i class="far fa-hand-point-right"></i> Clique aqui e encotnre a franquia mais próxima de você.</h5></a>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="container-fluid">
+<div class="row justify-content-center pt-5 pb-5">
+    {{-- <div class="col-xl-6 col-lg-6 col-12 "> --}}
+      {{-- <div  class="col-12">
+        
+        
 
       </div>
     </div>
     <div class="col-xl-6 col-lg-6 col-12 pt-5 pb-5">
-      <img src="{{ asset('imagens/Fabrica-3-880x495.jpg') }}" class="img-fluid" alt="Hoken Franching">
-    </div>
-    <div class="col-xl-12 col-lg-12 col-12 pt-5 pb-5" >
-      <img src="{{ asset('imagens/timeline-hoken.svg') }}" class="img-fluid" alt="Hoken Franching">
+      <img src="{{ asset('public/imagens/Fabrica-3-880x495.jpg') }}" class="img-fluid" alt="Hoken Franching">
+    </div> --}}
+    <div class="col-xl-10 col-lg-10 col-12 pt-5 pb-5" >
+      <img src="{{ asset('public/imagens/timeline-hoken.svg') }}" class="img-fluid" alt="Hoken Franching">
 
     </div>
   </div>
@@ -74,41 +89,6 @@
 
 
 
-
-<!-- Modal -->
-<div class="modal fade" id="Brasil-Service" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <img  class="p-3" src="{{ asset('imagens/Brasil-Service.png') }}" alt="Hoken Internacional">
-        <p>
-          Empresa responsável pela comunicação corporativa do Grupo Hoken, engloba Publicidade, Treinamento, Identidade Visual dos produtos, Assessoria de Imprensa, Comunicação Impressa, Áudio Visual e Estratégia das Marcas.
-        </p>
-        <p>
-          É responsável pela coordenação de todo Sistema de Treinamento que oferece capacitação profissional e pessoal para a equipe de vendas.
-        </p>
-        <p>
-        A Brasil Service também desenvolve os eventos do Grupo Hoken, além de organização e realização de cursos, seminários, campanhas de incentivo, viagens e convenções.
-       </p>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="HAI-Franchising" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <img  class="p-3 " src="{{ asset('imagens/HAI-Franchising.png') }}" alt="Hoken Internacional">
-        <p>
-          Licenciadora da marca Hoken é responsável pelas licenças internacionais do grupo e pela venda de franquias.
-        <p>
-          Também proporcionam às mais de 150 franquias do Brasil, América Latina e Europa suporte e apoio para iniciar o negócio, além de modernos sistemas de controle que são utilizados para garantir o resultado dos parceiros franqueados.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
 <div id="ribbon-blue-top" ></div>
 <section id="call-to-action-franquia">
   <div class="container">
@@ -118,7 +98,7 @@
         <p>Uma franquia rentável, segura e com rápido retorno sobre o investimento.</p>
       </div>
       <div class="col-xl-3 col-lg-3 col-12 p-4 text-center" >
-        <a name="" id="" class="btn btn-outline-light btn-lg btn-lg btn-block " href="http://hoken.projetosprospecta.com.br/" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
+        <a name="" id="" class="btn  btn-lg btn-lg btn-block pulse" href="http://hoken.projetosprospecta.com.br/" role="button"><i class="far fa-hand-point-right"></i> Pano de Negócio</a>
       </div>
     </div>
   </div>

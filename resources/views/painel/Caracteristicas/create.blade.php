@@ -20,7 +20,7 @@
                 {{-- Formulário --}}
                 <form role="form" action="{{ route('caracteristica.store') }}" method="POST" enctype="multipart/form-data"> 
                   {{ csrf_field() }}
-                  @include('painel/Caracteristicas/form')  
+                  @include('painel/Caracteristicas.form')  
                 
             </form>        
                 </div>

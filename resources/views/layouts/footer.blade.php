@@ -2,48 +2,29 @@
 
 <div class="row footer_read">
     <div class="container">
-        <div class="row ">
-            <div class="col-lg-4 bg_Navyblue_2  p-4">
-                <h2 class="footer_title "><img src="{{ asset(config('adminlte.logo_view'))}}" alt="Hoken Logo"></h2>
-                <div class="footer_content  pt-4">
-                    <p>A Hoken possui a mais completa linha de aparelhos para tratamento de água desenvolvidos com alta tecnologia e sob rígido controle de qualidade. Mais saúde e qualidade de vida para você e toda sua família.
-                    </p>
-                    <p>Os produtos Hoken são sinônimos de alta tecnologia e qualidade, proporcionando total segurança e comodidade para seus consumidores.
-
-                    </p>
-                    <p>Nossa missão é "Levar saúde e prosperidade a todas pessoas e nações."
-
-                    </p>
+        <div class="row bg_Navyblue_2">
+            <div class="col-12">
+                <div class="row justify-content-center ">
+                    <div class="col-lg-6   p-4">
+                        <h2 class="footer_title "><img src="{{ asset(config('adminlte.logo_view'))}}" alt="Hoken Logo"></h2>
+                        <div class="footer_content  pt-4">
+                            <p>Com mais de 23 anos de atuação no mercado, a Hoken é uma empresa com 100 franquias espalhadas pelo Brasil, além de Paraguai e Portugal. 
+                                Atuando no fornecimento de água purificada, a empresa tem o melhor e mais abrangente atendimento de assistência técnica e prestação de serviços, visando sempre a maior satisfação de seus clientes 
+                                Um dos mais sólidos grupos econômicos do país, ocupa posição de destaque nas áreas de pesquisa e desenvolvimento de aparelhos e acessórios para tratamento de água, franchising, vendas diretas e treinamento. 
+        
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4   p-4">
+                        <h2 class="footer_title pt-4 text-center">CONTATO</h2>
+                        <div class="footer_content">
+                            <p class=""><a href=""><i class="fas fa-street-view"></i> Rua Doutor José Jorge Cury, 270 - São José do Rio Preto - SP<hr class="hr_footer"></a></p>
+                            <p class=""><a href=""><i class="fas fa-phone"></i> 0800 701 13 15<hr class="hr_footer"></a></p>
+                            <p class=""><a href=""><i class="fas fa-envelope"></i> contato@hoken.com.br<hr class="hr_footer"></a></p>
+                        </div> 
+                    </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4  p-4">
-                <h2 class="footer_title pt-4 pl-3 text-center">Notícias</h2>
-                <div class="footer_content">
-                    <ul class="list-default" style="list-style: none;">
-                        @isset($Post)
-                        @foreach ($Post as $post_item)
-                        <li><a href="{{route('post.show', $post_item->id ) }}"><p>{{$post_item->post_title}} <br>
-                        @php
-                         $ymd = DateTime::createFromFormat('Y-m-d', $post_item->post_data)->format('d-m-yy');
-                        @endphp
-                        Postado em {!! $ymd !!}
-                        </p></a></li>
-                        <hr class="hr_footer"> 
-                            
-                        @endforeach
-                    @endisset
-                        
-                </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 bg_Navyblue_2  p-4">
-                <h2 class="footer_title pt-4 text-center">CONTATO</h2>
-                <div class="footer_content">
-                    <p class=""><a href=""><i class="fas fa-street-view"></i> Rua Doutor José Jorge Cury, 270 - São José do Rio Preto - SP<hr class="hr_footer"></a></p>
-                    <p class=""><a href=""><i class="fas fa-phone"></i> 0800 701 13 15<hr class="hr_footer"></a></p>
-                    <p class=""><a href=""><i class="fas fa-envelope"></i> contato@hoken.com.br<hr class="hr_footer"></a></p>
-                </div> 
-            </div>
             </div>
         </div>
     </div>

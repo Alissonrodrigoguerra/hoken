@@ -3,7 +3,7 @@
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
  
 @section('css')  
-<link rel="stylesheet" href="{{ url('css/custom.css')}}">
+<link rel="stylesheet" href="{{ url('public/css/custom.css')}}">
 
 @stop()
 
@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row justify-content-center m-4">
                 <div class="col-lg-4 col-xl-3 col-12">
-                    <img src="{{ asset('./imagens/logo-white.svg')}}" class="logomin2 img-fluid" alt="Mais Saude para sua família">
+                    <img src="{{ asset('./public/imagens/logo-white.svg')}}" class="logomin2 img-fluid" alt="Mais Saude para sua família">
 
                 </div>
                 <div class="col-lg-8 col-xl-8 col-12  text-lg-right text-xl-right text-center">
@@ -28,10 +28,10 @@
         <div class="container" style="padding: 100px 0px ;" >
             <div class="row  justify-content-left">
                 <div class="col-xl-6 col-lg-6 col-12">
-                <img src="{{ asset('./imagens/maissaudeparasuafamilia-hoken.png')}}" class="img-fluid" alt="Mais Saude para sua família">
+                <img src="{{ asset('./public/imagens/maissaudeparasuafamilia-hoken.png')}}" class="img-fluid" alt="Mais Saude para sua família">
                 </div>
                 <div class="col-xl-6 col-lg-6 col-12">
-                    <img src="{{ asset('./imagens/linhaprodutoshoken.png')}}" class="img-fluid" alt="Mais Saude para sua família">
+                    <img src="{{ asset('./public/imagens/linhaprodutoshoken.png')}}" class="img-fluid" alt="Mais Saude para sua família">
                 </div>
                 <div class="col-5  ">
                     <a href="https://api.whatsapp.com/send?phone={{$unidades->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken." class="btn btn-success btn-lg btn-block">QUERO SABER MAIS</a>
@@ -50,22 +50,22 @@
                     <p class="text-info">A água filtrada proporciona grandes benefícios para sua saúde: ela regula a temperatura corporal, combate acne, estrias e celulite, melhora o funcionamento dos rins, altura na prevenção do aparecimento de pedras nos rins, facilita a digestão, diminui o inchaço corporal, melhora a circulação  sanguínia e ainda ajuda emagrecer.</p>
                     <div class="row">
                         <div class="col-lg-3 col-lx-3 col-6">
-                            <img src="{{ asset('./imagens/icons-07.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('./public/imagens/icons-07.svg')}}" class="img-fluid" alt="">
                             <p class="text-info"> <b>Lubrifica os músculos e articulações</b> </p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
 
-                            <img src="{{ asset('imagens/icons-08.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('public/imagens/icons-08.svg')}}" class="img-fluid" alt="">
 
                             <p class="text-info"> <b> Qualidade da pele</b></p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
-                            <img src="{{ asset('imagens/icons-09.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('public/imagens/icons-09.svg')}}" class="img-fluid" alt="">
 
                             <p class="text-info"> <b> Hidrata e mantem um bom funcionamento dos órgãos</b></p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
-                            <img src="{{ asset('imagens/icons-10.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('public/imagens/icons-10.svg')}}" class="img-fluid" alt="">
 
                             <p class="text-info"> <b> Auxilia no emagracimento</b></p>
                         </div>
@@ -78,7 +78,7 @@
         <div class="container">
             <div class="row" style="margin: 100px 0px">
                 <div class="col-lg-4 col-lx-4 col-12">
-                    <img src="{{ asset('./imagens/icons-12.svg')}}" class="img-fluid" alt="">
+                    <img src="{{ asset('./public/imagens/icons-12.svg')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-8 col-lx-8 col-12 text-center " style="margin: 100px 0px">
                     <h1 class="text-white"><b>100% SEM CHEIRO</b></h1>
@@ -91,7 +91,7 @@
                 <div class="carrossel-item">
                     <h3>
                     <figure class="figure">
-                        <img src="{{asset('storage/'. str_after($item->imagem_destaque, 'public/'))}}" class="figure-img img-fluid rounded" alt="">
+                        <img src="{{asset('public/storage/'. str_after($item->imagem_destaque, 'public/'))}}" class="figure-img img-fluid rounded" alt="">
                         <br>
                         <figcaption class="figure-caption text-xs-right">
                             <a name="" id="" class="btn btn-light btn-block " href="{{ route('produtoview.produto', $item->id)}}" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
@@ -118,7 +118,7 @@
                         </a>
                 </div>
                 <div class="col-lg-3 col-xl-4 col-12">
-                    <img src="{{ asset('./imagens/icons-11.png')}}" class="img-fluid" alt="">
+                    <img src="{{ asset('./public/imagens/icons-11.png')}}" class="img-fluid" alt="">
                 </div>
             </div>
         </div>

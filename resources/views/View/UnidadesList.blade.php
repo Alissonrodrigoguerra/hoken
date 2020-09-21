@@ -3,7 +3,7 @@
 @inject('layoutHelper', \JeroenNoten\LaravelAdminLte\Helpers\LayoutHelper)
  
 @section('css')  
-<link rel="stylesheet" href="{{ url('css/custom.css')}}">
+<link rel="stylesheet" href="{{ url('public/css/custom.css')}}">
 
 @stop()
 

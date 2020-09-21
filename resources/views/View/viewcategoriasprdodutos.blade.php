@@ -2,7 +2,7 @@
 
 
 @section('css')  
-<link rel="stylesheet" href="{{ url('css/custom.css')}}">
+<link rel="stylesheet" href="{{ url('public/css/custom.css')}}">
 @stop()
 
 
@@ -11,7 +11,7 @@
 @include('layouts.nav_menu')
   <section class="banner_categoria">
       @isset($categoria->imagem_destaque)
-        <img class="img-fluid" src="{{asset('storage/'. str_after($categoria->imagem_destaque, 'public/'))}}"  alt="{{ $categoria->categoria_title }}">
+        <img class="img-fluid" src="{{asset('public/storage/'. str_after($categoria->imagem_destaque, 'public/'))}}"  alt="{{ $categoria->categoria_title }}">
       @endisset 
   </section>
 <div class="container">
@@ -25,7 +25,7 @@
         @foreach ($produtos as $item)
         <div class="col-xl-4 col-lg-4 col-12">
           <figure class="figure">
-            <img src="{{asset('imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
+            <img src="{{asset('public/imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
             <br>
             <figcaption class="figure-caption text-xs-right">
             <a name="" id="" class="btn btn-info btn-block " href="{{ route('produtoview.produto', $item->id)}}" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
@@ -43,27 +43,27 @@
         
         <div class="carrossel-item">
         <figure class="figure">
-            <img src="{{asset('imagens/ABRAFIPA1.png')}}" class="figure-img img-fluid rounded" >
+            <img src="{{asset('public/imagens/ABRAFIPA1.png')}}" class="figure-img img-fluid rounded" >
         </figure>
         </div>
         <div class="carrossel-item">
         <figure class="figure">
-          <img src="{{asset('imagens/ABF1.png')}}" class="figure-img img-fluid rounded" >
+          <img src="{{asset('public/imagens/ABF1.png')}}" class="figure-img img-fluid rounded" >
         </figure>
         </div>
         <div class="carrossel-item">
         <figure class="figure">
-          <img src="{{asset('imagens/GOLD-SEAL1.png')}}" class="figure-img img-fluid rounded" >
+          <img src="{{asset('public/imagens/GOLD-SEAL1.png')}}" class="figure-img img-fluid rounded" >
         </figure>
         </div>
         <div class="carrossel-item">
         <figure class="figure">
-          <img src="{{asset('imagens/Water-Quality1.png')}}" class="figure-img img-fluid rounded" >
+          <img src="{{asset('public/imagens/Water-Quality1.png')}}" class="figure-img img-fluid rounded" >
         </figure>
         </div>
         <div class="carrossel-item">
         <figure class="figure">
-          <img src="{{asset('imagens/ABF1.png')}}" class="figure-img img-fluid rounded" >
+          <img src="{{asset('public/imagens/ABF1.png')}}" class="figure-img img-fluid rounded" >
         </figure>
         </div>
       </div>

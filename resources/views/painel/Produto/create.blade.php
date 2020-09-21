@@ -21,7 +21,7 @@
                 <form role="form" action="{{ route('produto.store') }}" method="POST" enctype="multipart/form-data"> 
                   {{ csrf_field() }}
                  
-                  @include('painel/Produto/form')  
+                  @include('painel/Produto.form')  
                 
                 
             </form>        

@@ -21,11 +21,12 @@
                             @isset($produto->id) @php $Video_link = $produto->Video_link  @endphp @endisset
                             {!! Form::text(config('form.Video_link.name'), config('form.Video_link.label'), config('form.Video_link.placeholder') )->value($Video_link) !!}
                             @isset($produto->imagem_destaque)
-                            <img src="{{asset('storage/'. str_after($produto->imagem_destaque, 'public/'))}}" width="200px" alt="{{ $produto->imagem_destaque }}">
+                            <img src="{{url('storage/app/'. $produto->imagem_destaque.'')}}" width="200px" alt="{{ $produto->imagem_destaque }}">
                             @endisset
                             {!! Form::file(config('form.imagem_destaque.name'), config('form.imagem_destaque.label')); !!}
+                           
                             @isset($produto->imagem_backgound)
-                            <img src="{{asset('storage/'. str_after($produto->imagem_backgound, 'public/'))}}" width="200px" alt="{{ $produto->post_title }}">
+                            <img src="{{url('storage/app/'. $produto->imagem_backgound.'')}}" width="200px" alt="{{ $produto->imagem_backgound }}">
                             @endisset
                             {!! Form::file(config('form.imagem_backgound.name'), config('form.imagem_backgound.label')) !!}
 

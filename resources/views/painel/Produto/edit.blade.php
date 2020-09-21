@@ -22,7 +22,7 @@
                   {{ csrf_field() }}
                   {{ method_field('PUT') }}
                   
-                  @include('painel/produto/form')  
+                  @include('painel/Produto.form')  
                 
                 
             </form>       
