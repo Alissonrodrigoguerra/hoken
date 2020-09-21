@@ -25,7 +25,7 @@
         @foreach ($produtos as $item)
         <div class="col-xl-4 col-lg-4 col-12">
           <figure class="figure">
-            <img src="{{asset('public/imagens/Sancai.png')}}" class="figure-img img-fluid rounded" alt="">
+            <img src="{{url('storage/app/' . $item->imagem_destaque)}}" class="figure-img img-fluid rounded" alt="">
             <br>
             <figcaption class="figure-caption text-xs-right">
             <a name="" id="" class="btn btn-info btn-block " href="{{ route('produtoview.produto', $item->id)}}" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>

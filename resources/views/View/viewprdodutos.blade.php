@@ -31,13 +31,16 @@
 </section>
 
 <section id="video_produto" >
-    <div class="row" >
+    <div class="row justify-content-center" >
+      @isset($produtos->Video_link)
       <div class="col-lg-6 col-xl-6 col-12 text-center" >
-      <iframe class="p-5" style="width: 100%; max-width: 720px;" height="405px" src="https://www.youtube.com/embed/{{ $produtos->Video_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
+        <iframe class="p-5" style="width: 100%; max-width: 720px;" height="405px" src="https://www.youtube.com/embed/{{ $produtos->Video_link}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      @endisset
+      @isset($caracteristica_destaque[0]['destaque_imagem'])
       <div class="col-lg-6 col-xl-6 col-12 pt-5 pb-5 ">
         <div class="row justify-content-center mt-5 mb-5">
-          <div class="col-md-12 text-center"> <h1 class="text-info"><b>Caracteristicas</b></h1></div>
+          <div class="col-md-12 text-center"> <h1 class="text-info"><b>Características</b></h1></div>
           @foreach ($caracteristica_destaque as $item)
           <div class="m-2 p-3 caracteristica" data-toggle="tooltip" data-placement="bottom" title="{{$item->name}}">
             <object type="image/svg+xml" class="icon" data="{{url('storage/app/'.$item->destaque_imagem.'')}}"></object>
@@ -45,9 +48,11 @@
           @endforeach 
         </div>
       </div>
+      @endisset
     </div>
 </section>
 
+@isset($processo)
 <section id="processo_produto" >
   <div class="row" >
     <div class="col-lg-6 col-xl-6 col-12 text-center " >
@@ -67,6 +72,7 @@
     </div>
   </div>
 </section>
+@endisset
 
 <section id="caracteristicas_produto" class="pt-5" >
   <div class=" container "  style="background: #fff;    border-radius: 50px 50px 0px 0px; ">

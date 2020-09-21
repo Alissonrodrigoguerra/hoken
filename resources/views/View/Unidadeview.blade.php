@@ -55,17 +55,17 @@
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
 
-                            <img src="{{ asset('public/imagens/icons-08.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('public/imagens/Icons-08.svg')}}" class="img-fluid" alt="">
 
                             <p class="text-info"> <b> Qualidade da pele</b></p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
-                            <img src="{{ asset('public/imagens/icons-09.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('public/imagens/Icons-09.svg')}}" class="img-fluid" alt="">
 
                             <p class="text-info"> <b> Hidrata e mantem um bom funcionamento dos órgãos</b></p>
                         </div>
                         <div class="col-lg-3 col-lx-3 col-6">
-                            <img src="{{ asset('public/imagens/icons-10.svg')}}" class="img-fluid" alt="">
+                            <img src="{{ asset('public/imagens/Icons-10.svg')}}" class="img-fluid" alt="">
 
                             <p class="text-info"> <b> Auxilia no emagracimento</b></p>
                         </div>
@@ -78,7 +78,7 @@
         <div class="container">
             <div class="row" style="margin: 100px 0px">
                 <div class="col-lg-4 col-lx-4 col-12">
-                    <img src="{{ asset('./public/imagens/icons-12.svg')}}" class="img-fluid" alt="">
+                    <img src="{{ asset('./public/imagens/Icons-12.svg')}}" class="img-fluid" alt="">
                 </div>
                 <div class="col-lg-8 col-lx-8 col-12 text-center " style="margin: 100px 0px">
                     <h1 class="text-white"><b>100% SEM CHEIRO</b></h1>
@@ -91,7 +91,7 @@
                 <div class="carrossel-item">
                     <h3>
                     <figure class="figure">
-                        <img src="{{asset('public/storage/'. str_after($item->imagem_destaque, 'public/'))}}" class="figure-img img-fluid rounded" alt="">
+                        <img src="{{url('/storage/app/'. $item->imagem_destaque)}}" class="figure-img img-fluid rounded" alt="">
                         <br>
                         <figcaption class="figure-caption text-xs-right">
                             <a name="" id="" class="btn btn-light btn-block " href="{{ route('produtoview.produto', $item->id)}}" role="button"><i class="far fa-hand-point-right"></i> Detalhes</a>
@@ -105,7 +105,7 @@
                 
         </div>
     </section>
-    <section class="section " id="assistencia" style="background-image: url('../imagens/bckground_wather.jpg'); 
+    <section class="section " id="assistencia" style="background-image: url('../imagens/background_wather.jpg'); 
     " >
         <div class="container">
             <div class="row justify-content-center">
