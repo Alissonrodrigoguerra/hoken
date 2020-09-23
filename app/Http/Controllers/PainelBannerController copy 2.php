@@ -74,6 +74,12 @@ class PainelBannerController extends Controller
  
          }
 
+         if($request->file('Banner_imagem_moblie') !== null){
+            $imagem =  $request->Banner_imagem_moblie->store('public/Banner/');
+            $Banner->Banner_imagem_moblie = $imagem;
+ 
+         }
+
         if($Banner->save()){
 
             $request->session()->flash('status', 'Banner '. $Banner->Banner_title .' criado com sucesso!');
@@ -145,6 +151,13 @@ class PainelBannerController extends Controller
             $Banner->Banner_imagem = $imagem;
  
          }
+
+         if($request->file('Banner_imagem_moblie') !== null){
+            $imagem =  $request->Banner_imagem_moblie->store('public/Banner/');
+            $Banner->Banner_imagem_moblie = $imagem;
+ 
+         }
+         
         if($Banner->save()){
 
             $request->session()->flash('status', 'Banner '. $Banner->Banner_title .' atualizado com sucesso!');
