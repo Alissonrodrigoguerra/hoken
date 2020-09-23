@@ -48,8 +48,23 @@
         <p>
           <button class='btn btn-outline-info btn-block' type='button' data-toggle='collapse' data-target='#contentId{{ $item->id }}' aria-expanded='false'aria-controls='contentId'>{{ $item->nome }}</button>
         </p>
-        <div class='collapse' id='contentId{{ $item->id }}'><p style='text-align: left'><span if='endereco'>{{ $item->Rua }},{{ $item->Numero }}</span><br><span if='bairro'>Bairro: {{ $item->Bairro }}</span><br><span if='cidade'>Cidade:{{ $item->cidade }}</span><br><span if='cep'>CEP: {{ $item->CEP }}</span><br><span if='telefone'>Telefone(s): {{ $item->Telefone }} | <a href='https://api.whatsapp.com/send?phone={{ $item->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> {{ $item->Whatsapp }}</a></span><br><span if='email'>E-mail:  <a href='mailto:{{ $item->email }}?subject=Hoken {{ $item->codigo }}'>{{ $item->email }}<br></span><br><span if='unidade'><a href='{{ route('exibir.unidade', $item->id )}}' class='btn btn-block btn-info' >site</a></p></div></div>
-
+  
+        <div class='collapse' id='contentId{{ $item->id }}'>
+          <p style='text-align: left'>
+          <span if='endereco'>{{ $item->Rua }},{{ $item->Numero }}</span><br>
+          <span if='bairro'>Bairro: {{ $item->Bairro }}</span><br>
+          <span if='cidade'>Cidade:{{ $item->cidade }}</span><br>
+          <span if='cep'>CEP: {{ $item->CEP }}</span><br>
+          <span if='telefone'>Telefone(s): {{ $item->Telefone }} | <a href='https://api.whatsapp.com/send?phone={{ $item->Whatsapp }}&text=Ol%C3%A1%20tudo%20bem%20gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Hoken.'><i class='fab fa-whatsapp'></i> {{ $item->Whatsapp }}</a></span><br>
+          <span if='email'>E-mail:  <a href='mailto:{{ $item->email }}?subject=Hoken {{ $item->codigo }}'>{{ $item->email }}<br></span><br>
+          <span if='unidade'>
+          <div class="row">
+          <a href="https://www.google.com.br/maps/dir//{{ $item->Rua }},+{{ $item->Numero }}+-+{{ $item->bairro }}+{{ $item->cidade }}-+{{ $item->estado }},+{{ $item->CEP }}//@ {{ $item->latitude }}, {{ $item->longitude }},4z/"class='btn  btn-lg btn-outline-info col-6' >Rota</a>
+          <a href='{{ route('exibir.unidade', $item->id )}}' class='btn  btn-lg btn-info col-6' >Site</a>
+          </div>
+        </span>
+        </div>
+        </div>
       @endforeach
       @endisset
        
