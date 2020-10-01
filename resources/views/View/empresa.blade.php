@@ -18,7 +18,7 @@
       <img src="{{ asset('public/imagens/Fachada-Hoken.jpg') }}" class="img-cover-right" alt="Hoken Franching">
     </div>
       <div class="col-xl-6 col-lg-6 col-12">
-        <div id="box-emprensa" class="col-12 text-justify">
+        <div id="box-emprensa" class="col-12 text-lg-justify">
           <div class="box_background ">
             <h1 class="p-3">O Grupo <img  class="p-3 img-fluid" src="{{ asset('public/imagens/Hoken-International-Company1.png') }}" alt="Hoken Internacional"></h1>
   

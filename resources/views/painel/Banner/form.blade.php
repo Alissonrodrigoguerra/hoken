@@ -123,13 +123,32 @@
                     <span>na medida 1920px por 1080px</span><br>
                     <span>
                       @isset($banner->Banner_imagem)
-                      <img src="{{asset('storage/'. str_after($banner->Banner_imagem, 'public/'))}}" width="200px" alt="{{ $banner->Banner_title }}">
+                      <img src="{{url('storage/app/'. $banner->Banner_imagem)}}" width="200px" alt="{{ $banner->Banner_title }}">
                       @endisset
                     </span><br><br>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" name="banner_imagem" class="custom-file-input" id="exampleInputFile">
                         <label class="custom-file-label" for="exampleInputFile">Imagem</label>
+                      </div>
+                      <div class="input-group-append">
+                        <span class="input-group-text" id="">Upload</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputFile">Insira um imagem </label>
+                    <span>na medida 720px por 480px</span><br>
+                    <span>
+                      @isset($banner->Banner_imagem_moblie)
+                      <img src="{{url('storage/app/'. $banner->Banner_imagem_moblie)}}" width="200px" alt="{{ $banner->Banner_title }}">
+                      @endisset
+                    </span><br><br>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" name="Banner_imagem_moblie" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Imagem Responsive</label>
                       </div>
                       <div class="input-group-append">
                         <span class="input-group-text" id="">Upload</span>

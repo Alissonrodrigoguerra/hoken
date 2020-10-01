@@ -29,8 +29,8 @@
                             <div class="carousel-inner">
                               @foreach ($Banner as $banner)
                               <div class="carousel-item ">
-                                {{-- <img class="slider_responive d-xl-none d-lg-none d-block " src=" {{url('storage/app/'. $banner->Banner_imagem_moblie)}}" alt="{{$banner->Banner_title}}" > --}}
-                                <img class="slider_responive" src=" {{url('storage/app/'. $banner->Banner_imagem)}}" alt="{{$banner->Banner_title}}" >
+                                <img class="img-cover  d-xl-none d-lg-none d-block " src=" {{url('storage/app/'. $banner->Banner_imagem_moblie)}}" alt="{{$banner->Banner_title}}" >
+                                <img class="img-cover d-xl-block d-lg-block d-none " src=" {{url('storage/app/'. $banner->Banner_imagem)}}" alt="{{$banner->Banner_title}}" >
                                 <div class="carousel-caption" style="top:30%;">
                                   @isset($banner->Banner_title)
                                   <h1>{{$banner->Banner_title}}</h1>
@@ -55,7 +55,7 @@
                         @endisset
                         <section id="section_caracteristicas">
                           <div class="container">
-                            <div class="row m-5 text-center">
+                            <div class="row m-lg-5 text-center">
                               <div class="col-12 p-5">
                                 <h1>Conheça a Água Pura <span><b>Hoken</b></span></h1>
                                 <p>Experimente a mais pura água distribuída de forma natural, gelada ou quente em uma máquina Purificadora inteligente.
@@ -63,22 +63,22 @@
                                   </p>
                               </div>
   
-                              <div class="col-6 col-lg-3 col-xl-3 text-center">
+                              <div class="col-12 col-lg-3 col-xl-3 text-center">
                                 <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; " src="{{asset('public/imagens/icon-home-1.svg')}}" alt="Hoken"></span>
                                   <h3><b>Bom para você</b></h3>
                                   <p>Dupla filtragem, <b>carbomax®</b> purificada sem incrustações e rica em minerais saudáveis</p>
                               </div>
-                              <div class="col-6 col-lg-3 col-xl-3">
+                              <div class="col-12 col-lg-3 col-xl-3">
                                 <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; " src="{{asset('public/imagens/icon-home-2.svg')}}" alt="Hoken"></span>
                                 <h3><b>Economize tempo</b></h3>
                                 <p>Instalação rápida, instantânea e ilimitada com serviço abrangente e simples</p>
                               </div>
-                              <div class="col-6 col-lg-3 col-xl-3">
+                              <div class="col-12 col-lg-3 col-xl-3">
                                 <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; "  src="{{asset('public/imagens/icon-home-3.svg')}}" alt="Hoken"></span>
                                   <h3><b>Ótimo sabor</b></h3>
                                   <p>Puro refrigerado ou bem quente, sempre com excelente sabor nítido e limpo</p>
                               </div>
-                              <div class="col-6 col-lg-3 col-xl-3">
+                              <div class="col-12 col-lg-3 col-xl-3">
                                 <span style="font-size:60px;"><img class="img-fluid" style="max-width: 150px; " src="{{asset('public/imagens/icon-home-4.svg')}}" alt="Hoken"></span>
                                 {{-- icon-home-1.svg --}}   
                                   <h3><b>Bom para o planeta</b> </h3>
@@ -132,7 +132,7 @@
                         <section id="section_regioes">
                           <div class="container">
                             <div class="row m-5 text-center">
-                              <div class="col-12 p-5">
+                              <div class="col-12 p-lg-5">
                                 <h1><b>A qualidade da água em diversas regiões do Brasil está preocupante.</b></h1>
                                 <p>Em várias cidades e regiões do Brasil as notícias sobre a qualidade da água que você consome não são boas.</p>
                               </div>
@@ -142,28 +142,28 @@
                                  </div>
                                 <div class="col-xl- col-lg-6 col-12 pt-2 pb-2">
                                   <div class="row">
-                                    <div class="col-6 text-left">
+                                    <div class="col-12 text-left">
                                        <a href="https://clmais.com.br/casan-suspende-captacao-de-agua-em-afluente-do-rio-palmeira/">
                                         <h3><b>Casan suspende captação de água em afluente do Rio Palmeira</b></h3>   
                                         <p>A Companhia Catarinense de Águas e Saneamento (Casan) suspendeu a captação de água de um afluente do Rio Palmeira, no município de Palmeira, ...
                                         <span><u><b>clmais.com.br</b></u></span></p>
                                       </a> 
                                     </div>
-                                    <div class="col-6 text-left">
+                                    <div class="col-12 text-left">
                                       <a href="https://g1.globo.com/ap/amapa/natureza/amazonia/noticia/2020/08/07/estudo-identifica-presenca-de-9-metais-pesados-na-agua-da-foz-do-rio-amazonas-no-amapa.ghtml" >
                                        <h3><b>Estudo identifica presença de 9 metais pesados na água da foz do Rio Amazonas, no Amapá                                    </b></h3>   
                                        <p>Contaminação por elementos como alumínio, chumbo e cromo foi identificada também em plantas e sedimentos...
                                       <span><u><b>g1.globo.com</b></u></span></p>  
                                       </a> 
                                    </div>
-                                   <div class="col-6 text-left">
+                                   <div class="col-12 text-left">
                                     <a href="https://recordtv.r7.com/balanco-geral-rj/videos/vigilancia-sanitaria-realiza-fiscalizacao-em-depositos-de-agua-mineral-18022020" >
                                      <h3><b>Vigilância Sanitária realiza fiscalização em depósitos de água mineral </b></h3>   
                                      <p>De acordo com a coordenadora de alimentos Aline Borges, a pesquisa pode apontar qualquer tipo de contaminação...
                                      <span><br><u><b>recordtv.r7.com</b></u></span> </p> 
                                     </a> 
                                  </div>
-                                 <div class="col-6 text-left">
+                                 <div class="col-12 text-left">
                                   <a href="https://g1.globo.com/ap/amapa/natureza/amazonia/noticia/2020/08/07/estudo-identifica-presenca-de-9-metais-pesados-na-agua-da-foz-do-rio-amazonas-no-amapa.ghtml" >
                                    <h3><b>Estudo alerta sobre riscos de água contaminada por resíduos de saúde descartados</b></h3>   
                                    <p>Uma descoberta feita em estudo de doutorado indicou impacto ambiental e grave risco à saúde provocados por resíduos de medicamentos e efluentes de análises clínicas na água de Joinville (SC)...

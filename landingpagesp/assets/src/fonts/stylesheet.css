@@ -1,0 +1,18 @@
+ @font-face {
+    font-family: 'roboto';
+    src: url('MuseoSansRounded-500.woff2') format('woff2'),
+        url('MuseoSansRounded-500.woff') format('woff'),
+        url('MuseoSansRounded-500.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MuseoSansRounded';
+    src: url('MuseoSansRounded-1000.woff2') format('woff2'),
+        url('MuseoSansRounded-1000.woff') format('woff'),
+        url('MuseoSansRounded-1000.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+} 
+
